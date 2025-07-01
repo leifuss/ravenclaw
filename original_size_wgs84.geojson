@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "original_size_wgs84",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -0.174614524927153, -0.000422208183532 ], [ 0.607836053846633, -0.000422208183532 ], [ 0.607836053846633, -0.032249516997053 ], [ -0.174614524927153, -0.032249516997053 ], [ -0.174614524927153, -0.000422208183532 ] ] ] } }
+]
+}
