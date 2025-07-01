@@ -1,0 +1,866 @@
+﻿stage,pleiades_id,pleiades_toponym,TP_gridsquare,Talbert_id,ku_id,ku_name_lookup,talbert_name_lookup,TP_symbol,TP_notes,TP_coastal,RC_peri_count,pp_page,RC_peri_ref,RC_peri,RC itin,gg_ref,GG_peri,GG_itin,representative_latitude,representative_longitude,ku_x,ku_y
+1,393480,Ravenna,4B1,1140,153,Ravenna,Ravenna,yes,start of circuit,Ravenna,1,326,326.1,Ravenna,"Ravenna nobilissima, in qua licet idiota ego huius cosmographiae expositor Christo adiuvante genitus sum,",69.2,Ravenna,"Ravenna, in qua idem cosmographiae expositor huius licet indoctusimus Christi servus exortus sum",44.415718,12.196604,0.173224498,-0.015294238
+1,,Caesena,,,0,,,,,,2,326,326.2,Caesarea,Caesarea,69.21,Cesarea,Cesarea,0,0,,
+1,393404,Classis,,,,,,,,,3,326,326.3,Classis,Classis,70.1,Classis,Classis,44.3953243,12.21907269,,
+1,393379,Ariminum,4B2,1144,157,Arimino,ARIMINO,yes,,ARIMINO,4,326,326.4,Ariminum,Ariminum,70.2,Ariminum,Ariminum,44.0589565,12.5631945,0.179846961,-0.015312741
+1,413256,Pisaurum,4B2,1145,158,Pisauro,Pisavro,,,Pisavro,5,326,326.5,Pensarum,Pensaurum,70.3,Pensaurum,Pisaurum,43.912081,12.91577,0.181875326,-0.015143285
+1,413129,Fanum Fortunae,4B2,1146,159,Fano Furtunae,Fano Fvrtvn(a)e,,,Fano Fvrtvn(a)e,6,326,326.6,Fanum,Fanum,70.4,Fanum,Fanum,43.844902,13.016921,0.183489314,-0.014760818
+1,413310,Sena Gallica,4B3,1159,173,Sena Galli,Sena Galli,,,Sena Galli,7,326,326.7,Sinogalias,Senogalia,70.5,Senecalia quae Senegallia,Senegallia quae et Senogallia,43.714978,13.21799,0.189317116,-0.015004407
+1,412989,Ad Aesim,4B3,1160,175,Sestias,Sestias,,,Sestias,8,326,326.8,Sextias,Sextia,70.6,Sextia,Sextia,43.629616,13.396908,0.191484969,-0.01491013
+1,413014,Ancon(a),4B3,1161,176,Ancone,ANCONE,yes,,ANCONE,9,326,326.9,Ancona,Ancona,70.7,Anchona,Ancona,43.61899267,13.51607267,0.19278586,-0.014754393
+1,413228,Numana,4B3,1162,177,Numana,Nvmana,,,Nvmana,10,326,326.1,Humana,Humana,70.8,Numana,Humana,43.511271,13.62142,0.194999929,-0.014748567
+1,413272,Pollentia,4B4,1164,179,Polentia,Polentia,yes,,Polentia,11,326,326.11,Potentia,Potentia,70.9,Petentia,Potentia,43.4198358,13.66733325,0.201574101,-0.013327816
+1,416851,Sacrata,4B4,1178,194,Sacrata,Sacrata,,,Sacrata,12,326,326.12,Sacria,Sacrata,70.1,Sacraria,Sacrata,43.4198358,13.66733325,0.203547339,-0.01322526
+1,416810,Flosis (river),4B4,1179,,,,,,Flvsor fl.,13,326,326.13,Flosor,Floxo,70.11,Floxora,Floxor,43.39545,13.67994,,
+1,413246,Pausulae,,,0,,,,,,14,326,326.14,Pausulas,Pausas,70.12,Pausula,Pausulas,43.2743549,13.5001341,,
+1,413341,Tinna (river),#N/A,#N/A,#N/A,#N/A,,,,Tinna [fl.],15,326,326.15,Tinna,Pinna,70.13,Inna,Pensas,43.23359,13.77118,#N/A,
+1,413069,Castellum Firmanorum,4B4,1181,198,Castello Firmani,Castello Firmani,,,Castello Firmani,16,326,326.16,Firmo,,70.14,Firmum,,43.183742,13.794334,0.210704001,-0.012201505
+1,413112,Cupra Maritima,4B5,1182,199,Cupra Maritima,Cvpra Maritima,,,Cvpra Maritima,17,326,326.17,Cupra,,70.15,Cupra,,43.0225465,13.85713,0.21380406,-0.011989845
+1,413074,Castrum Truentinum,4B5,1262,286,Castro Trentino,Castro trentino,,,Castro Trentino,18,327,327.1,Troentino,,70.16,Troentina,,42.913675,13.904352,0.217943307,-0.011928288
+1,413273,Praetuttii,,,0,,,,,,19,327,327.2,Perturno,,70.17,Peturnum,,42.7808474,13.79816344,,
+1,413073,Castrum Novum,4B5,1263,,,,yes,,Castro Novo,20,327,327.3,Castronovum,,70.18,Castrum novum,,42.752395,13.962266,,
+1,413197,Matrinum,5B1,1264,288,Macrinum,Macrinv̄,,,Macrinv̄,21,327,327.4,Macrinum,,70.19,Macrinum,,42.534535,14.135503,0.222943042,-0.012661222
+1,413255,Pinna,5B1,1265,289,Pinna,Pinna,yes,,Pinna,22,327,327.5,Pinnis,Pinnis,70.2,Pinnis,Pinnis,42.457647,13.927488,0.224309333,-0.012922436
+1,416852,Salinae,5B1,1267,291,Salinas,Salinas,,,Salinas,23,327,327.6,Salinis,"Balba, quae etsi a mari centum milia ponitur tamen territorium eius usque ad mare pertingit.",70.21,Salinis,"Valba, quae etsi a mare centum miliariis distet, territoria tamen eius usque ad mare pertingunt,",42.43952987,14.08788,0.226022742,-0.013178171
+1,413237,Ostia Aterni,5B1,1268,292,Ostia Eterni,Ostia Eterni,yes,,Ostia Eterni,24,327,327.7,Aderno,Aderno,70.22,Adernum,Adernum,42.46482,14.214093,0.228303907,-0.013579295
+1,413234,Ortona,5B1,1269,293,Ortona,Ortona,,,Ortona,25,327,327.8,Ortona,Ortona,70.23,Ortona,Ortona,42.356904,14.405203,0.230646922,-0.013757865
+1,413017,Anxanum,5B2,1270,295,Anxano,Anxano,,,Anxano,26,327,327.9,Ansianum,Anximmum,70.24,Ansianum,Anxinum,42.233175,14.391377,0.232075158,-0.013787546
+1,413333,Teate,,,,,,,,,27,327,327.1,"Teanum, Teadem",Teadem,70.25,Teade,Teate,42.351795,14.167152,,
+1,432887,Iuvanum,5B2,1271,296,Annum,Annv̄,,,Annv̄,28,327,327.11,Annum,Annum,70.26,Annum,Annum,41.99770877,14.24960383,0.233746807,-0.013575692
+1,413242,Pallanum,5B2,1272,297,Pallanum,Pallanvm,,,Pallanvm,29,327,327.12,Palanum,Pallannum,71.1,Pallannum,Pallanum,42.17209,14.48562,0.234931703,-0.013745162
+1,413171,Histonium,5B2,1273,298,Istonium,Istonivm,yes,,Istonivm,30,327,327.13,Istonium,Istonio,71.2,Istonium,Istonium,42.112716,14.709616,0.23743897,-0.013718297
+1,442629,Larinum,5B2,1274,299,Larinum,Larinv̄,,,Larinv̄,31,327,327.14,Larinum,Larium,71.3,Lacrinium,Larium,41.8064879,14.9175768,0.239388869,-0.013318959
+1,442815,Teanum Apulum,5B2,1275,300,Teneapulo,Teneapvlo,,,Teneapvlo,32,328,328.1,Teanopilon,Teanopolon,71.4,Teanopolum,Teanum Polonium,41.739367,15.261276,0.241827388,-0.013112677
+1,442578,Ergitium,5B3,1276,301,Ergitium,Ergitiv̄,,,Ergitiv̄,33,328,328.2,Egritium,Ergitium,71.5,Ergicum,Ergitium,41.714154,15.49961,0.243184763,-0.013277079
+1,442814,Tatinie,,,0,,,,,,34,328,328.3,Tacinie,Tatinie,71.6,Ocinia,Tatinia,41.657661,15.5863,,
+1,442729,Ponte Longo/Pordona,,,0,,,,,,35,328,328.4,Pordona,Pordona,71.7,Pordona,Parthona,41.629957,15.637857,,
+1,442483,Atre,,,0,,,,,,36,328,328.5,Atre,Atre,71.8,Atre,Attie,41.575477,15.743888,,
+1,442797,Sipous/Sipontum,5B3,1277,302,Siponto,Siponto,yes,,Siponto,37,328,328.6,Sipontos,Sepontos,71.9,Sipontus,Sipontus,41.6076492,15.8928543,0.244861636,-0.013141049
+1,442489,Anxanum,5B3,1278,303,Anxano,Anxano,,,Anxano,38,328,328.7,Anxanum,Anxanum,71.1,Anxanum,Anxanum,41.513735,15.891172,0.247266128,-0.013412625
+1,442759,Sal(a)pia(i)/Salinae,5B3,1279,304,Salinis,Salinis,,,Salinis,39,328,328.8,Salinis,Salinix,71.11,Salinis quae et Salpia,Salinis quae et Salapis,41.403381,15.9933,0.249638144,-0.013005805
+1,442484,Aufidena/Aufinum,5B3,1280,306,Aufinum,Avfinvm,,,Avfinvm,40,328,328.9,Ausidum,Aufidum,71.12,Aufidiena pro qua nunc Canne,Aufidiena pro qua nunc Canne,41.33639,16.194104,0.251435643,-0.012852442
+1,442498,Barduli,5B4,1281,307,Bardulos,Bardvlos,,,Bardvlos,41,328,328.1,Bardulos,Bardulos,71.13,Bardulos quae et Baruldes,Bardulos quae et Barulos,41.319271,16.283979,0.254639086,-0.012099686
+1,442833,Turenum,5B4,1282,308,Turenum,Tvrenvm,,,Tvrenvm,42,328,328.11,Tirenum,Tirenum,71.14,Tirhennium quae et Trana,Thirrennium quae et Trannis et Interamnem nunc vero Trane dicitur.,41.275544,16.417622,0.258122062,-0.012164306
+1,442743,Respa,,,0,,,,,,,328,,[GG: Melfis],,71.15,Melfis quae et dicta prius Turris,Melfis quae etTurris dicitur,41.205554,16.599335,,
+1,442686,Natiolum,5B4,1283,309,Natiolum,Natiolvm,,,Natiolvm,43,328,328.12,Naciolum,Natiolum,71.16-17,Natiolum quae nunc Ravennacium vocatur,"Natiolum quae nunc Iunatium vocatur,",41.187539,16.672566,0.260523136,-0.012110517
+1,442500,Barium,5B4,1284,310,Barium,Barivm,,,Barivm,44,328,328.13,Barium,Barium,71.18,Sibaris id est Baris,"Sibaris, quae nunc Baris dicitur",41.129222,16.870331,0.263317976,-0.012143297
+1,442515,Caelia,,,0,,,,,,,328,,[GG: Cecilia oppidum],,71.19,Cecilia oppidum,Celia oppidum,41.0640832,16.86947645,,
+1,,,,,0,,,,,,,328,,[GG: Moles],,71.2,Moles,Moles,0,0,,
+1,442834,Turris Caesaris,5B5,1285,311,Turris cesaris (Turris Cesaris),Tvrris cesaris,,,Tvrris cesaris,45,329,329.1,Turris Caesaris,Turris Caesaris,71.21-22,Turris Cesaris quae nunc Polimanum,Turris Caesaris...iuxta portum veroparva Polinianum,40.9906174,17.21907555,0.266188246,-0.011993609
+1,442566,Diria?,5B5,1286,312,Dertum,Dertvm,,,Dertvm,46,329,329.2,Dixium,Diriam,71.23,Barium quae et Monopolis,"Dirium, quae nunc Monopolis",40.95484,17.2949039,0.269029765,-0.012035045
+1,442573,Egnatia/Gnathia,5B5,1287,313,Gnatie,Gnatie,yes,,Gnatie,47,329,329.3,Ignatiae,Gnatia,71.24,Augnatium,Augnatium,40.88698044,17.3898455,0.271208504,-0.012362658
+1,442447,Ad Speluncas,5B5,1374,408,Spelunis,Spelvnis,,,Spelvnis,48,329,329.4,Speluncas,Speluncas,71.25,Spelunca,Speluncae,40.756506,17.703709,0.273552188,-0.012468309
+1,442790,Scamnum?,,,0,,,,NB Scamnum is inland on TP,,,329,,[GG: Saunium],,71.26,Saunium,Saunium,40.54232791,17.74227384,,
+1,442509,Brundisium/Brentesion,6B1,1375,409,Brindisi,Brindisi,yes,,Brindisi,49,329,329.5,Brindice,Brendesium,72.3,Brundisium [switched],Brundusium [switched],40.638663,17.9429115,0.276177892,-0.01270843
+1,442845,Valetium/Balesium,6B1,1376,410,Balentium,Balentivm,,,Balentivm,50,329,329.6,Baletium,Baletium,72.4,Valetum vel Valentium quae et Carpinium [switched],Valentium quae et Carbinium [switched],40.512187,18.034033,0.278824533,-0.012383898
+1,442642,Lupia(e),6B1,1383,418,Luppia,Lvppia,,,Lvppia,51,329,329.7,Lupias,Lupia,72.5,Liccia,urbs Lictia,40.352152,18.172425,0.281588088,-0.012161652
+1,442753,Rudiae,,,0,,,,,,,329,,[GG: Ruge],,,Ruge,Ruge,40.333792,18.147292,,
+1,442615,Hydruntum/Hydrous,6A1,1384,419,Ydrunte,Ydrvnte,yes,,Ydrvnte,52,329,329.8,Ydrontum,Ydrontum,72.6,Ydrontus,Ydrontus,40.1458515,18.4910835,0.285045179,-0.011939786
+1,442536,Castrum Minervae/Athenaion/Limen Aphrodites,6A2,1385,420,Castra Mineruae (Castra Minervae),Castra Minerv(a)e,yes,end of PT coastline,Castra Minerv(a)e,53,329,329.9,Minervium,Minervium,72.7,Minervum,Minervum,40.00431427,18.42820308,0.289149371,-0.011993786
+1,442848,Veretum/Baris,6B2,1391,426,Veretum,Veretvm,,,Veretvm,54,329,329.1,Veretum,Beretum,72.8,Beretos quae nunc Leuca,Beretos quae nunc Leuca,40.003734,18.23947086,0.290465366,-0.01316078
+1,442841,Uzentum/Ouxenton,6B2,1390,425,Vzintum (Uzintum),Vzintvm,,,Vzintvm,,329,,[GG: Yentos],Mirtum,72.9,Yentos quae nunc Augentum,Yentos quae imnc Augentum,39.926319,18.157428,0.288457096,-0.013087048
+1,442495,(B)Aletium,6B2,1389,423,Baletium,Baletivm,,,Baletivm,55,329,329.11,Baletium,Baletium,72.1,Valentium,Valentium,40.062362,18.059097,0.286514417,-0.013046819
+1,442688,Neretum,6B1,1388,422,Neretum,Neretvm,,,Neretvm,56,329,329.12,Neretum,Neretum,72.11,Lubias ubi nunc est Calipolis,Lubias ubi nunc est Calipolis,40.175928,18.030423,0.284669659,-0.013285285
+1,442644,Manduria,6B1,1387,421,Manduris,Mandvris,,,Mandvris,57,329,329.13,Manduris,Manduris,72.12,Amandrinum,,40.397704,17.636381,0.282457104,-0.013595526
+1,442789,Satyrion/Saturum,,,0,,,,,,,329,,[GG: Saturum],,72.13,Saturum,Saturum,40.37185554,17.3063011,,
+1,442656,Mesochorum,,1379,413,Mesochoro,Mesochoro,,NB Mesochoro is inland on TP,,,329,,[GG: Mesochorus],Mesochorus [switched],72.14,Mesochorus,Mesochorus [switched],40.4880695,17.4387855,0.277884189,-0.014437088
+1,442810,Taras/Tarentum/Neptunia,6B1,1380,415,Tarento,Tarento,yes,,Tarento,58,330,330.1,Tarentum,Tarentum [switched],72.15,Tarentum,Tarentum [switched],40.4737866,17.2330416,0.279461783,-0.014245373
+1,442658,Metapontum,,,0,,,,,,59,330,330.2,Metapontum,Metapontum,72.16,Metapontus,Metapontus,40.38341481,16.82460005,,
+1,452333,Herakleia,6B1,1415,452,Heraclea,Heraclea,,,Heraclea,60,330,330.3,Eraclia,Heraclea,,,Heraclea,40.21972967,16.67039787,0.282917188,-0.015266513
+1,452442,Semnum,6B1,1416,453,Semnum,Semnvm,,,Semnvm,,330,,[GG: Senasum],Scinasium,72.17,Senasum,Senasum,40.170861,16.635885,0.284477429,-0.015332019
+1,452457,Sybaris/Thurii/Copia,6B2,1417,454,Turis,Tvris,,,Tvris,,330,,[GG: Turris],Turris,72.18,Turris,Turris,39.71732767,16.49426235,0.285448325,-0.01543071
+1,452403,Petelia,6B2,1418,455,Petelia,Petelia,,,Petelia,,330,,[GG: Pellia],Pelia,72.19,Pellia,Pellia,39.266064,17.05108,0.287548894,-0.015195084
+1,452317,Croto(n),6B2,1419,456,Crontona,Crontona,,,Crontona,,330,,[GG: Crotona],Crotona,72.2,Crotona,Crotona,39.0811675,17.127966,0.289040794,-0.015319259
+1,452461,Tacina,6B2,1420,458,Lacenium,Lacenivm,yes,,Lacenivm,,330,,[GG: Facenium],Facenio,72.21,Facenium,Facenium,38.935085,16.908956,0.290498267,-0.015472151
+1,452293,Castra Hannibalis,6B2,1404,441,Annibali,Annibali,yes,End of PT coastline,Annibali,61,330,330.4,Anival,Aniaba,72.22,Annibal,Hannibal,38.819771,16.610374,0.292832118,-0.016305806
+1,452352,Kaulonia,6B2,1412,450,Caulon,Cavlon,yes,,Cavlon,62,330,330.5,Caulon,Caulon,74.1,Caulon,Caulon,38.44733537,16.57937167,0.293843143,-0.017457952
+1,452369,Lokroi Epizephyrioi,6B2,1411,449,Lucis,Lvcis,,,Lvcis,63,330,330.6,Locris,Locris,74.2,Locris,Locris,38.2262955,16.2443395,0.294573388,-0.017864312
+1,452435,Scyle,6B2,1410,448,Scyle,Scyle,,,Scyle,64,330,330.7,Sileon,Sileon,74.3,Scilleum,Sileum,37.9310215,15.9179564,0.294817049,-0.018322327
+1,452365,Leucopetra,6B2,1409,446,Leucopetram,Levcopetrā,,,Levcopetra,65,330,330.8,Leucopetra,Leucopetra,74.4,Leucopetra,Leucopetia,38.017459,15.636815,0.294424012,-0.019641688
+1,452416,Rhegion/Regium,6B2,1408,445,Regio,Regio,,,Regio,66,330,330.9,Regio Iulia,Regio Iulis,74.5,Regium,Regium,38.109279,15.64393,0.292188372,-0.020344714
+2,452250,Ad Columnan,6B2,1407,444,[Columna Regia] (Miller),"(symbol, no name, no. 47)",,,[large symbol no label],1,331,,Columna Regia,Columna Regia,,Columna Regia,Columna Regia quae nunc Stilos,38.191434,15.651754,0.292646719,-0.019245857
+2,452264,Arciade,6B2,1406,443,Arciade,Arciade,,,Arciade,2,331,,Arciades,Arciadis,,Arciades,Arciades,38.28633,15.812382,0.290945133,-0.019245314
+2,452466,Taurianum,6B2,1405,442,Tauriana,Tavriana,,,Tavriana,3,331,,Tauriana,Tauriana,,Tauriana,Tauriana,38.394393,15.871422,0.289754057,-0.019286939
+2,,,,,0,,,,,,4,331,,[GG: Amantia],Amantia,,Amantea,Amantea,0,0,,
+2,588990228,Ponte di Annibale - Sant'Angelo,,,0,,,,,,5,331,,[GG: Agello],Agello,,Angellum.,Angellum.,,,,
+2,,,,,0,,,,,,,331,,,Item iuxta mare Gallicum est civitas quae dicitur,,Item iuxta mare magnum Gallicum quod Tyrrenum civitas est,"Item iuxta mare Gallicum et magnum, quod et Tyrrenum, civitates sunt",0,0,,
+2,452337,Hipponion/Vibo Valentia,6B2,1402,439,Vibona Balentia,Vibona Balentia,yes,,Vibona Balentia,6,331,,Vivona Valentia,Bibona Balentia,,Bibona Valentia,Bibona Valentia,38.675581,16.097648,0.287328929,-0.019259159
+2,452465,Tanno Fl.,6B2,1487,531,Tanno Flumen,Tanno Fl.,,,Tanno fl.,7,331,,Tenna,Tanum,,Tenno,Tanum,38.89591,16.28351,0.285488098,-0.019383437
+2,452469,Temesa/Tempsa,6B1,1486,,,,,,Temsa,8,331,,Tempsa,Tempsa,,Tempsa,Temsa,39.036454,16.159633,,
+2,452304,Clampetia,6B1,1485,529,Clampeia,Clampeia,yes,,Clampeia,9,332,,Clampetia,Clampetia,,Clampetia,Clampetia,39.134225,16.075485,0.282963104,-0.019073905
+2,,,,,0,,,,,,10,332,,Erculis,,,Herculis,,0,0,,
+2,452296,Cerilli,6B1,1484,528,Cerelis,Cerelis,,,Cerelis,11,332,,Cerellis,Cerellis,,Cerellis,Cerellis,39.715625,15.810335,0.281222139,-0.018992808
+2,452361,Laos/Lavinium?,6B1,1483,527,Lauinium (Lavinium),Lavinivm,,,Lavinivm,12,332,,Lavimunium,Laminium,,Laminium,Laminium,39.76670042,15.82982957,0.280065323,-0.01887824
+2,452274,Blanda,6B1,1482,526,Blanda,Blanda,,,Blanda,13,332,,Blandas,Blandas,,Blandas,Blandas,39.929308,15.778558,0.278568748,-0.01875694
+2,452297,Cesernia,6B1,1481,525,Ceserina,Cesernia,,,Cesernia,14,332,,Cersenia,Cessernia,,Cesernia,Cessernia,40.00232,15.695781,0.277009187,-0.018534279
+2,452452,Skidros,,,0,,,,,,15,332,,Veneris,,,Veneris,,40.076278,15.63048,,
+2,452411,Pyxous/Buxentum,,,0,,,,,,16,332,,Boxonia,Buxentum,,Buxonia,Buxentum,40.0765477,15.5246477,,
+2,452488,Velia/Elea,,,,,,,,,17,332,,Bellias,Bellias,,Bellia,Bellias,40.16050074,15.15615685,,
+2,,,,,0,,,,,,18,332,,Erculam,,,Herculia,,0,0,,
+2,442733,Poseidonia/Paestum,5B5,1480,524,Pestum (Paestum),Pestv̄,,,Pestv̄,19,332,,Pestum,Pestum,,Pestum quae est destructa nunc,Pestum,40.42084834,15.0050786,0.273999063,-0.020361561
+2,442446,Ad Silarum,,,0,,,,,,20,332,,Salarium,Silarum,,Silarium,Silarum,40.549696,15.051421,,
+2,433075,Salernum,5B5,1364,398,Salerno,Salerno,yes,,Salerno,21,332,,Salernum,Surentum,,Salernum,Salernum,40.677988,14.765922,0.271987832,-0.021204529
+2,432985,Nuceria (Alfaterna),5B5,1464,506,Nuceria,Nvceria,yes,,Nvceria,22,332,,Nuceria,,,Nuceria,,40.743128,14.673929,0.269354873,-0.021162786
+2,432670,Amalfitana Civitas,,,0,,,,,,23,332,,[GG: Amalfi],,,Amalfi,Amalfi,40.634361,14.60257,,
+2,432937,"Minerva, T.",5C5,1479,522,Templum Mineruae (Templum Minervae),Templ(vm) Minerv(a)e,yes (temple),TP on spur,Templ(vm) Minerv(a)e,24,332,,Minerba [switched],,,Minerva,,40.569248,14.324791,0.269097024,-0.023332824
+2,433139,Surrentum,5C5,1478,521,Surrento,Svrrento,,TP on spur,Svrrento,25,332,,Syrrentum,,,Siratum vel Sirrentum,Surrentum,40.625464,14.370775,0.267590216,-0.023562246
+2,433128,Stabiae,5C5,1477,520,Stabios,Stabios,,,Stabios,26,332,,Stabios,Stabium,,Stabium,Stabi,40.70296998,14.49892272,0.267272408,-0.022298661
+2,433102,Sarnus (fl.),,,0,,,,,,27,333,,Sarnum,Sarnum,,Sarnum,Sarnum,40.73364,14.48813,,
+2,433032,Pompeii,5B5,1476,519,Pompeis,Pompeis,yes,,Pompeis,28,333,,Pompeis,Pompei,,Pompei,Pompei,40.74941,14.485429,0.267122251,-0.021286104
+2,432992,Oplontis,5B5,1475,518,Oplontis,Oplont[.]s,yes (large),,Oplont[.]s,29,333,,Opolontis,Eplontis,,Oplontis,Eplontis,40.75739084,14.45272912,0.26459682,-0.02190741
+2,432873,Herculaneum,5B4,1474,517,Herclanium,Herclanivm,,,Herclanivm,30,333,,Merclanium,Merclanium,,Merclanium,Merdanium,40.80540539,14.3473828,0.260302685,-0.021516161
+2,433014,Parthenope/Neapolis,5B4,1466,508,Neapoli,Neapoli,,,Neapoli,31,333,,Neapolis,Neapolis,,Parthenopis quae et Neapolis,Neapolis,40.839995,14.25287,0.257569782,-0.021331335
+2,#N/A,#N/A,5B4,3564,2774,[Cripta Neapolitana] (Miller),"(symbol, no name, no. 43)",symbol,TP on spur,[symbol],32,333,,Cripta,,,Cripta,,#N/A,,0.255768036,-0.021522849
+2,432815,Dikaiarcheia/Puteoli,5B4,1473,516,Puteolis,Pvteolis,yes,,Pvteolis,33,333,,Puteolis,Puteoli,,Puteolis,Puteolis,40.825838,14.1217415,0.254095562,-0.020797146
+2,432885,Invinias,5B3,1471,514,Inuinias (Invinias),Invinias,yes,,Invinias,34,333,,In viniis,In viniis,,In viniis,In viniis,40.829882,14.105023,0.252157222,-0.021069258
+2,432808,Cumae,5C3,1470,513,Cumas,Cvmas,,,Cvmas,35,333,,Cumas,,,Cumas,Cume [reversed],40.84794965,14.0563813,0.24997266,-0.02229417
+2,432716,Baiae,,,0,,,lake symbols?,,,36,333,,Baias,Miseum,,Baie,Baie,40.81736069,14.0702734,,
+2,432941,Misenum,5C3,1472,515,[Baiae] (Miller),"(symbol, no name, no. 44)",yes,TP on spur,[symbol],37,333,,Misenon,Bias,,Misenum,Misenum,40.786279,14.084884,0.251495496,-0.022983104
+2,432911,Liternum,5B3,1469,511,Literno,Literno,,,Literno,38,333,,Liternum,Laternum,,Uturnum,Liternum,40.9210656,14.03007351,0.248630622,-0.021889905
+2,433210,Volturnum,5B3,1468,510,Vulturno,Vvltvrno,,,Vvltvrno,39,333,,Vulturium,Bulturnum,,Vulturnum,Vulturnum,41.033657,13.941734,0.246449984,-0.021794405
+2,433108,Savo (river),5B3,1467,509,Safe flumen,Safe Fl.,,,Safe fl.,40,333,,Safon,Safon,,Safum,Sason,41.23353443,13.91828,0.24449352,-0.021777415
+2,433122,Sinues(s)a/Sinope,5B3,1440,480,Sinuessa,Sinvessa,yes,,Sinvessa,41,333,,Sinuessa,Sinuesse,,Sinuessa,Sinuessa,41.15229,13.84483,0.24306938,-0.021663554
+2,432940,Minturnae,5B2,1438,477,Menturnis,Mentvrnis,yes,,Mentvrnis,42,333,,Menturnis,Menturnae,,Menturnis,Menturnis,41.242193,13.768467,0.240735968,-0.021319331
+2,432734,Caieta,5B2,3566,2776,[Caieta] (Miller),"(isolated symbol, unnamed, no. 4)",,not on network,[City Symbol],43,333,,Gaieta,Gaieta,,Caieta,Caieta,41.214072,13.570989,0.238143957,-0.021875638
+2,432839,Formiae,5B2,1437,476,Formis,Formis,,,Formis,44,334,,Formis,Formiae,,Formis,Formis,41.255655,13.601067,0.239552897,-0.020732455
+2,432855,Fundi,5B2,1436,475,Fundis,Fvndis,,,Fvndis,45,334,,Fundi,Fundi,,Fundis,Fundis,41.357429,13.427922,0.23707218,-0.021132636
+2,433143,Tarracina(e)/Anxur,5B2,1426,464,Terracina,Terracina,yes,,Terracina,46,334,,Tarracina,Taracina,,Terracina,Terracina,41.291169,13.24885,0.234928166,-0.021527225
+2,432643,Ad Turres,5B2,1435,474,Ad Turres,Ad tvrres,,,ad Tvrres,47,334,,Turres,Turris,,Turres,Turris,41.252486,13.099955,0.233310207,-0.02152822
+2,432783,Circeii 2,5B2,1434,473,Circeios,Circeios,,,Circeios,48,334,,Cerellos,Carcellis,,"Circeia, Cerellos",Circeius,41.252111,13.034928,0.231960604,-0.021497486
+2,432644,Ad Turres Albas,5B2,1433,472,ad turres albas (Ad Turres Albas),+dtvrres albas,,,dtvrres albas,49,334,,Turris albas,Turris albas,,Turris alba,Turres albas,41.386204,12.923377,0.231476895,-0.021170034
+2,432788,Clostra (Romana),5B1,1432,471,Clostris,Clostris,,,Clostris,50,334,,Colostris,Plostris,,Clostris,Plostris,41.414938,12.872401,0.229584824,-0.021333587
+2,432703,Astura,5B1,1431,470,Astura,Astvra,,,Astvra,51,334,,Astura,Isturas,,Astura,Istura,41.408855,12.765272,0.228078158,-0.021190404
+2,422837,Antium,5B1,1430,469,Antium,Antivm,yes,,Antivm,52,334,,Antianum,Antium,,Antium,Antium,41.44795,12.628995,0.226611076,-0.020617741
+2,422960,Lavinium,5B1,1429,467,Lauinium (Lavinium),Lavinivm,,,Lavinivm,53,334,,Lavinium,Lavinium,,Lavinium,Lavinium,41.664474,12.4807205,0.224573507,-0.020797398
+2,423121,Vicus Augustanus Laurentium?,5B1,1427,465,Lavrento (Laurento),Lavrento,,,Lavrento,54,334,,Laurentum,Laurentum,,Laurentum Lausentum,Laurentum,41.67934112,12.39322552,0.222172958,-0.021155806
+2,422995,Ostia,4B5,1428,466,Hostis,Hostis,yes,,Hostis,55,334,,"Hostia Tiberiana, Roma",Ostia Tiberiana,,Ostia Fiberina. ab hac distat urbs Roma ad solum Fiberinum miliaria XII.,Ostia Tiberina. ab hac distat urbs Roma ad solum firmum miliaria XII,41.75357673,12.28935897,0.220138428,-0.021071006
+2,423012,Portus,4B5,1260,284,"(symbol, no name, no. 34) [Portum Augusti] (Miller)","(symbol, no name, no. 34)",yes (special symbol),,[Port Symbol],56,334,,Portum Augusti,Portum Augusti,,Portum Augusti,Portum Augusti,41.77704695,12.25632233,0.21710854,-0.021753774
+2,422831,Alsium,4B4,1259,282,Alsium,Alsivm,,,Alsivm,57,334,,Astium,Astium,,Astium,Astium,41.9340466,12.101258,0.208604151,-0.020610582
+2,433061,Pyrgi,4B4,1258,281,Pyrgos,Pyrgos,,,Pyrgos,58,334,,Purgos,Purgos,,Purgus,Purgus,42.0153455,11.963217,0.202520648,-0.020869874
+2,433010,Panapio/Punicum,4B3,1257,280,Punicum,Pvnicvm,,,Pvnicvm,59,334,,Punicum,Punicum,,Punicum,Punicum,42.0354641,11.867938,0.198635834,-0.021163007
+2,432772,Castrum Novum,4B3,1256,279,Castro Nouo (Castro Novo),Castro novo,yes,,Castro Novo,60,335,,Castro novo,Castro novo,,Castrum novum,Castrum novum,42.03528491,11.83345154,0.192986953,-0.020805626
+2,413076,Centum Cellae,4B2,1255,278,Centum cellis,Centv̄ cellis,yes (horrea),,Centv̄ Cellis,61,335,,Centum cellis,Centum cellis,,Centum cellis,Centum cellis,42.091179,11.79681,0.18572526,-0.020561804
+2,413202,Minio (river),4B2,1254,277,Mindo Flumen,Mindo Fl.,yes (courtyard),,Mindv̄ fl.,62,335,,Minium,Minium,,Manium,Mimum,42.17163,11.75006,0.182170798,-0.020685613
+2,413157,Graviscae,4B2,1253,276,Gravisca,Gravisca,,,Gravisca,63,335,,Tuvellaria,Tuvelari,,Tuellaria,Tabellaria,42.21283325,11.71043172,0.179924935,-0.020818782
+2,416866,Tabellaria,4B1,1251,274,Tabellaria,Tabellaria,,,Tabellaria,64,335,,Gravisca,Gravisca,,Gravisca,Gravisca,42.3638297,11.83270935,0.173050186,-0.020934916
+2,413193,Marta (river),4B1,1250,,,,,,Marta fl.,65,335,,Martha,Martha,,Martha,Martha,42.24921,11.71182,,
+2,413143,Forum Aurelii,3B5,1249,271,Foro Aureli,Foro Avreli,,,Foro Avreli,66,335,,Forum Aurelii,Forum Aurelii,,Forum Aurelii,Forum Aurelii,42.351426,11.607969,0.167437602,-0.020362766
+2,413029,Armenta (river),3B5,1248,270,Armenita Fluvius,Armenita Fl.,,,Armenita Fl.,67,335,,Armenta,Armenta,,Armenta,Armenta,42.35625,",11.59603",0.162380918,-0.019865113
+2,416769,Ad Nonas,3B4,1247,269,Adnonas,Adnonas,,,Adnonas,68,335,,Ad novas,Ad novas,,Nova,Ad novas,42.407284,11.288555,0.155139216,-0.019504337
+2,413044,*Aurinia/Saturnia,3B5,1231,253,Saturnia,Satvrnia,,Saturnia is inland on TP,,69,335,,Saturnie,,,Saturnia,,42.666255,11.504827,0.161141273,-0.018719921
+2,413325,Succosa,3B4,1121,132,Succosa,Svccosa,,,Svccosa,70,335,,Succosa,Succosa,,Subcosa,Subcosa,42.407284,11.288555,0.151423045,-0.018570216
+2,413107,Cosa,3B4,1120,131,Cosa,Cosa,yes,,Cosa,71,335,,Cosa,Cosa,,Cosa,Cosa,42.4114104,11.28837704,0.145915013,-0.019265274
+2,403260,Portus Herculis,3B4,1122,133,Portus Herculis,Port̄ Hercvl(is),,TP on spur,Port̄ Hercvl(is),72,335,,Portum,Ad portum Cossam,,Portum,Ad portum Cose,42.394886,11.203981,0.148683671,-0.019546455
+2,413006,Albinia (river),3B3,1119,129,Albinia Flumen,Albinia Fl.,,,Albinia fl.,73,335,,Albinia,Albilia,,Albinia,Albinia,42.63807984,11.23001,0.143891656,-0.019395034
+2,403280,Telamon,3B3,1118,128,Telamone,Telamone,,,Telamone,74,335,,Telamone,Telamone,,Telamona,Telamona,42.555325,11.133273,0.141080277,-0.019722674
+2,409224,Hasta,3B3,1117,127,Hasta,Hasta,,,Hasta,75,335,,Asta,Asta,,Asta,Asta,42.669208,11.1057807,0.138634456,-0.020024131
+2,403285,Umbro (river),3B3,1116,126,Vmbro flumen (Umbro Flumen),vmbro Fl.,,,vmbro fl.,76,335,,Umbrone,Umbrone,,Umbrona,Umbrona,42.70396,11.07711,0.135833055,-0.020094687
+2,403269,Salebro?,3B3,1115,125,Saleborna,Saleborna,,,Saleborna,77,336,,Salembro,Salembro,,,Salembrum,42.765854,10.882348,0.132034256,-0.0198868
+2,409231,Manliana,3B2,1108,118,Maniliana,Maniliana,,,Maniliana,78,336,,Malliana,Malliana,,Malliana,Malliana,0,0,0.128351643,-0.020098322
+2,403212,Fufluna/Populonium,3B2,1107,117,Populonio,Popvlonio,,,Popvlonio,79,336,,Populoni,Populeon,,Populonia,Populonia,42.9884197,10.48993922,0.125548328,-0.019942725
+2,403288,Vada Volaterrana,3B2,1105,115,Vadis Volateris,Vadis Volateris,yes,,Vadis Volateris,80,336,,Vadis Volatianis,Badis Volatianis,,Vadis Volatianis,Vadis Voliternis,43.3584548,10.4477353,0.123334624,-0.019398048
+2,409229,Kelsilon,,,0,,,,,,81,336,,Celsilon,Celsilon,,Celsinum,Celsinum,0,0,,
+2,403292,Velathri/Volaterrae,3B2,1104,114,Velinis,Velinis,yes,,Velinis,82,336,,Bullia,Bullia,,Ballia,Bellia,43.401604,10.8600625,0.121229838,-0.019516971
+2,,,,,0,,,,,,83,336,,Erculis,Erculis,,Herculis,Herculis,0,0,,
+2,403172,Ad Fines,3B1,1103,113,Ad Fines,Adfines,,,adfines,84,336,,Fines,Fines,,Fines,Fines,43.38451,10.47824,0.119028828,-0.019367469
+2,409234,Piscinae,3B1,1102,112,Piscinas,Piscinas,,,Piscinas,85,336,,Possinis,Possinis,,Pisines,Piscinis,0,0,0.1177848,-0.018938298
+2,409240,Turrita,3B1,1101,111,Turrita,Tvirtta,,,Tvrrita,86,336,,Turrida,Turrida,,Turrita,Turrida,43.55839377,10.47670192,0.116567184,-0.018689493
+2,403253,Pisae,3B1,1089,96,Pisis,Pisis,yes,,Pisis,87,336,,Pisis,Pisa,,"Pisis, quae civitas praedicta in Tuscia a Pelopide Tantali filio constructa et aedificata est, apud eam exulans.","Pisa, quae civitas praedicta in Tuscia a Pelopide Tantali filio constructa et aedificata est, apud eam exulans.",43.719417,10.400106,0.115477134,-0.018507155
+2,403208,Fossae Papirianae,3B1,1088,95,Fossis papirianis,Fossis papirianis,,,Fossis Papirianis,88,336,,Fossis Papirianis,Fossis Paparianis,,Fossici Papirianis,Fossis Papirianis,43.874536,10.256911,0.113920516,-0.018774369
+2,403279,Taberna Frigida,3B1,1087,94,Ad Taberna Frigida,Adtaberna Frigida,yes (odd symbol?),,Adtaberna Frigida,89,336,,Taverna frigida,Tuverna frigida,,Taberna strigida,Taberna frigida,44.02116153,10.11685972,0.112641695,-0.018358266
+2,403235,Luna,3B1,1078,85,Lvnae (Lunae),Lvne,yes,,Lvne,90,336,,Lune,Lune,,Lune,Lune,44.064253,10.016856,0.110082039,-0.018658888
+2,403265,Pullion,,,0,,,,,,91,336,,Pullion,Pullion,,Pulium,Pulium,44.0844215,9.9088758,,
+2,387317,Bibola,,,0,,,,,,92,336,,Bibola,Bibola,,Vigola,Bibonia,0,0,,
+2,383761,Rubra,,,,,,,,,93,337,,Rubra,Rubra,,Rubra,Rubra,44.234849,9.960918,,
+2,,,,,0,,,,,,94,337,,Cornelia,Comelium,,Cornelia,Cornelium,0,0,,
+2,,,,,0,,,,,,95,337,,Cebula,,,Cebula,,0,0,,
+2,383595,Bodetia,,,0,,,,,,96,337,,Bulnetia,Bulnetia,,Munecia,Vulnecia,44.242543,9.656845,,
+2,,,3B1,1077,84,Boron,Boron,,,Boron,97,337,,Boron,Boron,,Boron,Biron,0,0,0.108881784,-0.018144589
+2,,,,,0,,,,,,98,337,,Bexum,Bexum,,Rexum,Bexum,0,0,,
+2,,,,,0,,,,,,99,337,,Turres,Turres,,Turres,Turres,0,0,,
+2,,,,,0,,,,,,100,337,,Stacile,Stacile,,Statine,Cilicie,0,0,,
+2,383675,In Alpe Pennino,2B5,1076,83,In Alpe Pennino,In Alpe pennino,,,In alpe pennino,101,337,,Apennina,Apennina,,Appennina,Apennina,44.2494805,9.5697383,0.106505994,-0.017393432
+2,383550,Ad Monilia,2B5,1075,82,Ad monilia,Ad monilia,,,Ad monilia,102,337,,Ad Munialia,Ad Muniala,,Ammonilia,Ammonilia,44.238283,9.491255,0.10567067,-0.018204588
+2,383555,Ad Solaria,2B5,1074,81,Ad Solaria,Adsolaria,,,adsolaria,103,337,,Ad Solaria,Ad Solaria,,Ad Solaria,Ad Solaria,44.317059,9.320172,0.104545218,-0.018281796
+2,383758,Ricina,2B5,1073,80,Ricina,Ricina,,,Ricina,104,337,,Ricina,Ricina,,Recima,Ricina,44.361906,9.143844,0.103384512,-0.018134962
+2,383664,Genua,2B5,866,3322,Genva (Genua),Genva,yes,,Genva,105,337,,Genua,Genua,,Genua,Genua,44.4062315,8.93155,0.101656124,-0.018536237
+2,383544,Ad Figlinas,2B5,864,3321,Ad Figlinas,Adfiglinas,,,adfiglinas,106,337,,Ficclinis,Falinis,,Ficlinis,Ficlinis,44.437188,8.8872,0.099586447,-0.018890435
+2,383670,Hasta,2B5,863,3320,Hasta,Hasta,,,Hasta,107,337,,Asta,,,Asta,,44.430661,8.747845,0.098026449,-0.018717537
+2,383551,Ad Navalia,2B4,862,3319,Ad naualia (navalia),Ad navalia,,,Ad Navalia,108,337,,Nabalia,Nabalia,,Navalia,Navalia,44.390314,8.643922,0.095844854,-0.018665218
+2,383563,Alba Docilia,2B4,861,3318,Alba Docilia,Alba Docilia,,,Alba Docilia,109,337,,Alba Decilia,Aba Decelia,,Alba Vicilia,Alba Delicia,44.33383091,8.51176015,0.093919766,-0.018728697
+2,383770,Savo/Vicus Virginis?,2B4,860,3317,Vico Virginis,Vico Virginis,,,Vico Virginis,110,338,,Vico virginis,Vico virginis,,Vicus virginis,Vico virginis,44.311085,8.477232,0.092484911,-0.018872855
+2,383808,Vada Sabatia,2B4,853,3309,Vadis Sabates,Vadis Sabates,yes,,Vadis Sabates,111,338,,Batis Sabatis,Batis Sabatis,,Vatis Sabbatis,Vatis Sabbatis,44.269359,8.435757,0.090115489,-0.018793103
+2,157803,Album Ingaunum/Albingaunum,2B4,852,3308,Albingavno (Albingauno),Albi[ - ? - ]avno,,,Albi[ - ? - ]avno,112,338,,Albinganis,Albinganis,,Albingani,Albinganum,44.0484,8.21493,0.087335442,-0.018820281
+2,157879,Lucus Bormani,2B3,851,3307,Luco Boramni (Bormani),Lvco Boramni,,,Lvco Boramni,113,338,,Luco Vermanis,Luco Vermanis,,Loco Germinis,Loco Vermanis,43.911292,8.08057,0.086181109,-0.018733718
+2,157837,Costa Bellene/Ballene (Capo Don?),2B3,850,3306,Costa Bellene,Costa Bellene,,,Costa Bellene,114,338,,Costa Ballenis,Costa Ballenis,,Costa Balenis,Casta Ballenis,43.8347443,7.86531955,0.084990596,-0.018835723
+2,157802,Alb(i)um Intimilium/Albintimilium,2B3,849,3305,Albentimillo,Albe[- ? - ]+imillo,,,Albe[- ? - ]+imillo,115,338,,Avinctimilio,Avinctimilio,,Vigentimilium,Avintimilium,43.789146,7.625772,0.082937833,-0.019098228
+2,157940,Tropaeum Augusti/Alpium Tropaeum/Alpis Summa/Alpis Maritima,2B3,848,3304,In Alpe Maritima,In Alpe Maritima,,,In Alpe Maritima,116,338,,Alpe maritana.,"Alpe maritima, ubi iuxta litus maris Gallici completur Italia.",,Alpis maritima.,"Alpe maritima, ubi iuxta litus maris Gallici completur Italia.",43.74479439,7.401755981,0.081650651,-0.018266748
+3,,,,,0,,,,,,1,339,,Pomune,Pomune,,Pomona,,0,0,,
+3,162350,Scarpiana,,,0,,,,,,2,339,,Scapiana,Scarpiana,,Scapiana,,0,0,,
+3,157894,Nicaea,,,0,,,,,,3,339,,Nicea,Nicea,,Nicea,,43.703436,7.266233,,
+3,,,,,0,,,,,,4,339,,Micalo colonia Diceorum,Melaconditia,,Nicalon colonia,,0,0,,
+3,157812,Antipolis,2B2,845,3301,Antipoli,Antipoli,yes,,Antipoli,5,339,,Antipolis,Anthopolis,,,,43.580587,7.120902,0.074838366,-0.019733566
+3,157798,Ad Horrea,2B2,844,3300,Ad Horrea,Ad Horrea,,,Ad Horrea,6,339,,Orea,Orea,,,,43.549999,6.956062,0.072017534,-0.019513407
+3,157836,Col. Forum Iulii,2B2,837,3292,Foro ivlii (Foro iulii),Foro ivlii,yes,,Foro Ivlii,7,339,,Foro Iulii,Foro Divi Iulii,,,,43.4328295,6.7360345,0.069581319,-0.01975771
+3,157884,Matavo,2B1,843,3299,Matauone,Matavone,,,Matavone,8,340,,Patavi,Pataum,,,,43.410096,6.224208,0.063648313,-0.01988651
+3,157799,Ad Turrem,2B1,842,3298,Ad turrem,Ad tvrrem,,,Ad tvrrem,9,340,,Carnarium,Carcarium,,,,43.407853,5.923999,0.061697708,-0.019667283
+3,148214,Tegulata,2B1,841,3297,Tegulata,Tegvlata,,,Tegvlata,10,340,,Tegulicia,Tegulicia,,Tegulicia,,43.482079,5.699723,0.059096173,-0.019813343
+3,148053,Col. Aquae Sextiae,2B1,833,3288,[ - ? - ]estis (Aquis Sestis Miller),[ - ? - ]estis,yes (spa),,[ - ? - ]estis,11,340,,Aquis Sextis,Aquis Sextis,,Aquis Sextis,,43.526232,5.44541,0.057483836,-0.019328368
+3,148127,Massalia/Massilia,1B5,840,3296,Masi[...]ia Grecorum (Masilia Grecorum Miller) (Massilia Graecorum),Masilia Grecorvm,yes,,Masilia grecorvm,12,340,,Massilia,Marsilia,,Masculla,,43.296854,5.382499,0.054622922,-0.019544535
+3,148028,Calcaria Solarium,,,0,,,,,,13,340,,Solarianum,Solarium,,Solarium,,43.460297,5.248532,,
+3,148028,Calcaria Solarium,1B5,839,3294,Calcaria,Calcaria,,,Calcaria,14,340,,Calcaria,Calcaria,,Calcaria,,43.460297,5.248532,0.053044302,-0.019279205
+3,151758,Ad Vicesimum,,,0,,,,,,15,340,,Vicensimum,Ad vicesimum,,Vicesimum,,0,0,,
+3,148125,Maritima,,,0,,,,,,16,340,,Colonia maritima,Colonia maritima,,Coloniam maritimam,,43.407522,5.054721,,
+3,148084,Fossae Marianae,1B5,838,3293,Fossis Marianis,Fossis Marianis,yes,,Fossis Marianis,17,340,,Fossis Marianis,Fossis Marianis,,Fossis Marianis,,43.437712,4.944532,0.050630779,-0.019264952
+3,148142,Nemausus,1B4,782,3232,Nemuso,Nemvso,yes,,Nemvso,18,340,,Nemausus,Nemaus,,Nemaus,,43.84314979,4.354175571,0.043047579,-0.01871655
+3,148123,Magalona,,,0,,,,,,19,340,,Megalona,Megalona,,Mediolana,,43.514715,3.882631,,
+3,147985,Agatha,,,0,,,,,,20,340,,Agate,Agate,,Agate,,43.305832,3.473132,,
+3,,#N/A,,,0,,,,,,21,340,,Calum,"Calum, ",,Calum,,0,0,,
+3,148107,Lattara,,,0,,,,,,22,340,,Latara,Latara,,Latera,,43.566894,3.9052705,,
+3,148202,Sextantio,1B4,780,3230,Sextatione / Serratione,Sex[ - ? - ]ione,,,Sex[ - ? - ]ione,23,340,,Sextantione,Sestantione,,Sextantiona,,43.64232,3.896373,0.040108453,-0.01893114
+3,,#N/A,,,0,,,,,,24,340,,Aquae Converantia,Agae Convenarum,,Aque Converantia,,0,0,,
+3,,#N/A,,,0,,,,,,25,341,,Burret,Burrea,,Burret,,0,0,,
+3,,#N/A,,,0,,,,,,26,341,,Buget,Abate,,Bugeth,,0,0,,
+3,148175,Roujan,,,0,,,,,,27,341,,Rusino,Rusino,,Rusinum,,43.503911,3.312483,,
+3,148056,Col. Baeterrae,1B3,778,3227,Beteris,Beteris,,,Beteris,28,341,,Beterris,Beteroris,,Uterris,,43.3416765,3.217941,0.032947051,-0.019648513
+3,246347,Col. Narbo Martius,1B3,766,3214,Narbone,Narbone,yes,,Narbone,29,341,,Narbone,Narbona,,Narbona,,43.1836165,3.004203,0.030913315,-0.019479283
+3,246351,Combusta,,,0,,,,,,30,341,,Combusta,,,Cobusta,,42.766412,2.875397,,
+3,246348,Col. Ruscino,1B3,777,3226,Ruscione,Rvscione,,,Rvscione,31,341,,Ruscinone,,,Perurinova,,42.70858092,2.94516014,0.028406892,-0.019638633
+3,,#N/A,,,0,,,,,,32,341,,Aquae calidae,Agae calidae,,Aque calide,,0,0,,
+3,246139,Ad Pyrenaeum/Summus Pyrenaeus,1B2,774,3223,Insummo / In summo Pyreneo,Insvmmo pyreneo,,,Insvmmo pyreneo,33,341,,Pyreneum,,,,,42.4646429,2.8629997,0.019860534,-0.018822734
+3,246363,Deciana,1B2,773,3222,Declana,Declana,Iberia begins,,Declana,34,341,,Deciana,Diciana,,,,42.414861,2.87374,0.015035182,-0.018525995
+3,246449,Iuncaria,1B1,772,3221,Iuncaria,Ivncaria,,,Ivncaria,35,341,,Iuncaria,Iuncaria,,Iuncaria,,42.2748,2.96815,0.011504307,-0.01829497
+3,246335,Cinniana,1B1,771,3220,Cenuiana / Cemuana,Cenviana,,,Cenviana,36,341,,Cinniana,Cinniana,,Viniana,,42.066067,2.910473,0.007354457,-0.018468377
+3,246406,Gerunda,1B1,770,3219,Ce[..]nda (Cerunda Miller),Ce++nda,,,Ce++nda,37,341,,Gerunda,Gerunda,,Gerundia,,41.987346,2.826608,0.00573682,-0.018318941
+3,246174,Aquae Voconiae,1B1,769,3217,Voconi,Voconi,,,Voconi,38,341,,Aquis Bocconis,Aquis Vuconis,,Aquis Buconis,,41.846176,2.752102,0.003905354,-0.018241014
+3,246343,Col. Barcino,,,0,,,,,[MISSING],39,341,,Colonia Burcino,Barcelona,,Colonia Burginum,,41.387911,2.169911,,
+3,246652,Seterrae,,,0,,,,,[MISSING],40,341,,Seterram,Steras,,Seterra,,41.746451,2.635453,,
+3,246576,Praetorium?,,,0,,,,,[MISSING],41,341,,Praetorium,Praetorium,,Praetorium,,41.5873365,2.3260575,,
+3,246192,Arrago(na),,,0,,,,,[MISSING],42,342,,Aragona,Arragona,,Arragona,,41.555754,2.1152115,,
+3,246135,(Ad) Fines,,,0,,,,,[MISSING],43,342,,Fines,Fines,,Fines,,41.473589,1.9276554,,
+3,246166,Antistiana,,,0,,,,,[MISSING],44,342,,Antistiana,Antistiana,,Ancistiana,,41.310602,1.647899,,
+3,246551,Palfuriana,,,0,,,,,[MISSING],45,342,,Palturiana,Palturia,,Palturiana,,41.203989,1.514919,,
+3,246349,Col. Tarraco,,,0,,,,,[MISSING],46,342,,Tarraconem,Tarsagona,,Terragona,,41.116892,1.2583375,,
+3,246665,Sub Saltu,,,0,,,,,[MISSING],47,342,,Saltum,Saguntum,,Saltum,,40.917425,0.813909,,
+3,,#N/A,,,0,,,,,[MISSING],48,342,,Pinon,Pinos,,Pinum,,0,0,,
+3,246705,Tria Capita,,,0,,,,,[MISSING],49,342,,Trea capita,Orea Capita,,Tria capita,,40.804813,0.700237,,
+3,246369,Dertosa/Hibera Iulia Ilercavonia,,,0,,,,,[MISSING],50,342,,Dertosa,Dertusa,,Dertosa,,40.811004,0.520955,,
+3,,#N/A,,,0,,,,,[MISSING],51,342,,Lubricatum,Rubricatum,,Laubricatum,,0,0,,
+3,265920,Ildum,,,0,,,,,[MISSING],52,342,,Ildum,Hildum,,Ildum,,40.231686,0.073556,,
+3,246439,Indibilis,,,0,,,,,[MISSING],53,342,,Intibili,,,Intibili,,40.418701,0.423109,,
+3,266020,Sagunto,,,0,,,,,[MISSING],54,342,,Saguntum,Saguntum,,Saguntum,,39.680194,-0.278581,,
+3,266090,Valentia,,,0,,,,,[MISSING],55,342,,Valentia,Valentia,,Valentia,,39.470371,-0.376813,,
+3,266006,Portus Sucronis,,,0,,,,,[MISSING],56,342,,Portum Sucrone,Portum Sucrune,,Sucrone,,39.165103,-0.255923,,
+3,265880,Dianium/Hemeroskopeion,,,0,,,,,[MISSING],57,342,,Dio,,,Dinium,,38.842795,0.107511,,
+3,,#N/A,,,0,,,,,[MISSING],58,342,,Alternum,Asterum,,Alterum,,0,0,,
+3,266018,Saetabis,,,0,,,,,[MISSING],59,343,,Setabi,Setavum,,Setabi,,38.9884608,-0.5178068,,
+3,265783,Ad Turres?/Turres Saetab(...)?,,,0,,,,,[MISSING],61,343,,Turres,Turres,,Turres,,38.781093,-0.92493,,
+3,265770,Ad Ello?,,,0,,,,,[MISSING],62,343,,Edelle,Eloe,,Edelle,,38.478014,-0.790495,,
+3,,#N/A,,,0,,,,,[MISSING],63,343,,Celeri,Celeret,,Celeris,,0,0,,
+3,265954,Lucentum,,,0,,,,,[MISSING],64,343,,Lucentes,Laucentes,,,,38.36461817,-0.4388035,,
+3,265772,Ad Leones,,,0,,,,,[MISSING],65,343,,Ad leones,Leones,,Ad lennes,,38.277578,-0.533052,,
+3,265922,Ilici/Helike,,,0,,,,,[MISSING],66,343,,Ilice,Hilice,,Ilice,,38.2396,-0.6953,,
+3,265849,Carthago Nova/Col. Urbs Iulia,,,0,,,,,[MISSING],67,343,,Cartago Spartaria,Cartago Partaria,,Cartago Partaria,,37.602787,-0.9879535,,
+3,265820,Baria,,,0,,,,,[MISSING],68,343,,Baria,Barria,,Varia,,37.245407,-1.774899,,
+3,265762,Abdera,,,0,,,,,[MISSING],69,343,,Aderia,Abdera,,Abdera,,36.748068,-3.022514,,
+3,266038,Sexi/Saxetanum,,,0,,,,,[MISSING],70,343,,Caesarea.,Caesarea,,Cesarea Augustana.,,,,,
+4,265959,Maenuba/Menova,,,0,,,,,[MISSING],1,343,,Lenuba,Lenubar,,Lenuba,,36.77864,-4.100678,,
+4,265963,Malaca,,,0,,,,,[MISSING],2,343,,Macala,Malaca,,Macala,,36.719658,-4.420163,,
+4,266055,Suel,,,0,,,,,[MISSING],3,344,,Suel,Suel,,Suel,,36.525435,-4.628919,,
+4,260628,Sabesola,,,0,,,,,[MISSING],4,344,,Bardesola,Sabesola,,Sabessola vel Bardesola,,0,0,,
+4,256416,Salduba/Saltum,,,0,,,,,[MISSING],5,344,,Saldo,Saltum,,Saltum,,36.463413,-5.061,,
+4,256017,Barbesula/Barbariana?,,,0,,,,,[MISSING],6,344,,Bamaliana,Bamaliana,,Bamaliana,,36.296985,-5.272343,,
+4,256063,Carteia/Calpe/Karpessos,,,0,,,,,[MISSING],7,344,,Cartetia,Gartegia,,Gartecia,,36.18519148,-5.4093908,,
+4,256235,Iulia Traducta/Iulia Ioza/Tingentera,,,0,,,,,[MISSING],8,344,,Traducta,Transducta,,Transducta,,36.129768,-5.447744,,
+4,256103,Cetaria,,,0,,,,,[MISSING],9,344,,Cetraria,Cetraria,,Cetraria,,36.07249,-5.433107,,
+4,256293,Mellaria,,,0,,,,,[MISSING],10,344,,Melaria,Melaria,,Melaria,,36.066459,-5.683253,,
+4,256005,B(a)elo,,,0,,,,,[MISSING],11,344,,Belone,Belone.,,Belona.,,36.08982419,-5.7744758,,
+4,256198,Herakleios Porthmos/Gaditanum Fretum,,,0,,,,,[MISSING],,344,,Hic invenitur fretum quod multotiens nominavimus. quod dicitur Septemgaditanum. quod dividit inter Spaniam et maritimam Mauritaniam. quod fretum exiens de mari magno Gallico Valeriaco vergitur in Oceanum occidentalem Britannicum. quod multotiens dictum fretum transiens homo circa litora maris magni in Maurorum terra mox invenitur civitas quae dicitur,,,"84. Hinc invenitur fretus qui dicitur Septem. qui de mari Gallico Valeriaco mergit in Occeanum occidentalem Britannicum, quique Gaditanus vocatur. quem transfretans homo in litore maris magni provinciae Maurorum, Africae finis vel principium, inveniet civitates",,35.971667,-5.485833,,
+4,,#N/A,,,0,,,,,[MISSING],12,345,,Bovalica,Boballica,,Bovalicam,,0,0,,
+4,275696,Sala,,,0,,,,,[MISSING],13,345,,Sala,Sala,,Salam,,34.006821,-6.821498,,
+4,275734,Thamusida,,,0,,,,,[MISSING],14,345,,Tamusida,Tamsida,,Tamanusidam,,34.33495639,-6.4903469,,
+4,275599,Banasa,,,0,,,,,[MISSING],15,345,,Banasa,Banasa,,Banasam,,34.60189473,-6.1152938,,
+4,275629,Frigidae,,,0,,,,,[MISSING],16,345,,Frigidis,Frigidis,,Frigidis,,34.96001,-6.150002,,
+4,275666,Lixus,,,0,,,,,[MISSING],17,345,,Lix colonia,Lix colonia,,Lix coloniam,,35.2002398,-6.1099515,,
+4,275729,Tabernae,,,0,,,,,[MISSING],18,345,,Tabernis,Tabernis,,Tabernas,,35.333689,-5.981627,,
+4,275744,Zilil/Zilis,,,0,,,,,[MISSING],19,345,,Zichi,Zili,,Zichim,,35.5222879,-5.9155733,,
+4,275736,Tingi,,,0,,,,,[MISSING],20,345,,Tingi colonia,Tingi colonia,,Tingin colonia,,35.787546,-5.8102335,,
+4,289945,Parietina,,,0,,,,,[MISSING],21,345,,Parietina,Pareatina,,Paretina,,0,0,,
+4,285504,Portus Sigensis,,,0,,,,,[MISSING],22,345,,Portum Sigense,Portu Sigense,,Portum Sigensem,,35.29689,-1.46751,,
+4,289927,Calama/Galama,,,0,,,,,[MISSING],23,345,,Galama,,,Calama,,0,0,,
+4,289954,Valonice,,,0,,,,,[MISSING],24,345,,Valonice,,,Valonice,,0,0,,
+4,285503,Portus Magnus,,,0,,,,,[MISSING],25,345,,Portum magnum,Portum magnum,,Portum magnum,,35.807917,-0.266018,,
+4,295219,Arsennaria,,,0,,,,,[MISSING],26,345,,Cersenaria,Arsenarium,,Cersenaria.,,36.334326,0.873111,,
+4,295240,Cartenna,,,0,,,,,[MISSING],27,345,,Cartenna,Cartenna,,,,36.510044,1.310964,,
+4,295273,Iar Castellum?,,,0,,,,,[MISSING],28,346,,Lar castellum,Lar castellum,,Lar castellum,,36.53072,1.568591,,
+4,295268,Gunugu,,,0,,,,,[MISSING],29,346,,Gunagus,Gunubus,,Cunagus,,36.570982,1.90305,,
+4,295279,Iol Caesarea,,,0,,,,,[MISSING],30,346,,Caesarea,Caesarea,,Cesarea,,36.607058,2.1918495,,
+4,295363,Tipasa,,,0,,,,,[MISSING],31,346,,Tipassa,Tipasa,,Tipassa,,36.59424639,2.441912426,,
+4,295318,Obori?,,,0,,,,,[MISSING],32,346,,Ubori,,,Ciborim,,36.763227,2.843829,,
+4,295276,Icosium,,,0,,,,,[MISSING],33,346,,Ycosium,Egosion,,Icosium,,36.7689125,3.0532175,,
+4,295331,Rusguniae,,,0,,,,,[MISSING],34,346,,Ruguniae,Rusguniae,,Rusgimia,,36.7990945,3.2378935,,
+4,,#N/A,,,0,,,,,[MISSING],35,346,,[Rusucurus,,,Rusicorus municipium,,0,0,,
+4,,#N/A,,,0,,,,,[MISSING],36,346,,Lomnion],,,Lomnium,,0,0,,
+4,295333,Rusubbicari Matidiae,1C1,1,1,Rusibricari Matidiae, Rvsibricari Matidi(a)e,,,Rvsibricari Matidi(a)e,37,346,,Rusuvicaris,,,Rusubisim,,36.801017,3.5646,0.004792484,-0.021105476
+4,295253,Cissi,1C1,3,2162,Cissi Municipio,Cissimvnicipio,,,Cissimvnicipio,38,346,,Cisi municipium,,,Rusuvicaris,,36.877461,3.7334035,0.008987563,-0.02132388
+4,295334,Rusuccuru,1C2,7,3141,Rusuccurv Colonia (Rusuccuru colonia),Rvsvccvrv colon̄,,,Rvsvccvrv colon̄,39,346,,Rusucurum municipium,Rusicuron,,Casi municipium,,36.9128545,3.9096445,0.016486594,-0.021929789
+4,295280,Iomnium,1C2,9,3359,Iominio Municipio,Iominio Mvnicipio,,,Iominio Mvnicipio,40,346,,Lomnio,Iomnion,,Ionmon,,36.89489256,4.123272201,0.021611853,-0.022269422
+4,295332,Rusippisir,1C3,10,2,Rusippisir Municipium,Rvsippisir Mvnicipio,,,Rvsippisir Mvnicipio,41,346,,Rusuvisir,,,,,36.897601,4.156907,0.026845828,-0.022493095
+4,305138,Rusazus?,1C3,11,108,Rusazu Municipium,Rvsazv Mvnicipivm,,,Rvsazv Mvnicipivm,42,346,,Rusuvis municipium,Ruseius municipium,,Rusuvis municipium,,36.894041,4.420813,0.033940726,-0.022501704
+4,305142,Saldae,1C4,14,435,Saldas Colonia,Saldas Colonia,,,Saldas Colonia,43,346,,Salbas,,,Salbas,,36.740851,5.057965,0.039573037,-0.022365453
+4,305111,Muslubium,1C5,22,1304,Muslubio Horreta,Mvslvbio Horreta,,,Mvslvbio Horreta,44,347,,Musluvion orea,Mulusbion orea,,Musluvium orea,,36.636739,5.246097,0.045197316,-0.022214794
+4,305062,Choba,1C5,24,1517,Choba Municipium,Choba Mvnicipivm,,,Choba Mvnicipivm,45,347,,Chosa,Chova municipium,,Chosa,,36.6665775,5.4607425,0.050892368,-0.022191809
+4,305095,Igilgili,2C1,26,1730,Igilgili Colonia,Igilgili Col.,,,Igilgili Col.,46,347,,Itiltili,Igilgili,,Itiltili,,36.8212995,5.766168,0.055696142,-0.022807765
+4,305126,Paccianis Matidiae?/Tucca?,2C1,28,1947,Paccianis Matize,Paccianis Matiz(a)e,,,Paccianis Matiz(a)e,47,347,,Paciani,Paceanis,,Patia,,36.865147,6.1015385,0.062229372,-0.022801444
+4,305063,Chullu,2C2,29,2054,Chvllv (Chullu),Chvllv,,,Chvllv,48,347,,Cullu,Chulla,,Cullum,,37.0078525,6.562081,0.070685377,-0.022993593
+4,305137,Rusicade/Thapsus,2C3,30,2163,Rvsicade Colonia (Rusicade Colonia),Rvsicade Colonia,,,Rvsicade Colonia,49,347,,Rusicade,Russicade,,Rusicada,,36.8814425,6.9055805,0.079215212,-0.022529985
+4,305128,Paratianis,2C3,31,2273,Paratianis,Paratianis,,,Paratianis,50,347,,Paracia,,,Parasica,,36.91671,7.156637,0.086679851,-0.022421148
+4,305069,Culucitanis?,2C4,32,2380,Culucitani,Cvlvcitani,,,Cvlvcitani,51,347,,Culucia,,,Colocia,,37.030021,7.252483,0.094672189,-0.022393381
+4,305187,Zacca,2C5,33,2489,Zaca,Zaca,,,Zaca,52,347,,Zacca,Zaca,,Zaccha,,37.079722,7.170556,0.102241779,-0.023177885
+4,,#N/A,,,0,,,,,,53,347,,Monumentum Anibal,,,Monumentum Annibal,,0,0,,
+4,311124,Muharur,3C1,34,2600,Muharvr (Muharur),Mvzarvr,,,Mvzarvr,54,347,,Mazar,,,Mazar,,0,0,0.109017205,-0.023240243
+4,305160,Tacatua,3C1,35,2710,Tacatva (Tacatua),Tacatva,,,Tacatva,55,347,,Tacatua,,,Tacatua,,37.065966,7.380568,0.11617881,-0.022789188
+4,305158,Sulluctu?,3C2,36,2782,Sublucv (Sublucu),Svblvcv,,,Svblvcv,56,347,,Sulucum,Sulucu,,Suluccum,,37.038565,7.33233,0.120416382,-0.022839808
+4,305090,Hippo Regius,3C2,37,2793,Hyppone Regio,Hyppone Regio,,,Hyppone Regio,57,347,,Ypole regio,Hippon regium,,"Ypona regia, in qua gloriosissimus et omnium doctor affluentior doctor sanctissimus resplenduit Augustinus. Ubbus.",,36.882478,7.751272,0.125222739,-0.02297274
+4,315240,Ubus (river),3C3,46,2888,Vbus flumen (Ubus flumen),Vbvs Flvmen,,,Vbvs Flvmen,58,347,,Ubus.,Usussa,,Ubbus.,,36.83965,7.95646,0.133190661,-0.022807082
+5,314890,Armua?/Armoniacum (river),3C3,47,2899,Armoniacum flumen,Armoniacvm Fl.,,,Armoniacvm Fl.,1,348,,Armoniocus,Armonaca,,Armoniacus,,36.71195777,7.959382782,0.14087233,-0.023053608
+5,321634,Ad Dianam,3C4,48,2910,"(symbol, no name, no. 25) [Diana] (Miller)","(symbol, no name, no. 25)",Temple symbol,,[Temple Symbol],2,348,,Diana,,,Biana,,0,0,0.147935664,-0.022971343
+5,315235,Tuniza?,3C4,49,2921,Tuniza,Tvniza,,,Tvniza,3,348,,Tunica,Tuniza,,Tunida,,36.8912775,8.438117,0.155135548,-0.022810191
+5,315192,Thabraca,3C5,50,2932,Cabraca,Cabraca,,,Cabraca,4,348,,Tabraca,Tabraca,,Tabracha,,36.9567785,8.7497465,0.165638876,-0.023218674
+5,315038,Hippo Diarrhytus,4C1,52,2952,Ipponte diarito,Ipponte diarito,,,Ipponte diarito,5,348,,Ypone Zenetum,Ypone Zareston,,Ipposretum,,37.276147,9.873108,0.172266003,-0.023717776
+5,315212,Thinisa?/Tuneiza?/Tunisa?,4C2,53,2963,Tvnisa (Tunisa),Tvnisa,,,Tvnisa,6,348,,Tunissa,Tumissa,,Tumsa,,37.2144672,10.1246134,0.181790012,-0.023327215
+5,315076,Membrone?,4C3,54,2972,Memblone,Memblon(a)e,,,Memblon(a)e,7,348,,Membrone,,,Menbrona,,37.100163,10.017825,0.189434712,-0.02366822
+5,315248,Utica,4C3,55,2983,Vtica Colonia (Utica Colonia),Vtica Colonia,,,Vtica Colonia,8,348,,Utica,Utica,,Utica,,37.05587745,10.06000777,0.19658635,-0.024021968
+5,314849,Ad Gall(inaci)um?,4C4,56,2994,Gallum Gallinatium,Gallvm Gallinativm,,,Gallvm Gallinativm,9,348,,Gallum gallinacium,Gallo gallinacio,,Gallum gallinaccium,,36.905461,10.096435,0.205960125,-0.023636308
+5,314921,Carthago,4C5,60,3034,Carthagine Colonia,Chartagine colon̄,,,Chartagine colon̄,10,348,,Chartingine,Cartago civitas magna,,"Kartago maxima regalis inclita fortissima opulentissima atque nobilissima, quam robustissimus Christi martir et pontifex Ciprianus diverso dogmatum nectare, poematum quoque ac sophiae cultibus floridam praebuit.",,36.853056,10.323056,0.216181266,-0.024193895
+5,315233,Tunes,4C5,241,1529,Thuni,Thvni,,No direct network link to Carthage,Thvni,11,348,,Thunos,Thinus,,Thunos,,36.79923,10.171649,0.21925539,-0.024188698
+5,315072,Maxula,5C1,144,479,Maxula,Maxvla,,,Maxvla,12,349,,Maxula,Maxila,,Maxula,,36.768841,10.271569,0.221784726,-0.02408705
+5,314968,Gumis?,,,0,,,,,,13,349,,Gumis,,,Gumina,,36.7023075,10.4032705,,
+5,314920,Carpi(s),,,0,,,,,,14,349,,Carpus,Carpas,,Capos,,36.7652445,10.5531225,,
+5,314883,Aquae Carpitanae,5C1,242,1540,Ad Aquas,Adaqvas,,,adaqvas,15,349,,Aquas,,,Aquas,,36.808697,10.5774835,0.224772309,-0.024223069
+5,315173,Siminina?,,,0,,,,,,16,349,,Siminina,Simiama,,Siminina,,36.933087,10.8036375,,
+5,315082,Missua,5C2,250,1623,Missua,Misva,,TP on spur,Missua,17,349,,Missua,,,Missua,,36.999978,10.899956,0.233037118,-0.024315564
+5,314892,Aspis/Clipea,5C2,249,1612,Clipeis,Clipeis,,TP on spur,Clipeis,18,349,,Clipeis,Clipeis,,Clyppeis,,36.838512,11.115794,0.234222517,-0.024451441
+5,314943,Curubis,5C2,251,1634,Cubin,Cvbin,,,Cvbin,19,349,,Curubis,,,Curum,,36.575649,10.862461,0.237957052,-0.025338646
+5,315093,Neapolis,5C2,248,1603,Neapoli,Neapoli,,TP on spur,Neapoli,20,349,,Neapolis,Neapolis,,Neapolis,,36.44033754,10.71835425,0.234110243,-0.025068302
+5,315121,Pupput,5C2,246,1581,Pudput,Pvdpvt,,,Pvdpvt,21,349,,Pulpud,,,Pulpite,,36.392998,10.562216,0.232202536,-0.025240734
+5,324716,Hadrumetum/Iustinianopolis,5C2,150,545,Hadrito,Hadrito,,name is phoenician,Hadrito,22,349,,Adrimeum,Adrimeton,,"Adrimetus. ex hac sancti duodecim fratres et martyres, e quibus famosior sanctissimus nominatur Orontius, oriundi probantur, qui Italiam, una apud urbem Beneventum conditi, suis miraculis illustrant.",,35.825866,10.63878,0.239665179,-0.02530581
+5,324803,Ruspina,5C2,255,1677,Ruspina,Rvspina,,,Rvspina,23,349,,Ruspina,Irusbinus,,Ruspina,,35.7742245,10.8291825,0.242054958,-0.024565224
+5,324767,Lepti Minus,5C3,256,1688,Lepteminus,Lepteminvs,,,Lepteminvs,24,349,,Lepti minus,Leptis minus,,Lepti minus,,35.678102,10.866332,0.244428549,-0.024885218
+5,324827,Thapsus,5C3,261,1742,Tapsum,Tapsvm,,,Tapsvm,25,349,,Tapsum,,,Tapsum,,35.62136857,11.04270935,0.246662559,-0.024737029
+5,324817,Sullecthum,5C3,259,1719,Sullecti,Svllecti,,,Svllecti,26,349,,Sublecte,Sublecte,,Subiecte,,35.3937926,11.04292915,0.248181063,-0.024848763
+5,324653,Acholla,5C3,263,1764,Aholla,Aholla,,,Aholla,27,349,,Acola,,,Accola,,35.07897337,11.0197486,0.249910362,-0.024972512
+5,324802,Ruspe,5C3,264,1775,Ruspe,Rvspe,,,Rvspe,28,349,,Ruspe,,,Ruspe,,35.014288,11.000971,0.251714584,-0.025178721
+5,324841,Usil(l)a/Usula,5C3,262,1753,Vsilla Municipium (Usilla Municipium),Vsilla Mvn̄,,,Vsilla Mvn̄,29,350,,Usila,Hesila,,Usila,,34.956536,10.923014,0.253063618,-0.02538952
+5,324822,Taparura,5C4,265,1784,Taparura,Taparvra,,,Taparvra,30,350,,Taparura,Patabura,,Taparura,,34.738326,10.757806,0.253725519,-0.025624177
+5,324825,Thaenae,5C4,266,1794,[Thenas] (Miller),"(symbol, no name, no. 45)",yes,,[City Symbol],31,350,,Thenas,Thenas,,Themanas,,34.6553465,10.670659,0.255331651,-0.025525046
+5,324772,Macomades Minores/Iunci,5C4,267,1805,Macomades Minores,Macomades Minores,,,Macomades Minores,32,350,,Macomades minores,Macumades,,Macomades minores,,34.525858,10.497324,0.258875845,-0.025133485
+5,324656,(Ad) Oleastrum?,5C4,268,1816,Ad Oleastrum,Adoleastrvm,,,Adoleastrvm,33,350,,Ad oleastrum,Ad oleastrum,,Ad oleastrum,,34.411413,10.256696,0.260719934,-0.025203957
+5,329235,Praesidium Silvani,5C4,269,1827,Praesidium Silvani,Presidio Silvani,,,Presidio Silvani,34,350,,Praesidium,,,Praesidium,,0,0,0.262973209,-0.025451606
+5,,#N/A,5C5,270,1838,Lacene,Lacene,,,Lacene,35,350,,Lucene,,,,,0,0,0.264365648,-0.025904585
+5,,#N/A,5C5,271,1849,Ad Palmam,Adpalmam,,,Adpalmam,36,350,,Palmam,,,,,0,0,0.265457573,-0.026400746
+5,344496,Tacape,5C5,228,1391,Tacape Colonia,Tacape col.,,date of colony unclear (Catholic enyclopedia says 3rd C.),Tacape col.,37,350,,Tacapa colonia,Tacapas,,,,33.88643,10.109445,0.267646341,-0.027133262
+5,344380,Gigthis,5C5,281,1959,Gigti,Gigti,,,Gigti,38,350,,Gittit,Githi,,,,33.532453,10.6774952,0.271595537,-0.026241558
+5,344571,Zitha,5C5,282,1969,Ziza Municipium,Ziza Mvnicipivm,,,Ziza Mvnicipivm,39,350,,Vita,Zita,,,,33.503895,11.112905,0.274091319,-0.027363746
+5,344462,Putea Pallene,6C1,283,1980,Putea pallene,Pvtea pallene,,,Pvtea pallene,40,350,,Putea balenae,,,,,33.316715,11.199799,0.278905453,-0.027360369
+5,344500,Taricheiai/Zouchis,6C1,284,1990,Presidio,Presidio,,,Presidio,41,350,,Praesidium,,,,,33.181241,11.438132,0.28141439,-0.026200719
+5,344459,Pisida,6C1,285,2001,Pisida Municipio,Pisida Mvnicipio,,,Pisida Mvnicipio,42,350,,Fisidia,,,Fresida,,33.0701995,11.7740495,0.283703988,-0.025499456
+5,344388,*Gypsaria Taberna,6C2,286,2012,Ad Cypsaria Taberna,Adcypsaria Taberna,,,Adcypsaria Taberna,43,350,,Gipsarea,Cipsaria,,Gypsarea,,32.957257,12.002946,0.287624206,-0.025189526
+5,344284,Ad Ammonem,6C2,288,2034,Ad Amonem,Adamonem,,,Adamonem,44,350,,Ammonis,,,Ammonis,,32.840652,12.267097,0.290381839,-0.024762306
+5,344282,Abrotonum/Sabratha,6C2,289,2043,Sabrata,Sabrata,,,Sabrata,45,350,,Sabrata,Sabrata,,Sabrata,,32.8049535,12.48535023,0.292526708,-0.024175357
+5,344460,Pontos?,6C2,290,2055,Pontos,Pontos,,,Pontos,46,351,,Pontos,Poteo,,Pontos,,32.759388,12.725499,0.294509273,-0.023913761
+5,344299,Assaria,6C3,293,2088,Assaria,Assaria,,,Assaria,47,351,,Passaria,,,Passaria,,32.790469,12.861553,0.296508061,-0.023921644
+5,344456,Oea,6C3,292,2077,Osa Colonia,Osa col.,,,Osa col.,48,351,,Oxea,,,Oxena,,32.897586,13.175266,0.298801879,-0.023675662
+5,344524,Turris ad Algam,6C3,294,2099,Turris ad algam,Tvrris Adalgam,,,Tvrris Adalgam,49,351,,Turris alba,,,Turris alba,,32.8142475,13.321085,0.301561371,-0.023701372
+5,344373,Getullu,6C3,297,2131,Getullu,Getvllv,,,Getvllv,50,351,,Getula,,,Getua,,32.783434,13.596282,0.303739674,-0.023928526
+5,344464,Quintiliana,6C3,298,2141,Quintiliana,Qvintiliana,,,Qvintiliana,51,351,,Quintiliana.,,,Quintiliana.,,32.708352,13.926716,0.305371636,-0.024099538
+6,344285,Ad Palmam,5C5,299,2152,Adpalmam (Ad Palmam),Adpalmam,,,Adpalmam,1,351,,Palma,,,Palma,,32.649407,14.131477,0.306340783,-0.024425793
+6,,#N/A,,,0,,,,,,2,351,,Mata,,,Mapta,,0,0,,
+6,344448,Neapolis/Lepcis Magna,6C4,300,2164,Leptimagna colonia (Leptis Magna Colonia),Leptimagna col.,,,Leptimagna col.,3,351,,Leptis magna,Leptis magna,,Paletis magna,,32.6379575,14.291378,0.308528556,-0.024424415
+6,344489,Sugolin,6C4,303,2197,Sugolin,Svgolin,,,Svgolin,4,351,,Subgoli,,,Subgoli,,32.466721,14.566667,0.310501014,-0.024815688
+6,344451,Nivirgi Tabernae,6C4,304,2208,Niuirgiab (Nivirgi taberna),Nivirgitab,,,Nivirgitab,5,351,,Nivergi,Neveri,,Nivergi,,32.432966,14.765234,0.312971932,-0.024818515
+6,344484,Simnana,6C4,305,2219,Simnana,Simnana,,,Simnana,6,351,,Simadana,,,Simadana,,32.407318,14.94413,0.31437478,-0.024799494
+6,344513,Thubactis,6C4,307,2241,Tubactis Municipium,Tvbactis Mvn̄̄,,,Tvbactis Mvn̄̄,7,352,,Thubactis,Thubacis,,Thubactis,,32.371127,15.1444275,0.316451149,-0.024531514
+6,344332,Casa Rimoniana,6C5,308,2252,Casa Rimoniana,Casa Rimoniana,,,Casa Rimoniana,8,352,,Rusticiana,,,Rastitiana,,32.137924,14.94639,0.317933872,-0.024681385
+6,349568,Ad Cisternas,6C5,309,2263,Ad cisternas,Adcisternas,,,Adcisternas,9,352,,Cisternas,Cisterium,,Cisternas,,0,0,0.31906608,-0.024914393
+6,349612,Nalad,6C5,310,2274,Naladus,Nalad(vs?),,,Nalad(vs?),10,352,,Nadalus,,,Nadalus,,0,0,0.320207072,-0.025091918
+6,349584,Dissio Aqua Amara,6C5,311,2285,Dissio Aqua Amara,Dissio Aqva Amara,,,Dissio Aqva Amara,11,352,,Dision,Disio,,Dision,,0,0,0.322256504,-0.024898479
+6,349581,Chosol,6C5,312,2296,Chosol,Chosol,,,Chosol,12,352,,Onusol,,,Onusol,,0,0,0.322740668,-0.025133499
+6,366181,Musula,6C5,313,2307,Musula,Mvsvla,,parallel branch,Mvsvla,13,352,,Mulsol,Musol,,Musol,,0,0,0.322798076,-0.02607407
+6,363914,Ad Ficum,6C5,314,2318,Ad ficum,Ad ficvm,,,Ad ficvm,14,352,,Ficum,,,Ficum,,31.397714,15.726925,0.325080299,-0.024959242
+6,364003,Praetorium,6C5,315,2329,Pretorium (Praetorium),Pretorivm,,,Pretorivm,15,352,,Praetorium,Praetorium,,Praetorium,,31.28333,15.95,0.326605631,-0.025005206
+6,364005,Putea Nigrorum,7C1,316,2339,Putea nigra,Pvtea niga,,,Pvtea nig,16,352,,Putea nigra,,,Putea nigra,,31.199948,16.36664,0.328843888,-0.024912184
+6,363959,Euphranta/Macomades,7C1,317,2348,Macomadase lorum (Macomada Selorum),Macomadase l(orvm),,,Macomadase l(orvm),17,352,,Macumades maiores,Sacomadis,,Macitapades maiores,,31.205047,16.588337,0.330362819,-0.025394875
+6,364036,Zure,7C1,318,2358,Zure,Zvre,,,Zvre,18,352,,Zaures,,,Zures,,31.191297,16.828866,0.331426364,-0.025543775
+6,363917,Ad Speluncas,7C1,319,2369,Ad speluncas,Adspelvncas,,,Adspelvncas,19,352,,Speluncas,,,Speluncas,,31.149939,17.033309,0.332969976,-0.025232462
+6,363951,Charax/(I)Scina,7C1,320,2381,Scina locus Iudaeorum Augusti,Scinaloc(vs) ivdeor(vm) avgti,,,Scinaloc(vs) ivdeor(vm) avgti,20,352,,Isina,Isyri,,Iscina,,31.130517,17.10273619,0.333536078,-0.02550868
+6,,#N/A,,,0,,,,,,21,352,,Mugud,,,Mugud,,0,0,,
+6,363930,Aulazon,7C1,321,2392,Aulazon,Avlazon,,,Avlazon,22,352,,Aulazon,,,Aulazon,,31.047156,17.430088,0.334889868,-0.025416676
+6,363915,Ad Palmam,7C1,322,2402,Ad Palmam,Adpalmam,,,Adpalmam,23,352,,Palmam,Palma,,Alma,,30.933297,17.749989,0.336739321,-0.024865463
+6,363929,Aubereo/Ad Capsum Ultimum,7C1,323,2413,Ad capsum ultimum,Adcapsvmvltimvm,,,Adcapsvmvltimvm,24,353,,Capsum ultimum,,,Capsultimum,,30.852128,17.883257,0.336650234,-0.025270573
+6,363918,Ad Turrem,7C1,324,2424,Ad turrem,Adtvrrem,,,Adtvrrem,25,353,,Turre lapideum,,,Turris lapidum,,30.779987,17.830009,0.337441376,-0.025773103
+6,364034,Zacazama,7C1,325,2435,Zagazania,Z[.]gaza[.]na,,,Z[.]gaza[.]na,26,353,,Zacasama,Zacassama,,Zacasama,,30.792652,18.068427,0.336630439,-0.026224853
+6,363954,Digdida Selorum,7C1,329,2478,Digdida Municipium Selorvm (Digdida Municipium Selorum),Digdida Mvnicipivm Selorvm,,This is actually slightly away from the coast (and marked so on TP),Digdida Mvnicipivm Selorvm,27,353,,Dicdica,,,Didicca,,30.69797,18.16671,0.339721416,-0.02732236
+6,364026,Tugulus,7C2,330,2490,Tagulis,Tagvlis,,,Tagvlis,28,353,,Tragulis,,,Trigulis,,30.549905,18.466667,0.341422821,-0.025649532
+6,363924,Arae Philaenorum,7C2,331,2501,Arephilenorvm fines affrice et cyrenensivm (Arae Philaenorum Fines Affricae et Cyrenaensium),Arephilenor(vm),,,Arephilenor(vm),29,353,,Arepelonorum,Arephilenorum,,Arepoenorum,,30.293895,18.788188,0.343960294,-0.025066912
+6,363921,Anabucis,7C2,332,2512,Anabucis Presidium,Anabvcis Presidivm,,,Anabvcis Presidivm,30,353,,Anabucis,Anaucis,,Anabucis,,30.261267,19.188848,0.347905651,-0.02457722
+6,373877,Priscu Taberna,7C3,334,2534,Priscu Taberna,Priscv taberna,,,Priscv taberna,31,353,,Priscum,,,Priscum,,30.57393,20.099176,0.354984111,-0.023366841
+6,373776,Corniclanum,7C3,335,2545,Corniclanu,Corniclanv,,,Corniclanv,32,353,,Corniclanum,Corniclano,,Corniclanum,,30.757464,20.2217705,0.357956502,-0.022868563
+6,373741,Attici/Phenica,7C3,336,2556,Phenica,Phenica,,,Phenica,33,353,,Phinica,Phinica,,Plunica,,31.133295,20.183329,0.36068498,-0.022540805
+6,373774,Chorotus/Noetu?,7C4,337,2567,Noetv (Noetu),Noetv,,,Noetv,34,353,,Noetum,,,Noetum,,31.394966,20.174408,0.36217012,-0.024117869
+6,373912,Zau Taberna?,7C4,338,2578,Zautaberna (Zau Taberna),Zavtaberna,,,Zavtaberna,35,353,,Zau,,,Zatum,,31.706039,20.092992,0.364132708,-0.025706692
+6,373757,Berenice,7C4,340,2601,Bernicide,Bernicide,,,Bernicide,36,353,,Vernicide,Vernicide,,Vernicida,,32.12452,20.06425,0.369118134,-0.025746247
+6,373824,Hadrianopolis/Kaukalou Kome?,7C4,341,2612,Hadrianopolis,Hadrianopol(is),,named after Hadrian,Hadrianopol(is),37,353,,Adrianopolis,Adriani,,Hadrianopolis,,32.35204,20.3072025,0.370792758,-0.023672285
+6,373736,Arsinoe/Taucheira,7B4,342,2623,Tauchira Colonia,Tavchira col.,,,Tavchira col.,38,353,,Theuchira,Theucera,,Theuchila,,32.53639933,20.56729767,0.367902352,-0.022860854
+6,373879,Ptolemais/Barkes Limen,7B4,343,2634,Ptolomaide,Ptolomaide,,,Ptolomaide,39,353,,Ptolomaida,Ptolomaida,,Ptolomaida,,32.70713419,20.95384959,0.369192144,-0.022369543
+6,373766,Callis,7C4,344,2645,Callis,Callis,,,Callis,40,353,,Gallis,Callis,,Callis,,32.683027,21.198315,0.372609434,-0.023351615
+6,373833,Kainopolis,7C5,345,2655,Cenopolis,Cenopolis,,,Cenopolis,41,354,,Caenopolis,Caenopolis,,Coenopolis,,32.76663,21.349978,0.374066034,-0.023710329
+6,373749,Balagrae,7C5,346,2666,Balacris Hoc est templum Asclepy,Balacris,,"""Hoc e(st) templ(vm) asclepy""",Balacris,42,354,,Balacris,Balacris,,Balatris,,32.761399,21.756437,0.376001322,-0.02428941
+6,373778,Cyrene,7C5,347,2677,Cyrenis colonia,Cyrenis col.,,reversed with Apollonia in RC/GG. Apollonia is on branch of main road,Cyrenis col.,43,354,,Apolonia,,,Apollonia,,32.82002663,21.85653851,0.378763259,-0.024218418
+6,373732,Apollonia/Sozousa,7C5,348,2688,Apollonia,Appollonia,,reversed with Cyrene in RC/GG. Apollonia is on branch of main road,Appollonia,44,354,,Cyrene,,,Cyrene,,32.90234355,21.97083069,0.380188773,-0.02465198
+6,373727,Agabis,7C5,349,2699,Agabis,Agabis,,,Agabis,45,354,,Agabis.,Agabus.,,Agabus.,,32.724784,22.022689,0.381289638,-0.02545894
+7,373848,Ma(ra)ndis?,7C5,350,2711,Mandis,Mandis,,,Mandis,1,354,,Madis,Mandis,,Mandis,,32.586613,22.504054,0.383688222,-0.024643767
+7,373868,Paliouros,8C1,351,2722,Paliuris,Palivris,,,Palivris,2,354,,Paliuris,Paliueris,,Paliuris,,32.335828,23.061232,0.384659557,-0.02475589
+7,716601,Miceris,8C1,352,2732,Meciris,Meciris,,,Meciris,3,354,,Meciris,Micheris,,Meciris,,32.128016,23.668112,0.385998718,-0.024902165
+7,716566,Gonia,8C1,354,2754,Gonia,Gonia,,on branch,Gonia,4,354,,Gonia,Antipoego,,Sonia,,32.066825,23.957617,0.387966754,-0.024765224
+7,716525,Antipyrgos,8C1,353,2743,Antipego,Antipego,,,Antipego,5,354,,Antipegoni,Gonia,,Antipegonia,,32.076457,23.961371,0.387592827,-0.025426187
+7,718020,Cardu,8C1,355,2763,Cardum,Caixtv,,,Caixtv,6,355,,Carduc,Gardum,,Cardum,,0,0,0.390390398,-0.025440719
+7,718035,Nemeseo/Hemeseo,8C1,356,2772,Nemeseo,Nem[.]seo,,,Nem[.]seo,7,355,,Nemeseo,Nemeseum,,Nemesium,,0,0,0.392301877,-0.025471013
+7,716540,Catabathmus Maior/Plynos Limen/Tetrapyrgia,8C1,357,2779,Catabathmo,Catabathmo,,,Catabathmo,8,355,,Catabatimon,Catabathmon,,Catabatimon,,31.552706,25.152644,0.394047306,-0.025492563
+7,,#N/A,,,0,,,,,,9,355,,Bogratin,Bograi,,Bugratim,,0,0,,
+7,718010,Aratu,8C2,358,2780,Aratu,Aratv,,,Aratv,10,355,,Aradum,Araton,,,,0,0,0.395722556,-0.025621706
+7,716507,Ainesisphyra/Ennesyphora/Nesus,8C2,359,2781,Nesus,Nesvs,,,Nesvs,11,355,,Nessus,Nesus,,Nessus,,31.611093,25.925681,0.397729515,-0.025587726
+7,716615,Paraetonium/Ammonia,8C2,361,2784,Pretonio,Pretonio,,,Pretonio,12,355,,Parctonio,Paratonion,,Paretonium,,31.350136,27.2368445,0.40112888,-0.025295911
+7,718042,Philiscu,8C2,362,2785,Philiscu,P[ - ? - ]scv,,,P[ - ? - ]scv,13,355,,Filiscum,Filiscin,,Filiscum,,0,0,0.403253149,-0.025059581
+7,716539,Caportis/Patrico?,8C3,363,2786,Patrico,Patrico,,,Patrico,14,355,,Patricon,Patricon,,Patricum,,31.027015,28.4357655,0.405648827,-0.023973502
+7,716546,Comaru,8C3,364,2787,Comarv (Comaru),Comarv,,,Comarv,15,355,,Comaron,Gomaron,,Comarum,,30.966185,28.734397,0.40690239,-0.023404224
+7,718033,Monokaminon/Monogami,8C3,365,2788,Monogami,Monogami,,,Monogami,16,355,,Monocaminon,Monocanon,,Monocaminum,,0,0,0.408221535,-0.022953809
+7,,#N/A,,,0,,,,,,17,355,,Almiris,Almiris,,Almiris,,0,0,,
+7,727241,Taposiris Megale,8C3,366,2789,Tapostri,Tapostri,,,Tapostri,18,355,,Tapostri,Tamnostri,,Tapostri,,30.9461265,29.519114,0.409844514,-0.022767232
+7,727070,Alexandria,8C3,367,2790,[Faro di Alessandria] (Levi),"(symbol, no name, no. 56)",,yes (no label),[Faros Symbol],19,355,,Alexandria,"Item ad aliam partem, iuxta Alexandriam, litus mare magnum, sunt civitates, id est",,"Alexandria regia, cuius ambitus milium LX fuisse dicitur. in qua farus altissima, quae miraculum unum de septem orbis miraculis, secundum a Romano ponitur. hanc venerabilis evangelista Marcus consecrans unam e quattuor generalibus Christi ecclesiis statuit.",,31.201435,29.909773,0.411287932,-0.023160609
+7,727097,Canopus,,,0,,,,,,20,355,,Canopon,,,Canobum,,31.313404,30.0580595,,
+7,727123,Hermopolis Mikra,8C4,368,2791,Ermupoli,Ermvpoli,,,Ermvpoli,21,355,,Ermupolis,Ermupolis,,Ermupolis,,31.033655,30.4707825,0.414658408,-0.022302307
+7,,,,,0,,,,RC/GG confuses Tanis with Xois,,22,355,,Tani,Thanis,,Tani,,0,0,,
+7,727094,Bouto,8C4,369,2792,Buto,Bvto,,,Bvto,23,355,,Buto,Buto,,Buti,,31.19574446,30.74314612,0.415637809,-0.022396067
+7,,,8C4,none (but KU DB 2794),,,,,,Tmu,24,356,,Thamui,Theomis,,Thamum quae Thanus vel Taphnis est,,0,0,,
+7,727256,Xois,8C4,none (but KUDB 2795),,,,,RC/GG confuses Tanis with Xois,Thitu,25,356,,Xoin,Xoy,,Ixion,,31.108961,30.93728,,
+7,727121,Herakleopolis Mikra/Sethroe,8C4,372,2796,Heracleo,He[..]cle[.],,,He[..]cle[.],26,356,,Eracleo,Hiracleum,,Heracleum,,30.982139,32.167572,0.421333204,-0.022391178
+7,727192,Pelusium,8C4,374,2797,Pelusio,Pelvsio,,,Pelvsio,27,356,,Pilusion,Helusa?,,Pilusium,,31.0427587,32.5473404,0.423274565,-0.02208905
+7,687909,Gerra,8C5,430,2856,Gerra,Gerra,,,Gerra,28,356,,Gerro,Gera,,Gerra,,31.047307,32.665525,0.425692624,-0.021779038
+7,687872,Casius Mons,8C5,431,2857,Cassio,Cassio,,,Cassio,29,356,,Cassion,Nassion,,Cassion,,31.2116,33.0779,0.427647709,-0.021676278
+7,687993,Ostrakine,8C5,432,2858,Ostracine,Ostracine,,,Ostracine,30,356,,Ostraciana,Ostracina,,Ostracina,,31.11593,33.430636,0.428977969,-0.021754382
+7,688016,Rhinocolura,8C5,433,2859,Rinocorvra (Rinocorura),Rinocorvra,,,Rinocorvra,31,356,,Rinocururon,,,Rinocoruron,,31.111755,33.796926,0.432574991,-0.022169599
+7,688015,Raphia,,,0,,,,,,32,356,,Rafis,Rifis,,Rasis,,31.290688,34.242503,,
+7,687902,Gaza,,,0,,,,,,33,356,,Gaza,Gazis,,Gaga,,31.5202095,34.451719,,
+7,687839,Ashqelon/Ascalon,9C1,434,2860,Ascalone,Ascalone,,,Ascalone,34,356,,Ascalona,Ascalona,,Ascalona,,31.66479721,34.55052147,0.435246822,-0.022263114
+7,687838,Ashdod/Azotos (Mesogeios),9C1,435,2861,Azoton,Azoton,,,Azoton,35,356,,Azatum,Azoton,,Azotus,,31.756019,34.6576805,0.436943602,-0.021896804
+7,687925,Iamneia,9C1,439,2865,Lamnia,Lamnia,,,Lamnia,36,356,,Iamniam,,,Lannia,,31.8764615,34.7384245,0.438576897,-0.021634338
+7,687931,Ioppe,9C1,440,2867,Ioppe,ioppe,,,ioppe,37,356,,Ioppe,Ioppis,,Ioppe,,32.053079,34.7499295,0.440181131,-0.021871051
+7,678025,Apollonia/Sozousa,9C1,441,2868,Appolloniade,Appolloniade,,,Appolloniade,38,356,,Apollonia,Apolonia,,Appollonia,,32.196401,34.810758,0.441745318,-0.022198322
+7,678401,Stratonos Pyrgos/Caesarea,9C1,442,2869,Cesaria,Cesaria,,,Cesaria,39,356,,Caesarea Palaestinae,Caesarea,,Cesarea Phalestinae,,32.5018388,34.8924472,0.444039212,-0.022430139
+7,678121,Dor(a),9C1,463,2892,Thora,Thora,,,Thora,40,357,,Dora,Dora,,Dora,,32.6169704,34.916526,0.445813195,-0.022669617
+7,678010,Ake/Ptolemais,9C2,486,2917,Ptolomaide,Ptolomaide,,,Ptolomaide,41,357,,Ptolomaida,Ptolomaida,,Ptolomaida,,32.9212868,35.079835,0.447113641,-0.022799677
+7,678128,Ekdippa,,,0,,,,,,42,357,,Ecdilpa,Edippa,,Ecdilpa,,33.047809,35.108399,,
+7,652375,Tyros,9C2,487,2918,Tyro,Tyro,,,Tyro,43,357,,Tyros,Tyrone,,Tyrus,,0,0,0.44924641,-0.023304707
+7,678393,Sidon/Col. Aurelia Pia,9C2,488,2919,Sydone,Sydone,,,Sydone,44,357,,Sidona,Sidone,,Sidonia,,33.56101867,35.37206,0.451633288,-0.023302449
+7,678060,Beirut,9C2,492,2923,Berizto,Berizto,,,Berizto,45,357,,Piriton,Birithon,,Vitiron,,33.8985935,35.511241,0.453366124,-0.023092056
+7,678322,Palaibyblos,9C2,493,2924,Balbyblos,Balbyblos,,,Balbyblos,46,357,,Palebiblios,,,Pale,,33.982327,35.631034,0.455836313,-0.023294786
+7,668216,Byblos,9C2,497,2928,Biblo,Biblo,,,Biblo,47,357,,Biblos,Biblon,,Biblos,,34.11924879,35.64612466,0.457135085,-0.023657958
+7,,#N/A,,,0,,,,,,,357,,[GG: Biritos],,,Biritos,,0,0,,
+7,668214,Botrys,9C3,498,2929,Botrus,Botrvs,,,Botrvs,48,357,,Botris,Bostrinos,,Botris,,34.253561,35.659726,0.458751689,-0.023618865
+7,668394,Tripolis,9C3,499,2930,Tripoli,Tripoli,,,Tripoli,49,357,,Tripolis,Tropolis,,Tripolis,,34.449,35.812,0.460070191,-0.023813476
+7,668325,Orthosia,9C3,500,2933,Ortosias,Ortosias,,,Ortosias,50,357,,Ortosiada,Orthosia,,Ortosiada,,34.510876,35.954768,0.461271426,-0.023893781
+7,668190,Antarados/Constantia,9C3,501,2934,Andarado,Andarado,,,Andarado,51,357,,Antasaron,,,Axtasalon,,34.8974275,35.8836795,0.462968644,-0.023771127
+7,668206,Balanea/Leukas,9C3,502,2935,Balneis,Balneis,,,Balneis,52,357,,Balaneis,,,Balaneis,,35.15354,35.928176,0.466026854,-0.023699773
+7,668332,Paltos,9C3,528,2961,Palto,Palto,,,Palto,53,357,,Baltum,,,Valtum,,35.272667,35.927407,0.467801649,-0.023619635
+7,668250,Gabala,9C4,529,2962,Gabala,Gabala,,,Gabala,54,357,,Gabala,,,Gababa,,35.378062,35.922327,0.46972978,-0.023334148
+7,668290,Laodicea,9C4,530,2964,Laudicie,Lavdici(a)e,,,Lavdici(a)e,55,357,,Laudicia,Laodiciae,,Laodicia,,35.5189228,35.7766297,0.471285169,-0.02311111
+8,658363,Ad Orontem,9C4,531,2965,Adorontem (Ad Orontem),Adorontem,,,Adorontem,1,358,,Orientis,,,Orientis,,36.078089,35.9862355,0.473587581,-0.022422619
+8,658483,Hydatos Potamoi/Seleukeia Pieria,9B4,532,2966,Seleucia,Selevcia,,,Selevcia,2,358,,Seleucia,,,Seleutia,,36.1212645,35.9285965,0.475819261,-0.021290257
+8,658585,Rhosos,9B4,2375,1492,Rosos,Rosos,,,Rosos,3,358,,Rosclo,,,Rosclum,,36.4195645,35.887675,0.474927061,-0.020612106
+8,658371,Alexandria ad Issum,9B4,2333,1448,Alexandria catisson,Alexandria catisson,,,Alexandria catisson,4,358,,Alexandria cata Ison,,,Alexandria minor cata Isson,,36.5841815,36.173273,0.474242407,-0.019906151
+8,658490,Issus/Nikopolis,9B4,2370,1487,Issos,Issos,,,Issos,5,358,,Iosson,Isson,,,,36.85366811,36.15703875,0.472549792,-0.01950347
+8,658506,Katabolos/Moutloubake,9B4,2334,1449,Catabolo,Catabolo,,,Catabolo,6,358,,Cabulon,Catavolon,,Catabolon,,36.908101,35.9885745,0.472203775,-0.019114617
+8,658478,(H)Alai,,,0,,,,,,7,358,,Hire,,,Hyre,,36.816841,35.873832,,
+8,658368,Aigai(ai)/Aegeae,9B4,2369,1485,Aregea,Aregea,,,Aregea,8,358,,Egis,Aedis?,,Egis,,36.769676,35.789487,0.470896514,-0.018675555
+8,648702,Mallos/Antiochia ad Pyramum,9B4,2368,1484,Mallo,Mallo,,,Mallo,9,358,,Malion,Malion,,Mallion,,36.756188,35.4852,0.469895208,-0.018259856
+8,648789,Tarsus/Antiochia ad Cydnum,,,0,,,,,,10,359,,Cygnos,Cygnos,,Cygnos,,36.9123297,34.89579499,,
+8,606377,Zephyrion,9B4,2367,1483,Zephyrio,Zephyrio,,,Zephyrio,11,359,,Zephirion,Zephirion,,Zephirion,,0,0,0.468517674,-0.018129819
+8,648781,Soloi/Pompeiopolis,9B3,2342,,,,,,Soloe,12,359,,Soloe,Soloe,,Solde,,36.74005567,34.53922167,,
+8,648612,Corycus,9B3,2365,1481,Corioco,Corioco,,,Corioco,13,359,,Chorichos,Coricos,,Curicus,,36.465278,34.154167,0.462923647,-0.017641905
+8,648771,Seleucia ad Calycadnum/Tracheia,9B4,532,2966,Seleucia,Selevcia,,,Selevcia,14,359,,Seleucia,Seleucothin,,Seleucia,,36.379274,33.9214625,0.475819261,-0.021290257
+8,,#N/A,,,0,,,,,,15,359,,Trumphurion,,,Trophirion,,0,0,,
+8,648764,Sarpedonion (promontory),,,0,,,,,,16,359,,Sapedon,,,Sarpedon,,36.249722,33.961944,,
+8,648682,Kraunoi Pr.,9B3,2363,1479,crunis,crvnis,,,crvnis,17,359,,Crunis,Crunis,,Crunoi,,36.25,33.75,0.457761014,-0.017923428
+8,648596,Celenderis,9B3,2362,1478,Celendenis,Celenderis,,,Celenderis,18,359,,Celenderis,Celenderis,,Kelendris,,36.144259,33.323694,0.457891177,-0.018420169
+8,648571,Arsinoe,9B2,426,,,,,,Arsinoe,19,359,,Arsinoe,Arsinue,,Arsinoe,,36.09469733,33.031246,,
+8,648557,Anemurium,9B2,2345,1460,Animurio,Animvrio,,,Animvrio,20,359,,Animuria,Anemurion,,Anemoria,,36.02426313,32.80328612,0.454383638,-0.01955864
+8,648560,Antiochia ad Cragum,,,0,,,,,,21,359,,Antiochia epi Tragon,Scelinunte,,Antiochia magna (quam dominus Petrus apostolus suo pontificatu sanctificans unam e quattuor generalibus mundi ecclesiis sancxit) epi Tragon,,36.153303,32.4291384,,
+8,648773,Selinous (river),9B2,2360,1476,Selinunte,Selinvnte,,,Selinvnte,22,359,,Selenunte,Antiochia epi Tragon,,Selerante,,36.25,32.25,0.453875859,-0.018594463
+8,648650,Iotape,,,0,,,,,,23,359,,Iotapi,Iotapi,,Iotapis,,36.31995538,32.23680326,,
+8,648783,Syedra,,,0,,,,,,24,359,,Siedra,Sciedra,,Siedra,,36.44596715,32.14768517,,
+8,638933,Korakesion,,,0,,,,,,25,359,,Coracesion,Coracenssion,,Caracesium,,36.533634,31.993729,,
+8,638917,Kibyra Mikra,,,0,,,,,,26,360,,Cibira,Cybira,,Cibira,,36.659851,31.659825,,
+8,639105,Side,9B2,2353,1468,Sidi,Sidi,,,Sidi,27,360,,Side,Side,,Silde,,36.76836138,31.39216294,0.452531534,-0.019500051
+8,,#N/A,,,0,,,,,,28,360,,Enimidion,,,Eurimidion,,0,0,,
+8,638980,Magydos,,,0,,,,,,29,360,,Magidon,Magaudo,,Magidone,,36.84880262,30.79995643,,
+8,638778,Attalea,9B2,2395,1512,Atalia,Atalia,,,Atalia,30,360,,Atalia,Atalia,,Attalia,,36.8903095,30.699968,0.45189152,-0.020385491
+8,639016,Olbia,,,0,,,,,,31,360,,Olivia,Olivia,,Olivia,,36.87288333,30.60859033,,
+8,639051,Phaselis,9B2,2394,1511,Phaselis,Phaselis,,,Phaselis,32,360,,Faselis,Faselis,,Phaselis,,36.52349219,30.55216653,0.450663867,-0.020913271
+8,638937,Korydalla,9B2,2392,1510,Coridallo,Coridallo,,,Coridallo,33,360,,Coridarium,Coridalion,,Coridalion,,36.376674,30.273281,0.44863047,-0.020758142
+8,638961,Limyra,,,0,,,,,,34,360,,Limira,Limera,,Limira,,36.34182737,30.1700617,,
+8,638749,Antiphellos/Habesos,9B2,2391,1509,Antifillon,Antifillon,,,Antifillon,35,360,,Antifilon,Antiphiron.,,Antisilon,,36.199973,29.634935,0.447671511,-0.020452478
+8,639042,Patara/Arsinoe,9B2,2390,1508,Pataras,Patras,,,Patras,36,360,,Pateras,Patera,,Patera,,36.26179467,29.314501,0.448256026,-0.019542327
+8,639137,Telmessos,,,0,,,,,,37,360,,Telmison,Thelmion,,Telmison,,36.620899,29.105772,,
+8,,#N/A,,,0,,,,,,38,360,,Patheumis,Pathumis,,Pathemis,,0,0,,
+8,638968,Lydai,,,0,,,,,,39,360,,Lindon,Lindum,,Lidia,,36.614695,28.857562,,
+8,638796,Caunus,9B2,2388,1506,Cano,Cano,,,Cano,40,360,,Gaunon,,,Gaunon,,36.82528786,28.62208482,0.448333877,-0.018773731
+8,599888,Physkos,,,0,,,,,,41,360,,Piccos,Piccus,,Picos,,36.863121,28.276899,,
+8,599774,Loryma,9B1,2387,1505,Lorimna,Lorimna,,,Lorimna,42,360,,Lerimna,Rorimna,,Lerinna,,36.5773895,28.0082165,0.446048332,-0.01904534
+8,599575,Cnidus,9B1,2386,1504,Chidum,Chidvm,,,Chidvm,43,361,,Cnidum,Chinnidum,,Cnidon,,36.6881795,27.3728385,0.444370012,-0.019283463
+8,599636,Halicarnassus/Halikarnassos,,,0,,,,,,44,361,,Alicarnasum,Alicarnasum,,Alicarnasos,,37.0404005,27.4221505,,
+8,599811,Myndos,9B1,3467,,,,,TP describes as river,Mindo Fl.,45,361,,Mindon,Iason,,Mindon,,37.0555746,27.2341293,,
+8,599664,Iasos,,,0,,,,,,46,361,,Iason,Mindon.,,Iaason,,37.27919629,27.58487049,,
+8,599799,Miletus,9B1,2384,1502,Miletum,Miletvm,,,Miletvm,47,361,,Meleton,Mileton Cariae,,Meleton,,37.53046444,27.27880848,0.438907978,-0.019140055
+8,599640,Herakleion ad Latmum/Pleistarcheia,,,0,,,,,,48,361,,Eraclia,Eraclea,,Heraclea,,37.501842,27.525011,,
+8,599915,Pyrra,,,0,,,,,,49,361,,Pira,Pirras,,Pira,,37.55648,27.38313,,
+8,599905,Priene/Lince?,9B1,2383,1501,Lince,Lince,,,Lince,50,361,,Lince,Lincie,,Imote,,37.66078028,27.29658367,0.436758372,-0.019336045
+8,599855,Panionion,,,0,,,,,,51,361,,Palene,Palene,,Palene,,37.703924,27.329993,,
+8,599795,Melie/Karion,,,0,,,,,,52,361,,Micale,Micale,,Micale,,37.709368,27.218019,,
+8,599612,Ephesus/Arsinoe(ia),8B5,2187,1291,Ephesum,Ephesvm,,,Ephesvm,53,361,,Ephesum,Efesos,,"Ephesus, quam sanctus Iohannes theologus apostolus et evangelista irradiatur.",,37.9407625,27.340307,0.433702398,-0.019944497
+9,550492,Cayster (river),,,0,,,,,,1,361,,Cistron,Caustro,,Cistron,,37.97746,27.34746,,
+9,599578,Colophon/Colophon ad Mare/Notion,8B5,2228,1334,Colofon,Colofon,,,Colofon,2,361,,Colophon,Colophon,,Colophonea,,37.9952785,27.200852,0.431237288,-0.019677007
+9,599754,Lebedos/Ptolemais,8B5,2227,1333,Lebedo,Lebedo,,,Lebedo,3,361,,Tedebon,Levedon,,Lebedon,,38.0756465,26.965885,0.42866558,-0.019539983
+9,550913,Teos,8B5,2226,1332,Teos,Teos,,,Teos,4,362,,Teum,Teon,,Teum,,38.177262,26.785014,0.427145676,-0.019484968
+9,550893,Smyrna/Eurydikeia,8B4,2190,1294,Smyrna,Smyrna,,,Smyrna,5,362,,Smirna,Smurna,,Smirna,,38.4171961,27.141387,0.424463158,-0.019534032
+9,550908,Temnos,8B4,2223,1330,Themnum,Tyemnvm,,,Tyemnvm,6,362,,Tenum,Teinum,,Tennon,,38.676628,27.17263,0.423045995,-0.019853996
+9,550506,Cyme,8B4,2222,1329,Cyme,Cyme,,,Cyme,7,362,,Cime,Cymme,,Sime,,38.76019282,26.93831935,0.42144619,-0.019685962
+9,550756,Myrina/Sebastopolis,8B4,2221,1328,Mirinna,Mirinna,,,Mirinna,8,362,,Mirimna,Mirina,,"Mirea, quam divinus pontifex supra dicta Patera oriundus sanctus Nicholaus illuminat.",,38.8469759,26.9802024,0.419586006,-0.019679052
+9,550523,Elaea,8B4,2217,1324,Ela,Ela,,,Ela,9,362,,Elea,Helea,,Elea,,38.941644,27.055256,0.417316616,-0.01983096
+9,550833,Pitane,,,0,,,,,,10,362,,Pitina,Pitina,,Pitina,,38.928297,26.937453,,
+9,550473,Attea?,8B4,2220,1327,Attalia,Attalia,,,Attalia,11,362,,Attalia,Atalia,,Attalia,,39.214189,26.766607,0.415513473,-0.01989187
+9,550571,Herakleia/Elateia?,8B3,2219,1326,Elatia,Elatia,,,Elatia,12,362,,Elatia,Helatie,,Ellacia,,39.307546,26.689814,0.413852282,-0.019826009
+9,550667,Koryphas,8B3,2218,1325,Corifanio,Corifanio,,,Corifanio,13,362,,Orofanium,Corriphania,,Orphanion,,39.355929,26.782977,0.412220755,-0.019933961
+9,550403,Adramyttium,8B3,2213,1320,Adrimitios,[ - ? - ]tto,,,[ - ? - ]tto,14,362,,Adrimtin,Adrimition,,Adrimitin,,39.49864003,26.93609756,0.408841463,-0.020362164
+9,550433,Antandros,8B3,2212,1319,Antandros,Ant[.]ndros,,,Ant[.]ndros,15,362,,Antandro,Atandros,,Antandron,,39.57161342,26.78630114,0.406957422,-0.020313231
+9,550544,Gargara,8B3,2211,1318,Gargara,Gargara,,,Gargara,16,362,,Gangaron,Gangaron,,Gangaron,,39.534465,26.540773,0.405512067,-0.020210325
+9,550463,Assos/Apollonia,8B2,2210,1317,Assos,Assos,,,Assos,17,362,,Ysson,Assos,,Ysson,,39.49013546,26.3363517,0.403448043,-0.020530985
+9,550892,Smintheion,8B2,2209,1315,Smynthium,Sm[..]thivm,,,Sm[..]thivm,18,362,,Smynio,Smunio,,Smiemon,,39.5362071,26.1177415,0.401834709,-0.020758594
+9,550434,Antigoneia/(Col. Augusta) Alexandria Troas,8B2,2208,1314,Alexandria Troas,Alexandria troas,,,Alexandria troas,19,362,,Alexandria Troias,Alexandria Troas,,"Alexandria Troada, quae Ilium seu Dardania dicta est,",,39.7516571,26.15755952,0.398772935,-0.020328813
+9,550595,Ilium/Troia,8B2,2207,1313,Ilio,Ilio,,,Ilio,20,363,,Ilion,Ilion,,,,39.95743808,26.23851562,0.39736655,-0.020545427
+9,501393,Dardanos,8B2,2206,1312,Dardano,Dardano,,,Dardano,21,363,,Dardanon,Dardanus,,,,40.079727,26.37442,0.395946695,-0.020207127
+9,501325,Abydos,8B2,2205,1311,Auido,Avido,,,Avido,22,363,,Habidon,Abydos,,Abidus,,40.19421564,26.41131276,0.393881122,-0.01977915
+9,501570,Pityoussa/Lampsacus,8B1,2191,1295,Lamasco,Lamasco,,,Lamasco,23,363,,Lamsacum,Lapsacos,,Lampsacon,,40.346685,26.699162,0.392226848,-0.018953634
+9,511354,Parium/Col. Gemella Iulia *Hadriana,8B2,2192,1296,Parium,Parivm,,,Parivm,24,363,,Parium,Parion,,Paroum,,40.42369835,27.07026171,0.394081168,-0.018142081
+9,511375,Priapus,8B2,2193,1297,Priapos,Priapos,,,Priapos,25,363,,Priapum,Priapos,,Priapion,,40.4136259,27.3255087,0.395769888,-0.017256131
+9,511260,Granicus (river),8B2,2194,1298,Cranico,Cranico,,,Cranico,26,363,,Granicon,,,Gramicon,,40.36967,27.30545,0.397542498,-0.016625197
+9,511218,Cyzicus,8B2,2195,1299,Cyzico,Cyzico,,,Cyzico,27,363,,Cycon,Cizicos,,Kyzicon,,40.3855645,27.883191,0.397832065,-0.017582901
+9,511194,Brylleion/Myrleia/Apamea/Col. Iulia Concordia,,,0,,,,PT places unconnected,,28,363,,Apamia,Apameia,,Apamia,,40.3755728,28.8827428,,
+9,511385,Prusias ad Mare/Kios,,,0,,,,PT places unconnected,,29,363,,Brissas,Prusias,,,,40.432469,29.15639,,
+9,511385,Prusias ad Mare/Kios,8B2,2196,1300,Cio,Cio,,PT places unconnected,Cio,30,363,,Cion,,,Cion,,40.432469,29.15639,0.404022766,-0.01751154
+9,511372,Prainetos,8B2,2130,1229,Pronetios,Pronetios,,PT places unconnected,Pronetios,31,363,,Pronesion,,,Prenctos,,40.689761,29.618865,0.397125112,-0.014455496
+9,511254,Eribolon,8B2,2128,1226,Eribulo,Eribvlo,,,Eribvlo,32,363,,Eribulion,,,Eribulon,,40.75,29.75,0.401537895,-0.014292417
+9,511337,Nicomedia,8A2,2110,1208,Nicomedia,Nicomedia,,,Nicomedia,33,363,,Nicomedia,Nicomedia,,"Nichomedia regalis nobilis et olim opulenta, quam inter complures martires ac sanctos perendie splendidissimus atleta Christi Pantaleon suis virtutibus in toto terrarum orbe clarificat.",,40.7651905,29.919887,0.401607061,-0.012059022
+9,511305,Libyssa,8A2,2109,1206,Liuissa,Livissa,,,Livissa,34,363,,Lipissa,Livissa,,Libissa,,40.769562,29.539812,0.396986467,-0.011350004
+9,520988,Chalcedon,8A1,2108,1205,Calcedonia,Calcedonia,,,Calcedonia,35,363,,Chalcidon,Chalcedon,,"Chalchidon aeque famosissima, quam Christi virgo et martir Eufimia licet in urbe regia quae huic contigua est tumuletur ob barbarorum incursum suo martirio suisque virtutibus facit celeberrimam,",,40.983393,29.025789,0.393564522,-0.011291698
+9,521035,"Hieron (Chalkedonion)/Zeus Ourios, T.",8A2,2085,1181,Iouisvrius (Iovis Urius),iovisvri(vs),,,iovisvri(vs),36,364,,Urion,,,Ieron,,41.179,29.094,0.395661825,-0.009403195
+9,520959,Ancyreum Pr.,8A2,2086,1182,Ad promontorium,Adpromontorivm,,,Adpromontorivm,37,364,,Promunturium,,,"Promuntorium Angusti, quod de Ponto mergit in Propontidem, quodque catena una munitur ferrea,",,41.224459,29.1654468,0.398979102,-0.008978541
+9,521134,Rhebas,8A2,2087,1183,Ad herbas fluvius,Adherbas Fl.,,,Adherbas Fl.,38,364,,Erba,,,Herba,,41.22441,29.220059,0.401228821,-0.009257529
+9,511313,Melaina Pr.,8A2,2088,1184,Melena,Melena,,,Melena,39,364,,Melena,Melena,,Melena,,41.25,29.25,0.403562861,-0.009799027
+9,511161,Artanes,8A3,2089,1185,Artane,Artane,,,Artane,40,364,,Artane,Artamen,,Arcene,,41.17132,29.604165,0.406710621,-0.010349642
+9,511387,Psillion,8A3,2090,1187,Philium,Philivm,,,Philivm,41,364,,Filium,Filium,,Silion,,41.133616,29.847158,0.409175462,-0.010117234
+9,511208,Chelai,8A3,2091,1188,Chelas,Chelas,,,Chelas,42,364,,Chelas,Chellas,,Chelas,,41.183009,30.337495,0.41148286,-0.009788643
+9,511406,Sangarius (river),8A3,2092,,,,,,Sagari(vs) Fl.,43,364,,Sagaris,Saccar,,Sagaris,,41.12483,30.64872,,
+9,844950,Hypios (river),8A4,2093,1190,Hyppium Fluvius,Hyppivm Fl.,,,Hyppivm Fl.,44,364,,Ypion,Rippem,,Ypion,,41.068,30.9689,0.4159194,-0.009474728
+9,844913,Elaios,8A4,2094,1191,Byleum Fluvius,Bylevm Fl.,,,Bylevm Fl.,45,364,,Bilion,Bilem,,Billeon,,41.115693,31.297325,0.417798801,-0.009362123
+9,845006,Lykos (river),8A4,2095,1192,Lygum Fluvius,Lygvm Fl.,,,Lygvm Fl.,46,364,,Licum,Licem,,Licion,,41.22736,31.46493,0.419968015,-0.009299575
+9,844944,Heraclea,8A4,2096,1193,Heraclea,Heraclea,,,Heraclea,47,364,,Eraclea,Ieracliam,,,,41.28325533,31.41741367,0.422305373,-0.009351999
+9,845051,Psylla,8A4,2097,1194,Scylleum,Scyllevm,,,Scyllevm,48,364,,Sileon,Sileo,,Sileon,,41.5145325,31.910681,0.423488117,-0.009694002
+9,845084,Tios/Tieion,8A5,2099,1195,Tium,Tivm,,,Tivm,49,364,,Tion,Tilam,,Cyon,,41.57117437,32.03150954,0.425129452,-0.009686263
+9,844856,Amastris/Sesamos,8A5,2100,1197,Mastrum,Mastrvm,,,Mastrvm,50,364,,Amastra,Amastra,,Amastram,,41.746969,32.385648,0.427794367,-0.009549154
+10,844997,Kytoros,8A5,2101,1198,Tycae,Tycae,,,Tycae,1,365,,Tyce,Tice,,Tice,,41.861928,32.897814,0.429692346,-0.009384019
+10,844927,Garios,8A5,2102,1199,Cereas,Cereas,,,Cereas,2,365,,Cereas,Cereas,,Saeera,,41.9888345,33.569007,0.431147396,-0.009455331
+10,,,8A5,2103,1200,Mileto,Mileto,,,Mileto,3,365,,Mileton,Milethon,,Militon,,0,0,0.432909652,-0.009551037
+10,844865,Armene,,,0,,,,,,4,365,,Armone,Armone,,Armone,,42.049231,35.041878,,
+10,857321,Sinope,9A1,2104,1201,Sinope,Sinope,,,Sinope,5,365,,Sinopi,Sinopi,,Sinopi,,42.025776,35.143037,0.435916388,-0.009761378
+10,844996,Kyptasia,9A1,2230,1337,Cloptasa,Cloptasa,,,Cloptasa,6,365,,Cloptasa,Cyptasa,,Clopatassa,,41.92842,35.068707,0.437724414,-0.009547869
+10,857181,Karousa/Polichnion,,,0,,,,,,7,365,,Carusa,Carusa,,Carusa,,41.810138,35.158944,,
+10,857132,Garzoubanthon/Orgibate,9A1,2231,1338,Orgibate,Orgibate,,,Orgibate,8,365,,Orgibate,Orgivate,,Orgibate,,41.735787,35.222212,0.439632284,-0.00925826
+10,857379,Zagora,9A1,2232,1339,Zacoria,Zacoria,,,Zacoria,9,365,,Zocoria,Agoria,,Zacoria,,41.677747,35.4111,0.441739698,-0.009170517
+10,857128,Gadilon/Helega?,9A1,2233,1340,Helega,Helega,,,Helega,10,365,,Eleca,Ielega,,Ebeta,,41.571325,35.894016,0.443942183,-0.009446569
+10,857242,Naustathmos,9A1,2234,1341,Nautagino,Navtagino,,,Navtagino,11,365,,Nuccamon,Nautamno,,Nauctacmon,,41.497628,36.116602,0.44636911,-0.009788433
+10,857124,Eusene,9A2,2235,1342,Ezene,Ezene,,,Ezene,12,365,,Ezene,Aezene,,Ezena,,41.373045,36.23131,0.44981318,-0.010216694
+10,857024,Amisus/Peiraieus,9A2,2236,1343,Missos,Missos,,,Missos,13,365,,Amissos,Amisos,,Amissos,,41.292721,36.3313,0.451321841,-0.010036149
+10,857029,Ankon,9A2,2237,1344,Ancon,Ancon,,,Ancon,14,365,,Ancone,Ancona,,Ancone,,41.373977,36.631607,0.453486371,-0.010226712
+10,857207,Lamyron/Herakleion,9A2,2238,1345,Heracleon,Heracleon,,,Heracleon,15,365,,Eraclion,Ieracleo,,Heraclion,,41.245644,37.025822,0.455480044,-0.010384358
+10,543814,Oinoe,9A2,2239,1346,Caena,Caena,,,Caena,16,365,,Cena,,,Cenae,,0,0,0.456991286,-0.010685347
+10,857020,Ameletos/Camila,9A3,2240,1348,Camila,Camila,,,Camila,17,366,,Camila,Camila,,Camilia,,41.105353,37.394871,0.458949836,-0.011021594
+10,857269,Phabda/Phadisane,9A3,2241,1349,Pytane,Pytane,,,Pytane,18,366,,Fitane,,,Fitane.,,41.0382425,37.496475,0.46079136,-0.011592976
+10,857285,Polemonion/Side,9B3,2242,1350,Polemonio,Polemonio,,,Polemonio,19,366,,Polemonium,Polemonion,,Polemonium,,41.0308808,37.500221,0.463435298,-0.012057102
+10,857232,Melanthios (river),9A3,2420,1541,Melantum,Melantvm,,,Melantvm,20,366,,Melantium,Melantion,,Malanchium,,40.97411,37.93917,0.465327939,-0.010382157
+10,857185,Kerasous/Pharnakeia,9A3,2419,1539,Carnasso,Carnasso,,,Carnasso,21,366,,Parnasum,,,Parnasum,,40.919134,38.397931,0.463857163,-0.009796095
+10,857383,Zephyrion,9A3,2418,1538,ZepyriumZefre/Gülburnu,Zepyrivm,,,Zepyrivm,22,366,,Zephirium,,,Zephirion,,40.964714,38.652473,0.462389098,-0.009251922
+10,857183,Kerasous,,,0,,,,RC out of sequence,,23,366,,Cerasumta,Cerasus,,Cerasunta,,41.05814,39.319029,,
+10,857278,Philokaleia,9A3,2417,1537,Philocalia,Philocalia,,,Philocalia,24,366,,Philocalia,Philocalian,,Filocalia,,41.034353,38.984957,0.460045046,-0.008427419
+10,857199,Kordyle,9A3,2416,1536,Cordile,Cordile,,,Cordile,25,366,,Cordule,Cordule,,Cordulen,,41.081598,39.496726,0.457880287,-0.008115823
+10,857359,Trapezus,9A2,2396,1513,Trapezunte,Trapezvnte,,,Trapezvnte,26,366,,Trapezum,Trapezus,,Trapezunta,,41.0042695,39.7233115,0.454955496,-0.007462997
+10,857291,Psoron Limen/Hyssos/Sousarmia/Sousourmena/Ysiporto,9A3,2397,1514,Nyssillime,Nyssillime,,NON-COASTAL,Nyssillime,27,366,,Ysulime,Ysilime,,Isulyne,,40.942435,40.039388,0.458070372,-0.006170546
+10,857257,Ophis,9A3,2398,1515,opiunte (Opiunte) oder eher: Ofiunte,o+ivnte,,NON-COASTAL,o+ivnte,28,366,,Offitiunte,Ofeunte,,Ofiunte,,40.937952,40.264282,0.461288487,-0.005835065
+10,,#N/A,,,0,,,,,,29,366,,Medocina,Medocina,,Medocina,,0,0,,
+10,,#N/A,,,0,,,,,,30,366,,Solodicina,Solodocina,,Solacina,,0,0,,
+10,857011,Adienos (river),9A3,2400,1519,Ardinco,Ardinco,,NON-COASTAL,Ardinco,31,366,,Gadinio,Gudiono,,Gadimon,,41.0811,40.7224,0.467898888,-0.005928524
+10,857050,Athenai,9A4,2401,1520,Athenis,Atheni[.],,NON-COASTAL,Athenis,32,366,,Athenas,Athenas,,Athina,,41.172312,40.874223,0.472241616,-0.006279365
+10,857039,Archabis (river),9A4,2402,1521,Abgabes,Abgabes,,NON-COASTAL,Abgabes,33,367,,Arcabis,Arcavis,,Arrabis,,41.33879,41.29985,0.475825821,-0.00630317
+10,857188,Kissa,9A4,2403,1522,Cissa,Cissa,,NON-COASTAL,Cissa,34,367,,Cessa,Cessa,,Cessa,,41.377394,41.4031665,0.478624381,-0.006380299
+10,857297,Rhizaion,,,0,,,,RC out of sequence,,35,367,,Ruzion,Rizion,,Rithion,,41.027808,40.5033,,
+10,857032,Apsaros/Apsyrtos,9A5,2404,1523,Apsaro,Apsaro,,NON-COASTAL,Apsara,36,367,,Apsaron,Absanon,,Apsaron,,41.57325289,41.57372,0.481825017,-0.006177065
+10,857060,Bathys Limen/Portus Altus,9A5,2405,1524,Portualtu,Portvaltv,,NON-COASTAL,Portualtu,38,367,,Acomas,Camasim,,Acomasin,,41.643326,41.661384,0.485229889,-0.006168967
+10,857173,Isis (river),9A5,2406,1525,Apasidam,Apasidam,,NON-COASTAL,Apasidam,39,367,,Apiside,Apisidem,,Apiside,,41.9178855,41.82499135,0.488884566,-0.006156547
+10,857237,Mogros/Nigrus (river),10A1,2446,1566,Nigro,Nigro,,NON-COASTAL,Nigro,40,367,,Nigro,Nigron,,Nigro,,41.9896,41.7813,0.491325824,-0.006278848
+10,857275,Phasis (settlement),10A1,2447,1567,Phasin,Phasin,,NON-COASTAL,Phasin,41,367,,Fasin,Fasis Lazorum,,Fasin,,42.135867,41.6923225,0.493079232,-0.006178412
+10,857320,Simagre,,,0,,,,,,42,367,,Siganion,Sigamium,,Sigamon,,42.19611,41.767131,,
+10,,#N/A,,,0,,,,,,43,367,,Cotaisis,Cotaisin,,Cotaisis,,0,0,,
+10,857045,Arios/Charieis (river),10A1,2448,1568,Cariente,Cariente,,NON-COASTAL,Cariente,44,367,,Charientos,Charientis,,Charientis,,42.2765,41.6794,0.495932486,-0.006072441
+10,857092,Chorsos/Chobos (river),10A1,2449,1569,Chobus,Chobvs,,NON-COASTAL,Chobus,45,367,,Chobus,Chobus,,Chobus,,42.422,41.6589,0.499005527,-0.006242356
+10,857236,Moches/Tarsouras?/Thersos?/Kyaneos?/Gyenos? (river),10A2,2452,1573,Tassiros,Tassiros,,NON-COASTAL,Tassiros,46,367,,Tasbiros,Thabyrrus,,Tasbiros,,42.7561,41.463,0.50693605,-0.006519425
+10,857143,Gyenos/Cygnus,10A2,2451,1572,Cyanes,Cyanes,,NON-COASTAL,Cyanes,47,367,,Cyaneis,Ciameis,,Cianeis,,42.75581,41.403117,0.505046574,-0.006393201
+10,857049,Astelephos/Euripos (river),10A2,2453,1574,Stempeo,Stempeo,,NON-COASTAL,Stempeo,48,367,,Stelippon,Stelippon,,Stelippon,,42.84350769,41.1221446,0.510894973,-0.006469216
+10,,#N/A,,,0,,,,,,49,367,,Nicopolis,,,Nicopolis,,0,0,,
+10,,#N/A,,,0,,,,,,50,367,,Lamiupulis,Damiupolis,,Lamiupolis,,0,0,,
+10,857107,Dioscurias/Sebastopolis,10A2,2454,1575,Sebastopolis,Sebastoplis,,,Sebastopolis,51,368,,Sevastolis,Sevantopoli,,Sebastobolis,,42.99833095,41.0111751,0.513969996,-0.006071251
+10,854666,Apatouros Kolpos,,,0,,,,out of sequence?,,52,368,,Appatura,Apatura,,Apatura,,45.273889,36.783056,,
+10,,Kepoi,8A5,2828,1978,Cepos,Cepos,,out of sequence?,Cepos,53,368,,Ceppos,Gypos,,Ceppos,,0,0,0.431683076,-0.006699614
+10,857735,Stratoclia,8A5,2825,1975,Stratoclis,Stratoclis,,,Stratoclis,54,368,,Stratuclis,Stratuclis,,Stratualis,,0,0,0.426380259,-0.006593661
+10,,,9A2,2833,,,,,,Malichi,55,368,,Malichi,Limachi,,Malichin,,0,0,,
+10,825345,Palaia Achaia,9A2,2832,1983,Acheon,Acheon,,,Acheon,56,368,,Acheon,Acheon,,Acbeon,,44.092516,39.063264,0.447171009,-0.006872633
+10,854735,Sindike,9A1,2830,1981,Sindecae,Sindecae,,,Sindecae,57,368,,Sindice,Sindice,,Sindice.,,45.25,36.75,0.440909359,-0.006836843
+10,854687,Hermonassa,9A1,2829,1979,Hermonassa,HERMONASSA,,,HERMONASSA,58,368,,Ermonas,Ermonasa,,Ermonasa,,45.21526333,36.712664,0.436394171,-0.006758288
+10,,#N/A,,,0,,,,,,59,368,,Eteobrocon,Eteobroton,,Etkobrocon,,0,0,,
+10,854745,Tyritake,,,0,,,,,,60,368,,Latirita,Tatirita,,Latirita,,45.27731203,36.40715298,,
+10,#N/A,#N/A,8A3,2822,1972,Sopatos,Sopatos,,UNORDERED,Sopatos,61,368,,Supatos,Suppatos,,Suppatos,,#N/A,,0.408748504,-0.007017981
+10,#N/A,#N/A,8A3,2817,1966,Macara,Macara,,UNORDERED,Macara,62,368,,Machara,Machara,,Machara,,#N/A,,0.401720754,-0.007021034
+10,854724,Phanagor(e)ia,8A4,2824,1974,Phamacorium,Phamacorivm,,UNORDERED,Phamacorium,63,368,,Friciorin,Friciores,,Friciorin,,45.2762583,36.9596683,0.419561812,-0.006610644
+10,857153,Heniochoi,8A3,3129,,,,,UNORDERED,ENIOCHI,64,368,,Eraucionis,,,Eraucionis,,0,0,,
+10,854690,Ilouraton,8A2,2815,1964,Bruani,Brvani,,UNORDERED,Brvani,65,368,,Britani,Abritani,,Bitam,,45.2856653,36.2921437,0.398126434,-0.006988341
+10,854696,Kimmerikon,8A2,2814,1963,Chimerium,Chimerivm,,UNORDERED,Chimerivm,66,368,,Chimerium.,Chimerion,,Chimerium.,,45.042315,36.22459,0.395200065,-0.006955256
+11,854719,Pantikapaion/Bosp(h)orus,,,0,,,,UNORDERED,,1,369,,Panthuas,Panthuas,,Panthua,,45.35098338,36.46857968,,
+11,854715,Nymphaion,8A1,2812,1961,Nimphi,Nimphi,,UNORDERED,Nimphi,2,369,,Nymfe,Nimfa,,Nimphe,,45.23667101,36.41767088,0.392357498,-0.007641648
+11,,#N/A,,,0,,,,UNORDERED,,3,369,,Dina,Dina,,Dine,,0,0,,
+11,,#N/A,,,0,,,,UNORDERED,,4,369,,Ichindin,Ichigin,,Ichigin,,0,0,,
+11,,#N/A,,,0,,,,UNORDERED,,5,369,,Ergoga,Ermogan,,Eygoga,,0,0,,
+11,857741,Teagenis,8A1,2810,1960,Teagina,Teagina,,UNORDERED,Teagina,6,369,,Tegine,Teaginem,,Teagina,,0,0,0.390596987,-0.008052673
+11,226714,Parthenion? Akron,8A1,2809,,,,,UNORDERED,Ac[ - ? - ]+,7,369,,Acra,Acra,,Acra,,44.514846,33.491262,,
+11,226770,Symbolon Limen,8A1,2806,1955,Salolime,Salolime,,UNORDERED,salolime,8,369,,Salolime,Salonime,,Salolime,,44.5019525,33.598749,0.38694359,-0.008161859
+11,,#N/A,,,0,,,,UNORDERED,,9,369,,Mulisinon,Malorossa,,Munisinon,,0,0,,
+11,854710,Myrmekion,,,0,,,,UNORDERED,,10,369,,Mucracum,Murmicon,,Muracum,,45.35313173,36.52151211,,
+11,226517,Aloustou Phrourion,,,0,,,,UNORDERED,,11,369,,Alecturia,,,Allecturia,,44.674357,34.40467,,
+11,,#N/A,,,0,,,,UNORDERED,,12,369,,Dandareon,Dori,,Daldereen,,0,0,,
+11,226546,Borysthenes/Olbia,,,0,,,,UNORDERED,,13,369,,Olivapolis,Olbiapolis,,Olivapolis Bomstenida.,,46.69238566,31.90585677,,
+11,226545,Borysthenes (island),,,0,,,,UNORDERED,,14,370,,Poristenida,Borisenida,,,,46.5941693,31.4125394,,
+11,,#N/A,,,0,,,,UNORDERED,,15,370,,Calipolis,Capolis,,,,0,0,,
+11,226564,Chersonesos,,,0,,,,UNORDERED,,16,370,,Cersona,Chersona,,,,44.61109288,33.492258,,
+11,854743,Theodosia,,,0,,,,UNORDERED,,17,370,,Theodosia / Dosiopolis,Theosiopolis,,,,45.04609,35.378768,,
+11,,#N/A,,,0,,,,UNORDERED,,18,370,,Careon,Careon,,,,0,0,,
+11,229599,Trapezous,,,0,,,,UNORDERED,,19,370,,Trapezus,Trapezus.,,,,0,0,,
+11,,#N/A,,,0,,,,UNORDERED,,20,370,,Tatale,Totale,,,,0,0,,
+11,,#N/A,,,0,,,,UNORDERED,,21,370,,Tirice,Furice,,,,0,0,,
+11,226697,Nikonion,,,0,,,,,,22,370,,Neceranticos,Nicerantici,,,,46.174801,30.4585,,
+11,226800,Tyras/Ophioussa,,,0,,,,,,23,370,,Thira,Phira,,,,46.2007555,30.350134,,
+11,217025,Troesmis,,,0,,,,,,24,370,,Tiremsum,Tirepsum,,,,45.14309578,28.19500949,,
+11,216839,Histria,7A4,1956,1042,Histriopoli,Histriopoli,,,Histriopoli,25,370,,Istriopolis,Istriopolis,,,,44.5477874,28.7751288,0.369367571,-0.008176591
+11,217016,Tomis,7A4,1957,1043,Tomis,Tomis,,,Tomis,26,370,,Tomis,Tomis,,,,44.1728565,28.6497375,0.371532571,-0.008472486
+11,222192,Stratonis Turris,7A4,1963,1050,Stratonis,Stratonis,,,Stratonis,27,370,,Stratonis,Stratonis,,,,0,0,0.368788494,-0.008944467
+11,216744,Callatis,7A4,1962,1049,Callatis,Callatis,,,Callatis,28,370,,Calliatis,Callatis,,,,43.817152,28.58275,0.365211054,-0.009078482
+11,217013,Tirizis,7A4,1961,1048,Trissa,Trissa,,,Trissa,29,370,,Turisia,Tirissa,,,,43.3658075,28.4662525,0.362826061,-0.009016078
+11,216734,Bizone,7A3,1960,1047,Bizone,Bizone,,,Bizone,30,370,,Bizoris,Timum,,,,43.4338945,28.33814,0.360888998,-0.009193328
+11,?,#N/A,,,0,,,,,,31,371,,Tumo,Bizoi,,,,,,,
+11,216793,Dionysopolis/Krounoi,7A3,1959,1045,Dyosinopoli,Dyosinopoli,,,Dyosinopoli,32,371,,Dionisopolis,Dionisopolis,,,,43.417781,28.1629075,0.358926956,-0.009928068
+11,216904,Odessus,7A3,1958,1044,odessos (Odessos),odessos,,,odessos,33,371,,Odisson,Odiseos,,,,43.2061605,27.9134725,0.359500356,-0.01166676
+11,216806,Erite/Ereta,7A3,1964,1051,erite,erite,,,erite,34,371,,Erete,Erete,,,,43.054598,27.913242,0.36141997,-0.011644491
+11,216882,Mesembria,7A4,1966,1053,Mesembria,Mesembria,,,Mesembria,35,371,,Mesembria.,Mesembria,,,,42.65958,27.7244435,0.367787168,-0.011648866
+12,216702,Anchialus,7A4,1967,1054,Ancialis,Ancialis,,,Ancialis,1,371,,Achialis,Anchialis,,Anchialis,,42.555937,27.641374,0.371304468,-0.011496609
+12,216706,Apollonia Pontica/Sozopolis,7A5,1968,1055,Appollonia,Appollonia,,,Appollonia,2,371,,Apollonia,Apolonia,,Apollonia,,42.420355,27.694272,0.374020018,-0.011150566
+12,222205,Thera/Tira,7A5,1969,1056,Thera,Thera,,,Thera,3,371,,Thera,Tira,,Thera,,0,0,0.376458786,-0.01111243
+12,222025,Buaticum,7A5,1970,1058,Buatico,Bvatico,,,Bvatico,4,371,,Burticon,Burtinum,,Burticon,,0,0,0.37850717,-0.011245436
+12,511413,Scylla,7A5,1971,1059,Scyllam,Scyllam,,,Scyllam,5,371,,Scileti,Bilias,,Scillea,,41.48537,28.299623,0.380497717,-0.011281431
+12,511361,Philia,7A5,1972,1060,Philias,Philias,,,Philias,6,371,,Filias,Filias,,Philias,,41.3418792,28.6795713,0.382268078,-0.011200363
+12,521168,Timaea,8A1,2079,1174,Thimea,Thimea,,,Thimea,7,372,,Fimea,Thimea,,Fimea,,41.18404,29.06873,0.386059247,-0.01055102
+12,523982,Sykai/Ioustinianai/Ioustinianoupolis,8A1,2080,1176,Sycas,Sycas,,,Sycas,8,372,,Scicas,Sycas,,Scycas,,41.023019,28.972982,0.38886477,-0.010412401
+12,520998,Constantinopolis,8B1,2082,1178,Constantinopolis,Constantinopolis,,,Constantinopolis,9,372,,Constantinopolis,Constantinopolis nobilissima,,"Bizantion quae nunc Constantinopolis est, urbs regia et insignis, nova Roma, vestiens diadema totius cum purpura orbis.",,41.00659263,28.96563514,0.388480404,-0.012982599
+12,511397,Rhegion,8B1,1408,445,Regio,Regio,,,Regio,10,372,,Regium,Regium,,Regium,,41.008349,28.77522,0.292188372,-0.020344714
+12,511357,Perinthus/Heraclea,7B5,1976,1064,Perintus,Perintvs,,,Perintvs,11,372,,Eraclia Perithon,"Heraclia Perinthos, item",,Heraclea Perinthon,,40.971013,27.952973,0.380004048,-0.013259539
+12,511333,Neapolis/Herakleia,7B5,1982,1071,Heraclea,Heraclea,,,Heraclea,12,372,,Eraclia,Eraclia,,Heraclea,,40.638101,27.1810735,0.382330646,-0.015145669
+12,,#N/A,,,0,,,,,,13,372,,Gothis,,,Gothis,,0,0,,
+12,#N/A,#N/A,8B1,1983,1072,Macrontecos,Macrontecos,,,Macrontecos,14,372,,Machron Tycos,Macroticos,,Magrotichos,,#N/A,,0.38454136,-0.016317646
+12,511188,Bitenas,7B5,1980,1069,Bitenas,Bitenas,,,Bitenas,15,372,,Leuce,Leuce,,Lucen,,40.9363069,27.28075005,0.379836766,-0.014968835
+12,501609,Sestos,8B1,1986,1075,Sestos,Se[ - ? - ],,,Se[ - ? - ],16,372,,Sestos,Sextus,,Sextus,,40.21339677,26.38926915,0.386814785,-0.018062229
+12,501471,Koila,,,0,,,,,Colla,17,372,,Cela,Cela,,Cela,,40.207121,26.367552,,
+12,501450,Kallipo(u)lis,8B1,1985,1074,Callipoli,Callipol[ - ? - ],,,Callipol[ - ? - ],18,372,,Callipolis,Calipolis,,Calipolis,,40.4139,26.6807775,0.384756864,-0.017824002
+12,501352,Aphrodisias/Col. Flaviopolis,7B5,1984,1073,Aprodisia,Aprodisia,,,Aprodisia,19,372,,Afrodisia,Afrodisia,,Afrodisia quae nunc Redesto territorium.,,40.538708,26.834645,0.381729595,-0.016774798
+12,511153,Aproi/Col. Claudia Aprensis/Nova Theodosiopolis,7B5,1981,1070,Apris,Apris,,,Apris,20,372,,Apri,Apri,,Apris,,40.9269409,27.1073556,0.380588055,-0.015783948
+12,501337,Ainos,,,0,,,,out of sequence,Aenos,21,372,,Enos,,,Enos,,40.7248985,26.085729,,
+12,501632,Syrascell(a)e/Sirogellis,7B5,2025,1118,Syrascelle,Syrascelle,,,Syrascelle,22,372,,Syrasele,Surascele,,Sirasceli,,40.884037,26.926366,0.378661414,-0.016166585
+12,501668,*Zorlanae,7B5,2023,1117,Zorlanis,Zorlanis,,,Zorlanis,23,373,,Frolanis,Srolanis,,Prolanis,,40.8586415,26.635306,0.376973713,-0.016418507
+12,501407,*Dymae,7B4,2049,1143,Dymis,Dymis,,,Dymis,24,373,,Dimis,Dymis,,Dimis,,40.939631,26.271198,0.371085062,-0.017827683
+12,501649,Traianoupolis,,,0,,,,,,25,373,,Traianopolis,Traianopolis,,Traianopolis,,40.858827,26.0572495,,
+12,,#N/A,,,0,,,,,,26,373,,Tempira,Timpira,,Tempbra,,0,0,,
+12,507430,Milolito,7B4,2048,1142,Micolito,Micolito,,,Micolito,27,373,,Mitoliton,Mitholithon,,Mitoliton,,0,0,0.369668122,-0.017790914
+12,507380,Brendike,7B4,2047,1141,Brenzici,Brenzici,,,Brenzici,28,373,,Brindice,Brentice,,Prindice,,0,0,0.368151972,-0.017769024
+12,501574,*Porsulae/Maximianopolis,7B4,2046,1140,Porsulis,Porsvlis,,,Porsvlis,29,373,,Porsulis,Corsulis,,Porsolis,,41.12848977,25.32539314,0.366226683,-0.01778632
+12,507391,Cosinto,7B4,2045,1139,Consinto,Consinto,,,Consinto,30,373,,Cositon,Cossimon,,Confiton,,0,0,0.363173,-0.01764141
+12,501645,Topeiros,7B3,2044,1138,Topiro,Topiro,,,Topiro,31,373,,Topiron,Topiron,,Topiron,,41.079556,24.773105,0.360684373,-0.017566034
+12,501341,Akontisma,7B3,2043,1137,Acontisma,Acontisma,,,Acontisma,32,373,,Acontisma,Acontisma.,,Vicontissima,,40.968007,24.538414,0.3584093,-0.017631295
+12,501523,Neapolis (Kavalla),7B3,2042,1136,Neapolis,Neapolis,,,Neapolis,33,373,,Neapolis,"Neapolis, item",,"Neapolis quae nunc Christopolis Philippis, quibus apostolus epistolam ad Philipenses scribit,",,40.934324,24.414039,0.356705262,-0.01774919
+12,501482,Krenides/Philippi/Col. Augusta Iulia Philippensis,7B3,2040,1134,Philippis,Philippis,,,Philippis,34,373,,Philippi,Philippi,,,,41.01265134,24.28463729,0.353279929,-0.018330001
+12,501347,Amphipolis,7B2,2039,1132,Amphipoli,Amphipoli,,,Amphipoli,35,373,,Amphipolis,Amphipolis,,Amphipolis,,40.82581148,23.84157943,0.350395491,-0.018760004
+12,491526,Apollonia,7B2,2038,1131,Appollonia,Appollonia,,,Appollonia,36,373,,Apolonia,Apollonia,,Appollonia,,40.623703,23.469685,0.348422635,-0.018947243
+12,491661,Mellissurgin,7B2,2037,1130,Melissirgin,Melissirgin,,,Melissirgin,37,373,,Melisirgion,Melisurgi,,Mellifligri,,40.612681,23.3457935,0.347140182,-0.018895198
+12,491741,Thessalonica,7B2,1836,912,Tessalonicae,Tessalonic(a)e,,,Tessalonic(a)e,38,373,,Thesalonici,Thesalonici,,"Thessalonici, ampla nobilis ac venusta, cui apostolus Paulus divinam scripsit epistolam, quamque gloriosissimus et oleo pietatis c tumulo sacro dapsiliter exundans martir sanctus irradiat Dimitrius.",,40.628342,22.952885,0.343426113,-0.018438362
+12,491687,Pella,7B2,2029,1121,Pella,Pella,,,Pella,39,374,,Pella,Pella,,"Pella, solium regni quondam Macedonici, in qua Alexander magnus exortus est,",,40.75435965,22.51822477,0.34003872,-0.016527707
+12,491546,Ber(r)oia,7B1,2036,1129,Beroea,Beroea,,,Beroea,40,374,,Beroea,Beroea,,Boroea,,40.52212667,22.20149267,0.338296543,-0.016442806
+12,491507,Acerdos,7B1,2035,1128,Acerdos,Acerdos,,,Acerdos,41,374,,Acerdos,Acerdos,,Archelos,,40.5207332,22.3874696,0.337227925,-0.016316228
+12,491519,Aloros,7B1,2034,1127,Arulos,Arvlos,,,Arvlos,42,374,,[GG: Arulos],Arulos,,Arulos,,40.588605,22.597349,0.336006528,-0.01626068
+12,491703,Pydna,7B1,2033,1126,Bada,Bada,,,Bada,43,374,,Bada,Bata,,Bada,,40.39756878,22.61499091,0.334727954,-0.016159989
+12,?,#N/A,7B1,2032,1125,Anamo,Anamo,,,Anamo,44,374,,Anamon,Anamon,,Anamon,,,,0.333308875,-0.015901154
+12,494568,Hatera,7B1,2031,1124,Hatera,Hatera,,,Hatera,45,374,,[GG: Imera],Imera,,Imera,,0,0,0.332032245,-0.015679183
+12,491572,Dion,7B1,2030,1123,Dium,Divm,,,Divm,46,374,,Dium,Diume,,Dium,,40.17638806,22.4914368,0.330696303,-0.015410486
+12,?,#N/A,7B1,1868,946,Sabatium,Sabativm,,,Sabativm,47,374,,Sabation,Sabatum,,Sabacium,,,,0.329537408,-0.015088428
+12,541131,Tempe,7B1,1867,945,Stenas,Stenas,,,Stenas,48,374,,Stenas,Stenas,,Senas,,39.87596661,22.56653325,0.327435096,-0.014973188
+12,,#N/A,,,0,,,,,,49,374,,Turiste,Thuris,,Thurista,,0,0,,
+12,,#N/A,,,0,,,,,,50,374,,Tenus,,,Tenos,,0,0,,
+12,,#N/A,,,0,,,,,,51,374,,Lubion,,,Lumbion,,0,0,,
+12,540982,Olympias/Gonnocondylus,6B5,1866,944,Olympum,Olympv̄,,,Olympv̄,52,374,,Olimpium,Olimpius,,Olipyon,,39.855136,22.496138,0.323402772,-0.014095157
+12,540905,Larissa,9C5,1865,943,Larissa,Larissa,,,Larissa,53,374,,Larissa.,,,"Larisa, urbs regni Mirmidonum, quam modo melius sanctus martyr Achilleus illuminat. in qua regnavit Achilles famosissimus,",,39.634851,22.4209703,0.321052974,-0.014396972
+13,540886,Krannon/Ephyra,6B5,1869,947,Grannona,Grannona,,,Grannona,1,375,,Grannona,Granona,,Grannona,,39.4991145,22.304133,0.323101366,-0.015502172
+13,541034,Phalara,6B5,1870,949,Falera,Falera,,switched in RC,Falera,2,375,,Falaphari,Palfari,,Phalaris,,38.9137916,22.6225725,0.324137286,-0.015964556
+13,541042,Pharsalus,,,0,,,,switched in RC,,3,375,,Falsarivum,Farsalos,,Pharsalium,,39.28849746,22.38785335,,
+13,#N/A,#N/A,6B5,1871,950,Thapedon,Thapedon,,,Thapedon,4,375,,Tapedon,Tapidon,,Tapedon,,#N/A,,0.325663865,-0.016309201
+13,541140,Thermopylae,6B5,1872,951,Thermopylas,Thermopylas,,,Thermopylas,5,375,,Thermopylas,Thermopilae,,Thermopila,,38.796,22.543644,0.327538334,-0.016952256
+13,541103,Skarpheia,7B1,1873,952,Scarpias,Scarpias,,,Scarpias,6,375,,Scarpias,Sartia,,Scorpia,,38.809093,22.66380685,0.3293463,-0.01753162
+13,540755,Elateia,7B1,1874,953,Elatia,Elatia,,,Elatia,7,375,,Elatia,Helatia,,Elacia,,38.64563331,22.77998687,0.33087205,-0.017881515
+13,540701,Chaeronea,7B1,1889,969,Ceroni,Ceroni,,,Ceroni,8,375,,Cheronia,Cheronia,,Cheroni,,38.49396775,22.8414259,0.330170482,-0.018447289
+13,540717,Coronea,7B1,1888,968,Cronias,Cronias,,,Cronias,9,375,,Chronias,Chonias,,Chromia,,38.391204,22.957112,0.329389503,-0.018246586
+13,541141,Thespiai,,,0,,,,,,10,375,,Thespias,Tepias,,Thespia,,38.2945261,23.15236318,,
+13,541063,Plataea,7B1,1887,967,Plateas,Plateas,,,Plateas,11,375,,Plateas,Plateae,,Platea,,38.2210753,23.2735378,0.328170761,-0.017897403
+13,580062,Peiraieus/Piraeus,7B1,1891,972,Pyreo,Pyreo,,On spur in TP,Pyreo,12,375,,Pyreon,Pyreon,,Pireon,,37.937222,23.644609,0.335544763,-0.019248423
+13,579885,Athenae,7B1,1890,971,Athenas,Athenas,,,Athenas,13,375,,Athenas,Athenas,,"Athene, philosophorum et oratorum quondam genitrix, in qua divinum lumen atque inextinguibile non in templo quod prophetae olim a Iasone rege dei genitrici semperque virginis Mariae conditum miro sumptu miroque lapide est, ut cernitur.",,37.97289279,23.7246473,0.333261291,-0.018812893
+13,579920,Eleusis,6B5,1886,966,Eleusina,Elevsina,,,Elevsina,14,375,,Eleusina,Eleusina,,Eleusina,,38.041101,23.537401,0.326574416,-0.017594716
+13,570468,Megara,6B5,1885,965,Megara,Megara,,,Megara,15,375,,Megara,Megara,,Megara,,37.985078,23.340163,0.324552811,-0.017421577
+13,570317,Isthmos,6B5,1892,973,istamo (Istamo),istamo,,,istamo,16,375,,Stomis,Stomis,,Stomis,,37.941389,22.987778,0.324466211,-0.01850369
+13,570182,Corinthus/Korinthos,6B5,1893,974,Corintho,Corintho,,,Corintho,17,376,,Corinthon,Corinthon,,"Corinthos, cui divinus apostolus duplicem destinavit epistolam,",,37.90564164,22.87861439,0.3247435,-0.019855161
+13,570347,Kenchreai,6B5,1894,975,Cencris,Cencris,,,Cencris,18,376,,Cenchreae,Cencris,,Cenchris,,37.88239,22.992532,0.326969923,-0.019996956
+13,570228,Epidauros,6A1,1803,877,Epitauro,Epitavro,,,Epitavro,19,376,,Epidauron,Epitauron,,Epitauron,,37.6334625,23.1601564,0.276563726,-0.00933944
+13,570455,Malea Pr.,6B5,1913,995,Melena,Melena,,inland on TP?,Melena,20,376,,Maleon,Muleon,,Maleon,,36.4503568,23.2016595,0.320502222,-0.02080113
+13,570156,Boia(i),7C1,1922,1005,Boas,Boas,,,Boas,21,376,,Boas,Boas,,Boas,,36.51370129,23.05866993,0.334109462,-0.023106953
+13,570129,Asopos,7C1,1921,1004,Asopos,Asopos,,,Sopos,22,376,,Asopon,Assopon,,Asopon,,36.6845,22.8426,0.333110172,-0.023188873
+13,570268,Gyth(e)ion,7C1,1920,1003,Cytmon,Cytmon,,,Cytmon,23,376,,Pythion,Cition,,Pithion,,36.7600725,22.5626005,0.332077729,-0.023054822
+13,,#N/A,6C5,3060,,,,,regional label,ARCADIA,24,376,,Arcadia,Acardiam,,Archadia,,0,0,,
+13,570685,Sparta,7C1,1901,983,Lacedemone,Lacedemone,,,Lacedemone,25,376,,Lacedemonia,Lacedemonia,,"Lacedemonia urbs Menelay, ex qua Patres Priami filius ad perditionem Troiae rapuit Helenam,",,37.08184552,22.42468255,0.330345969,-0.022894976
+13,570479,Messene,6C5,1919,1001,Messene,Messene,,,Messene,26,376,,Messene,Mesene,,Messena,,37.17530439,21.92004754,0.326455806,-0.022357155
+13,570125,Asine,6C5,1918,1000,Asine,Asine,,,Asine,27,376,,Asine,,,Asinne,,36.7945068,21.9632706,0.324248675,-0.022324095
+13,570483,Methone/Mothone (Messenian),6C5,1917,999,Mothone,Mothone,,,Mothone,28,376,,Methone,Motona,,Machona,,36.81435,21.704441,0.322268445,-0.022182741
+13,570640,Pylos/Koryphasion,6C5,1916,998,Pylios,Pylios,,,Pylios,29,376,,Pylos,Pylos,,Pilos,,36.9520305,21.659888,0.320126704,-0.022177324
+13,570397,Kyparissia,6C5,1915,997,Cyparissa,Cyparissa,,,Cyparissa,30,376,,Cyparisca,Cipparissa,,Cyparissa,,37.248527,21.681159,0.318214567,-0.022086326
+13,570653,Samikon/Samia,6C5,1914,996,Samaco,Samaco,,,Samaco,31,377,,Samachon,Samachon,,Psamachon,,37.525886,21.596223,0.31643278,-0.022226468
+13,570531,Olympia,6B4,1902,984,Olympia,Olympia,,,Olympia,32,377,,"Olia, Olimpidia",Olimpiada,,Olimpiada,,37.63868719,21.63084369,0.314705948,-0.022036538
+13,570221,Elis (region),6B4,1903,985,Netide,Netide,,,Netide,33,377,,Etide,Etide,,Eytide,,37.83852392,21.5251504,0.314960902,-0.021335803
+13,570390,Kyllene,6B4,1904,986,cyllene (Cyllene),cyllene,,,cyllene,34,377,,Cylene,Cilene,,Cylene,,37.933241,21.143869,0.316335549,-0.020734432
+13,570205,Dyme,6B5,1905,987,Dyme,Dyme,,,Dyme,35,377,,Dimis,Dimis,,Dimis,,38.144625,21.551425,0.317447776,-0.020301105
+13,570567,Patra(e),6B5,1906,988,Pathras,PaTHRAS,,,PaTHRAS,36,377,,Patras,Patras,,Patras: hanc urbem principis apostolorum germanus sanctus apostolus Andreas suarum per crucem depositione reliquiarum nobilitavit.,,38.243265,21.738518,0.318669001,-0.019785009
+13,570049,Aigion,6B5,1907,989,Agion,Agion,,,Agion,37,377,,Egion,Egion,,"Egea quae Egeon, ex qua sancti Cosmas et Damianus anargiri filio sanctissimae Theodotis exorti sunt,",,38.252707,22.081952,0.320085662,-0.019391083
+13,570043,Aigeira,6B5,1908,990,Agira,Agira,,,Agira,38,377,,Egira,Egira,,Egira,,38.12855,22.3782,0.320936656,-0.019345872
+13,570668,Sicyon/Demetrias,6B5,1909,991,Sicione,Sicione,,,Sicione,39,377,,Sicion,Sitiora,,Sicion,,37.98381922,22.71219331,0.322111524,-0.019284834
+13,570420,Lechaion,6B5,1910,993,Lechi,Lechi,,,Lechi,40,377,,Chele.,Leche,,,,37.930955,22.878817,0.323206258,-0.019573315
+13,570317,,6B5,1892,973,istamo (Istamo),istamo,,,istamo,41,377,,Stomis,Stomis,,,,37.941389,22.987778,0.324466211,-0.01850369
+13,540888,Kreusis,6B5,1883,963,Crusa,Crvsa,,,Crvsa,42,377,,Creusa,Cerusa,,,,38.208277,23.112105,0.322041236,-0.01704335
+13,,#N/A,,,0,,,,,,43,377,,Antheton,Antheton,,,,0,0,,
+13,540642,Antikyra,6B5,1882,962,Anticirra,Anticirra,,,Anticirra,44,377,,Anticera,Anticara,,,,38.375439,22.626059,0.321054112,-0.017034356
+13,540969,Oiantheia/Euantheia?,6B5,1881,961,Euanthia,Evamtria,,,Evamtria,45,378,,Evantia,Isantia,,,,38.342137,22.191004,0.319622121,-0.017322664
+13,540960,Naupactus,6B5,1880,960,Naupactos,Navpactos,,,Navpactos,46,378,,"Naupastores, Naupactos",Naupatas,,Naupactos,,38.399726,21.831267,0.318376089,-0.017542827
+13,540699,Calydon,6B4,1879,958,Calidon flumen,Calidon Fl.,,,Calidon Fl.,47,378,,Calydon,Calidon,,Calidon,,38.372926,21.5331825,0.316467303,-0.018111535
+13,540780,Euenos (river),6B4,1878,957,Evvenos flumen,Evvenos Fl.,,,Evvenos Fl.,48,378,,Evenus,Evenos,,Ebenos,,38.32639506,21.51846467,0.312845154,-0.019269083
+13,554173,Achelous (river),6B4,1877,956,Aceloum flumen,Ac[.]lovm Fl.,,,Ac[.]lovm Fl.,49,378,,Acheloum,Achelois.,,Achelous,,0,0,0.310903962,-0.019877578
+13,530793,Alyz(e)ia,6B4,1876,955,Halisso,Hal[ - ? - ],,,Hal[ - ? - ],50,378,,Alosum,Alosus,,Aiofus,,38.70891328,20.94770924,0.309464112,-0.020298714
+13,530842,Dioryktos?,6B4,1875,954,Perthoricto,Perthoricto,,,Perthoricto,51,378,,Perdoriptum,,,Perdoriptum,,38.820961,20.748123,0.30799505,-0.020517564
+13,531013,Nicopolis,6B3,1857,935,Actanicopoli,Actanicopoli,,,Actanicopoli,52,378,,Acianiapolis,,,Actranicopolis,,39.0157,20.7360035,0.306104335,-0.01991
+13,530879,Glykys/Elaias?/Cheimerion? Limen,6B3,1864,942,Ciclis limen,Ciclis limen,,,Ciclis limen,53,378,,Glicisme,,,Slicisme,,39.2185,20.485,0.304134337,-0.017755963
+13,,#N/A,6B3,1863,,,,,,Addianam,54,378,,Diana,,,Diana,,0,0,,
+13,530824,Bouthroton,6B3,1862,940,Rutharoto,Rvtharoto,,,Rvtharoto,55,378,,Butaroton,,,Butarutan,,39.745527,20.020422,0.302203481,-0.015751432
+13,531061,Phoinike,6B3,1860,939,Phenice,Phenice,,,Phenice,56,378,,Penice,,,Penice,,39.913118,20.057154,0.301194776,-0.015109698
+13,481694,Ad Acroceraunia,6B3,1859,937,Ocrocenaurio,Ocrocenavrio,,,Ocrocenavrio,57,378,,Acroceaurion,,,Acroceraunium quae et Butrehntos,,40.280708,19.449999,0.299904499,-0.014010623
+13,481750,Aulon,6B3,1858,936,Aulona,Avlona,,,Avlona,58,378,,Alona,Aulona,,Aulona: hanc sanctus martir Danax sanctificat:,,40.484898,19.473197,0.297473588,-0.013116885
+13,481728,Apollonia,6A3,1852,930,Apollonia,Apollonia,,,Apollonia,59,378,,Apollonia,,,Appollonia,,40.7339195,19.462878,0.296741906,-0.012243299
+13,481857,(H)Apsos (river),6A2,1851,929,Hapsum Flumen,Hapsvm Fl.,,,Hapsvm Fl.,60,379,,Apsum,Absura,,Apsum,,40.80845507,19.63668959,0.294952024,-0.011114933
+13,481841,Genesis,6A3,1850,928,Genesis Flumen,Genesis Fl.,,,Genesis Fl.,61,379,,Genesis,Alosus,,Genesis.,,41.1576511,19.6053923,0.294411437,-0.010774631
+13,481818,Dyrr(h)achium/Epidamnos,6A2,1841,918,Dyrratio,Dyrratio,,,Dyrratio,62,379,,Durachium.,Durachium,,"Epidaurus, quae nunc Dirachium, amplissima olim ac famosissima",,41.3163425,19.447355,0.292389055,-0.00987012
+14,481962,Pistum,6A2,1840,917,Pistum,Pistvm,,,Pistvm,1,379,,Plistum,,,Pistrum,,41.516171,19.737161,0.290312816,-0.009777997
+14,481896,Lissus,6A2,1807,881,Lissum,Lissvm,,,Lissvm,2,379,,Lissum,,,Lissum,,41.7829405,19.643916,0.28765836,-0.009401283
+14,?,#N/A,,,0,,,,,,3,379,,[GG: Diode],,,Diode,,,,,
+14,481986,Scodra,6A2,1801,875,Scobre,Scobre,,,Scobre,4,379,,Scodris,,,Codras,,42.0672575,19.520268,0.285474962,-0.008923033
+14,481770,Bouthoe,6A1,1806,880,Batua,Batva,,Out of sequence?,Batva,5,379,,Butua,Butua,,Buccinium,,42.279737,18.831815,0.283701062,-0.009044041
+14,,#N/A,,,0,,,,Out of sequence?,,6,379,,Decadoron,Decadaron,,Budua,,0,0,,
+14,481931,Olcinium/Vicinium,6A1,1805,879,Vicinium,Vicinivm,,Out of sequence?,Vicinivm,7,379,,Bicinion,Buccinium,,Decadaron,,41.929636,19.224261,0.281280969,-0.009032355
+14,197263,Epidaurum,6A1,1803,877,Epitauro,Epitavro,,,Epitavro,8,379,,Epitauron,Epitaurum id est Ragusium,,Epitauron ubi nunc est Ratisium,,42.58101,18.218868,0.276563726,-0.00933944
+14,197091,Ad Zizio?,5A5,1702,766,Ad zizio,Ad zizio,,,Ad zizio,9,379,,Assidium,Zidion,,Assidium,,42.776686,18.387915,0.272839203,-0.009513831
+14,197426,Pardua,5A5,1701,765,Pardua,Pardva,,,Pardva,10,379,,Bretorum,Pardua id est Stamnes,,Praetorium,,42.941391,18.083704,0.270616041,-0.009618467
+14,197089,Ad Turres,5A5,1619,676,Ad Turres,Adtvrres,,,Adtvrres,11,380,,Turres,Turres,,Turres,,43.113334,17.719999,0.180515688,-0.012302312
+14,197400,Narona,5A4,1698,761,Narona,Narona,,,Narona,12,380,,Narrona,Narrona,,Narona,,43.046389,17.598611,0.263449923,-0.009506211
+14,,,,,0,,,,,,13,380,,Praetoria,,,Praegoria,,0,0,,
+14,197167,Bigeste,5A4,1697,760,Bigeste,Bigeste,,,Bigeste,14,380,,Biston,Biston,,Biston,,43.214714,17.53169,0.261320793,-0.00935395
+14,197386,Muccurum,5A4,1705,769,Inaronia (In Aronia),Inaronia,,,Inaronia,15,380,,Aronia,Aronia id est Mucru,,Aronix,,43.295215,17.020743,0.254179266,-0.009710832
+14,197419,Oneum,5A3,1704,768,Oneo,Oneo,,,Oneo,16,380,,Oneon,Oneo,,Oneon,,43.444003,16.692144,0.252680059,-0.0098645
+14,,#N/A,,,0,,,,,,17,380,,Nerente,Netrate,,Nerente,,0,0,,
+14,,#N/A,,,0,,,,,,18,380,,Ionopen,Unione id est Musaro,,Iunope.,,0,0,,
+14,197524,Spalatum,5A3,1707,771,Spalato,Spalato,,,Spalato,19,380,,Spalatrum,Spalathron,,Spalathon,,43.506883,16.442449,0.248538997,-0.01016511
+14,197059,Ad Dianam,5A3,1708,772,Ad Dianam,Addiana,,,Addiana,20,380,,Dianion,,,Dianion,,43.508516,16.389936,0.246552071,-0.010572727
+14,197488,Salona,5A3,1681,745,Salona,Salona,,,Salona,21,380,,Salona,Salona,,Salona,,43.539561,16.483426,0.247419012,-0.008548282
+14,197511,Siculi,5A3,1713,778,Siclis,Siclis,,,Siclis,22,380,,Siclis,Siclisi,,Siclis,,43.553234,16.346833,0.244478085,-0.009757416
+14,197555,Tragurium,5A2,1712,777,Ragurio,ragvrio,,,ragvrio,23,380,,Tragurion,Tragurion,,Tragurium,,43.517639,16.25063,0.242649853,-0.0103789
+14,,#N/A,5A1,1710,775,Ad pretorum,Adpretorvm,,,Adpretorvm,24,380,,Praetorium Caesaris,Praetorio Caesaris,,Praetorianum Cesaris,,0,0,0.228883007,-0.010610237
+14,197534,Synodion/Magnum,,,0,,,off the coast,TP lists Magnum inland,,25,380,,Praetorium magnum,,,Praetorium magnum,,43.793599,16.313369,,
+14,197133,Arausa,,,0,,,,otu of seqeunce?,,26,380,,Aurasione,Arausione,,Arausiona,,43.804229,15.79233,,
+14,197539,Tambia,,,0,,,,,,27,380,,Tambia,Tabia,,Timbia,,43.724105,16.201613,,
+14,197473,Rider,,,0,,,,,,28,380,,Rider,,,Ridder,,43.700462,16.055704,,
+14,197502,Scardona,4A4,1633,692,Sardona,Sardona,,,Sardona,29,380,,Scardona,Scardona,,Scardona,,43.817746,15.922959,0.207198125,-0.009475202
+14,203132,Impletus,,,0,,,,,,30,381,,Impletus,Impletus,,Impletus,,0,0,,
+14,197145,Asseria,4A4,1630,689,Aserie,Aserie,,,Aserie,31,381,,Arausion,Erausina,,Arausionium,,44.0109681,15.6663802,0.210306479,-0.008503337
+14,197404,Nedinum,4A4,1629,687,Nedino,Nedino,,,Nedino,32,381,,Nedinon,Nedisso,,Neclinum,,44.071458,15.497238,0.203445731,-0.009265978
+14,197312,Iader,4B3,1628,686,Iadera,Iadera,yes,,Iadera,33,381,,Iadera,Iader,,Iadora,,44.115501,15.223778,0.196904031,-0.012095609
+14,197094,Aenona,,,0,,,,,,34,381,,Enona,"Elona, item",,Ebona,,44.2435845,15.1847195,,
+14,#N/A,#N/A,,,0,,,,,,35,381,,Agit,Dan,,Agit,,#N/A,,,
+14,197225,Corinium,,,0,,,,,,36,381,,Corinthon,Coriton,,Corinthon.,,44.104527,15.633504,,
+14,197139,Argyruntum,,,0,,,,,,37,381,,Argerunton,Argerunto,,Argerunton,,44.295052,15.440271,,
+14,197575,Vegium,,,0,,,,,,38,381,,Bigi,Bigi,,Bigi,,44.524317,15.073469,,
+14,197420,Ortopla,,,0,,,,,,39,381,,Ospela,Ospela,,Ospella,,44.71907,14.892387,,
+14,197358,Lopsica,,,0,,,,,,40,381,,Publisca,Puplisca,,Publisca,,44.928868,14.92,,
+14,197505,Senia,4B2,1618,675,Senia,Senia,yes,,Senia,41,381,,Senia,Senia,,Senia,,44.990472,14.900874,0.182319901,-0.011835988
+14,197088,Ad Turres,4B2,1619,676,Ad Turres,Adtvrres,,,ad Turres,42,381,,Turres,Turres,,Turres,,45.174936,14.689261,0.180515688,-0.012302312
+14,197470,Raparia,,,0,,,,,,43,381,,Raparia,Raparia,,Raparia,,45.306779,14.535292,,
+14,197541,Tarsatica,4B1,1617,674,Tarsatica,Tarsatica,yes,,Tarsatica,44,381,,Tharsaticum,Tharsaticum,,Tharsaticum,,45.330309,14.46247,0.177650131,-0.011914625
+14,197347,Lauriana,,,0,,,,,,45,381,,Lauriana,Lauriana,,Laureana,,45.29127,14.275837,,
+14,197102,Albona,4A1,1616,673,Alvona,Alvona,,,Alvona,46,381,,Albona,Albona,,Albona,,45.098398,14.115747,0.175584662,-0.01098823
+14,197142,Arsia (river),4A1,1615,672,Arsia Fluvius,Arsia Fl.,,,Arsia fl.,47,381,,Arsia,Arsia,,Arsia,Arsia,45.0493813,14.04624976,0.17313783,-0.009949257
+14,197405,Nesactium,4B1,1614,,,,yes,,[City Symbol],48,382,,Nesatium,Nessatio,,Nesacium,Nissacium,44.9168565,13.969982,,
+14,197448,Pola,4A1,1611,668,Pola,Pola,,,Pola,49,382,,Pola,Pola,,Pola,Pola,44.869567,13.841124,0.169556171,-0.011657545
+14,197478,Ruginium,,,0,,,,,,50,382,,Revingo,Ruginio seu Ruigno,,Remigium,Ribingium,45.081788,13.635286,,
+14,197427,Parentium,,,0,,,,,,51,382,,Parentium,Parentium,,Parentium,,45.227354,13.5948985,,
+14,197403,Neapolis,,,0,,,,,,52,382,,Neapolis,Neapolis,,Neapolis,Neapolis,45.315245,13.562104,,
+14,197308,Humagum,,,0,,,,,,53,382,,Humago,Humago,,Humagum,Umagum,45.433033,13.520182,,
+14,197515,Siparis,,,0,,,,,,54,382,,Siparis,Siparis,,Sipparis,Sapara quae et Sibaris,45.467448,13.507065,,
+14,197514,Silvo,4B1,1613,670,Siluo (Silvo),Silvo,,,Silvo,55,382,,Silbonis,Silbio,,Silbonis,Silvium,45.500513,13.505237,0.168079311,-0.011669005
+14,197439,Piranum,4A1,1537,586,Parentio,Parentio,yes,TP confusion with Parentium?,Parentio,56,382,,Pirano,Piranon,,Piranum.,Piranium,45.528129,13.568078,0.167976684,-0.009407121
+14,197189,Capris/Iustinopolis,4A1,1612,669,Quaeri,Qvaeri,yes (spa),,Qvaeri,57,382,,Capris,Capris,,Capris,Capris,45.548131,13.731116,0.166941689,-0.010986286
+14,187578,Tergeste,3A5,1536,585,Tergeste,Tergeste,,,Tergeste,58,382,,Tergeste,Tregesten,,Tergeste,Treiesta,45.649148,13.7717,0.165314627,-0.009458922
+14,187302,Avesica,,,0,,,,,,59,382,,Adbessicin,,,Alessiccion,,45.717745,13.811925,,
+14,187386,Forum Iulii,,,0,,,,Confusion with fonte Timavi?,,60,382,,Foroiulium,Foroiulium,,Foroiulium,Foroiulii,46.091866,13.4333385,,
+14,187339,Castellum Pucinum,,,0,,,,,,61,382,,Putiolis,Puciolis,,Puciolis,Puciolis,45.707479,13.73367,,
+14,187290,Aquileia,3A5,1125,136,Aqvileia (Aquileia),Aqvileia,yes (big symbol),,Aquilea,62,382,,Aquileia,Aquileia,,Aquileia nobilis et olim inclita: hanc Attila saevissimus cepit et diruit:,Aquileia,45.769631,13.370946,0.158784275,-0.009081694
+14,393441,Iulia Concordia,3A4,1124,135,Concordia,Concordia,,,Concordia,63,383,,Concordia,Concordia,,Concordia,Concordia,45.758285,12.84276802,0.155630436,-0.00907827
+14,393374,Altinum,3A4,1127,138,Altino,Altino,yes,,Altino,64,383,,Altinum,Altinum seu Altilia,,Altinum,Altinum quae nunc Pucellis dicitur,45.54627312,12.39968139,0.154295556,-0.010835618
+14,393503,Tarvisium,,,0,,,,,,65,383,,Tarbision qui et Tribicium dicitur,Tribicium seu Tarbision,,Trabitium,Tarbisium,45.666251,12.242061,,
+14,393473,Patavium,,,0,,,,,,66,383,,Patavium,Patavium,,"Patavium, quam elapsus Achivis Antenor .....",Patavium: hanc Antenor mediis Achivis elapsus a Troiae excidio condidit:,45.409561,11.876975,,
+14,393454,Mons Silicis,,,0,,,,,,67,383,,Monssilicis,Monssilicis,,Mons sylicis,Mons silicis,45.239638,11.750443,,
+14,,#N/A,,,0,,,,,,68,383,,Prosilia,Prosilia,,Prosilia,Prosilia,0,0,,
+14,393382,Ateste,,,0,,,,,,69,383,,Adestum,Adestum,,Adestum,Adeustum,45.227738,11.656616,,
+14,393434,*Hadriani,3B5,1134,146,Radriani,Radriani,,,Radriani,70,383,,"Adrianopolis a qua mare Adriaticum a quibusdam nominatur, item civitas Adre et supra scripta",Adrianopolis,,Adrianopolis et praemissa,Hadrianopolis,44.94935,12.169186,0.164037617,-0.013214938
+14,393480,Ravenna,4B1,1140,153,Ravenna,Ravenna,,,Ravenna,71,383,,Ravenna.,?,,Ravenna.,"Ravenna, in qua idem cosmographiae expositor huius licet indoctus imus Christi servus exortus sum; quae scilicet non solum nobilitate, sed et autentu regio inter ceteras olim celsior, nunc deo volente dignitate colitur.ecclesiastica atque pontificali, martirum in ea coruscantium meritis famosior excelsior excolitur.",44.415718,12.196604,0.173224498,-0.015294238
