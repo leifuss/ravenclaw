@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        h1 {text-align: center; font-size: 12}
+     </style>
+     <style>
+        h3 {text-align: center; font-size: 12}
+     </style>
+
+<title>RavenC:LAW</title>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+<!-- Favorite Bookmark Icon -->
+<link rel="shortcut icon" type="image/ico" href="//www.esri.com/favicon.ico" />
+<!-- End Favorite Bookmark Icon --> 
+<link href="/tiles/static/esri-info.css" rel="stylesheet" type="text/css"> 
+<link href="//js.arcgis.com/next/esri/css/main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="//js.arcgis.com/next/"></script>
+
+<style>
+    html,
+    body,
+    #tpViewDiv {padding: 0;margin: 0;height: 60%}
+</style>
+<style>
+    html,
+    body,
+    #geoViewDiv {padding: 0;margin: 0;height: 80%}
+</style>
+<style>
+.selected{font-weight:bold;}
+.mapView{border-style: solid; border-color: grey}
+</style>
+
+<script>
+var tpView;
+var tpMap;
+var geoMap;
+var geoView;
+var geo_layer;
+var geo_csv_layer;
+var rc_tp_layer_points;
+var rc_tp_csv_layer;
+var patriae = ["India Dimirica Evilat",	"India Themantica & Elatis",	"India Serica",	"Parthia",	"Parsagadae",	"Arabia Eudaemon",	"Arabia Major",	"Hyrcania",	"Media Major",	"Media Minor",	"Persians & Assyrians",	"Various countries near Media",	"Mesopotamia",	"Judaea Palestina",	"Syria Cilesene & Commagene",	"Mesogia Graecorum",	"Ethiopia",	"Egypt",	"Cyrenaican Mauretania",	"Africana",	"Numidia Bizacium",	"Mauretania Sitifensis",	"Mauritania Caesariensis",	"Getulia",	"Mauritania Gaditana",	"Mauritania Tingitana",	"Abasgia",	"Bosphoran Licania",	"Maeotic region/Dardania",	"Thrace",	"Mysia",	"Epirus & Pelagonia",	"Macedonia",	"Hellas",	"Dacia",	"Illyricum",	"Dalmatia",	"Pannonia",	"Valeria",	"Carneola/Julian Alps",	"Liburnia Tarsaticensis",	"Francia Rinensis",	"Alamani",	"Gallia",	"Burgundia",	"Septimana",	"Italia [North of the Po]",	"Italia [Coastal]",	"Italia",	"Britania in the Marshes (Armorica)",	"Guasconia",	"Spano-guasconia",	"Spania [Coastal]",	"Spania [Caesaraugusta]",	"Spania [Complutum]",	"Spania [Augusta Merita & Corduba]",	"Spania [Hispalis]",	"Spania [Ossaron-Merita Augusta]",	"Spania [Augusta Braciarum]",	"Cypros",	"Cretam quae et Crete",	"Peloponissum et Achaia",	"Sicilia",	"Sardinia",	"Corsica",	"Britannia",];
+
+// Function to fetch and parse CSV
+async function loadCSVData(filepath) {
+    try {
+        const response = await fetch(filepath);
+        const csvText = await response.text();
+        const rows = csvText.split('\n').map(row => row.split(','));
+        const headers = rows[0];
+        
+        // Create objects from CSV rows
+        const data = rows.slice(1).map(row => {
+            const obj = {};
+            headers.forEach((header, i) => {
+                obj[header.trim()] = row[i]?.trim();
+            });
+            return obj;
+        });
+        
+        return data;
+    } catch (error) {
+        console.error('Error loading CSV:', error);
+        return [];
+    }
+}
+
+// Function to build tree structure
+function buildTreeStructure(data) {
+    const tree = {};
+    
+    data.forEach(record => {
+        if (!record.rc_book) return;
+
+        record.rc_book = record.rc_book + " (" + record.rc_continent + ")";
+        
+        // Create nested structure
+        if (!tree[record.rc_book]) {
+            tree[record.rc_book] = {};
+        }
+        if (!tree[record.rc_book][record.rc_patria]) {
+            tree[record.rc_book][record.rc_patria] = {};
+        }
+        if (!tree[record.rc_book][record.rc_patria][record.rc_list_number]) {
+            tree[record.rc_book][record.rc_patria][record.rc_list_number] = [];
+        }
+        tree[record.rc_book][record.rc_patria][record.rc_list_number].push([record.rc_toponym, record.ku_id, record.pleiades_id, record.rc_index_no]);
+        patriae.push(tree[record.rc_book][record.rc_patria]);
+    });
+    return tree;
+}
+
+// Function to build tree structure for littoral data
+function buildLittoralTreeStructure(data) {
+    const tree = {};
+    data.forEach(record => {
+        if (!record.stage) return;
+        const stage = "Stage " + record.stage;
+        if (!tree[stage]) {
+            tree[stage] = [];
+        }
+        tree[stage].push([
+            record.RC_peri, // name
+            record.ku_id,
+            record.pleiades_id,
+            record.RC_peri_count,
+            record.stage
+        ]);
+    });
+    return tree;
+}
+
+// Function to create HTML elements
+function createTreeHTML(tree) {
+    const rootUl = document.createElement('ul');
+    
+    //create book
+    Object.entries(tree).forEach(([book, lists]) => {
+        const bookLi = document.createElement('li');
+        const bookSpan = document.createElement('span');
+        bookSpan.textContent = `Book ${book}`;
+        bookSpan.className = 'caret';
+        bookLi.appendChild(bookSpan);
+        const listsUl = document.createElement('ul');
+        listsUl.className = 'nested';
+        
+        //create region list
+        Object.entries(lists).forEach(([list, rcLists]) => {
+            const listLi = document.createElement('li');
+            const listSpan = document.createElement('span');
+            listSpan.textContent = `${list}`;
+            listSpan.className = 'caret';
+            listLi.appendChild(listSpan);
+            const rcListsUl = document.createElement('ul');
+            rcListsUl.className = 'nested';
+            
+            //crreate sublist
+            Object.entries(rcLists).forEach(([rcListNum, toponyms]) => {
+                const rcListLi = document.createElement('li');
+                const rcListSpan = document.createElement('span');
+                rcListSpan.textContent = "List " + rcListNum;
+                rcListSpan.className = 'caret';
+                rcListLi.appendChild(rcListSpan);
+                const toponymsUl = document.createElement('ul');
+                toponymsUl.className = 'nested';
+                
+                //create toponyms
+                toponyms.forEach(toponym => {
+                    const toponymLi = document.createElement('li');
+                    toponymLi.id = toponym[3];
+                    toponymLi.textContent = toponym[3] + '. ' + toponym[0];
+
+                    //toponym matches ku_id & pleiades_id
+                    if (toponym[1] > 0 && toponym[2] > 0) {
+                        toponymLi.style.color = "green";
+
+                    //  toponym matches ku_id only  
+                    }  else if (toponym[1] > 0 && toponym[2] < 1) {
+                        toponymLi.style.color = "orange";
+
+                    //  toponym matches pleiades_id only  
+                    }  else if (toponym[1] < 1 && toponym[2] > 0) {
+                        toponymLi.style.color = "blue";
+
+                      //  console.log(toponym[0] + ", id:" + toponym[3]+ ", ku_id:" + toponym[1] + ", pleiades id:" + toponym[2]); 
+
+                    } else {
+                        toponymLi.style.color = "red";
+                        
+                           // console.log(toponym[0] + ", id:" + toponym[3]+ ", ku_id:" + toponym[1] + ", pleiades id:" + toponym[2]); 
+                        
+
+                    }
+
+                    //add event listeners to toponyms
+                    toponymLi.addEventListener('open', function() {
+
+                        //collapse directory
+                        var closer = document.getElementsByClassName("caret");
+                        var i;
+                        for (i = 0; i < closer.length; i++) {
+                            closer[i].parentElement.querySelector(".nested").classList.remove("active");
+                            closer[i].classList.remove("caret-down");
+                        }
+
+                        //select and make bold
+                        var selected = rootUl.querySelector(".selected");
+                        if (selected !== null) {
+                            selected.classList.toggle("selected");
+                        }       
+                        toponymLi.classList.add("selected");
+
+                        //open at selected element
+                        this.classList.toggle('caret-down');
+                        var ancestors = toggleAncestors(this);
+                        toponymLi.scrollIntoView();
+                    });
+
+                    //update TpView and GeoView
+                    toponymLi.addEventListener('click', function() {
+                        locate_feature_on_tp(toponymLi.id);
+                        locate_toponym_on_geoMap(toponymLi.id)
+                    });
+                    toponymsUl.appendChild(toponymLi);
+                });
+                rcListLi.appendChild(toponymsUl);
+                rcListsUl.appendChild(rcListLi);
+            });
+            listLi.appendChild(rcListsUl);
+            listsUl.appendChild(listLi);
+        });
+        bookLi.appendChild(listsUl);
+        rootUl.appendChild(bookLi);
+    });
+    
+    return rootUl;
+}
+
+// Function to create HTML elements for littoral tree (one level deep)
+function createLittoralTreeHTML(tree) {
+    const rootUl = document.createElement('ul');
+    Object.entries(tree).forEach(([stage, places]) => {
+        const stageLi = document.createElement('li');
+        const stageSpan = document.createElement('span');
+        stageSpan.textContent = stage;
+        stageSpan.className = 'caret';
+        stageLi.appendChild(stageSpan);
+        const placesUl = document.createElement('ul');
+        placesUl.className = 'nested';
+
+        places.forEach(place => {
+            const placeLi = document.createElement('li');
+            placeLi.id = "littoral_" + place[3] + "_" + place[4]; // unique id
+            placeLi.textContent = place[3] + '. ' + place[0];
+
+            // Color coding (optional, similar to main)
+            if (place[1] > 0 && place[2] > 0) {
+                placeLi.style.color = "green";
+            } else if (place[1] > 0 && place[2] < 1) {
+                placeLi.style.color = "orange";
+            } else if (place[1] < 1 && place[2] > 0) {
+                placeLi.style.color = "blue";
+            } else {
+                placeLi.style.color = "red";
+            }
+
+            // Add event listeners
+            placeLi.addEventListener('click', function() {
+                locate_littoral_on_map(place[3], place[4]);
+            });
+
+            // Add event listener for 'open' to expand and select the item
+            placeLi.addEventListener('open', function() {
+                // Collapse all other stages
+                const allCarets = document.querySelectorAll('#placeDirectory .caret');
+                allCarets.forEach(caret => {
+                    caret.classList.remove('caret-down');
+                    if (caret.parentElement.querySelector('.nested')) {
+                        caret.parentElement.querySelector('.nested').classList.remove('active');
+                    }
+                });
+
+                // Remove 'selected' from any previously selected
+                const selected = document.querySelector('#placeDirectory .selected');
+                if (selected) selected.classList.remove('selected');
+
+                // Expand parent stage
+                let parent = placeLi.parentElement.parentElement;
+                if (parent && parent.querySelector('.caret')) {
+                    parent.querySelector('.caret').classList.add('caret-down');
+                    parent.querySelector('.nested').classList.add('active');
+                }
+
+                // Select and scroll into view
+                placeLi.classList.add('selected');
+                placeLi.scrollIntoView({block: 'center'});
+            });
+
+            placesUl.appendChild(placeLi);
+        });
+
+        stageLi.appendChild(placesUl);
+        rootUl.appendChild(stageLi);
+    });
+    return rootUl;
+}
+
+// Initialize tree when document loads
+document.addEventListener('DOMContentLoaded', async () => {
+    const rc_itinerary_data = await loadCSVData('./ravenclaw.csv');
+    const rc_main_tree = buildTreeStructure(rc_itinerary_data);
+    const rc_main_treeHTML = createTreeHTML(rc_main_tree);
+    document.getElementById('placeDirectory').appendChild(rc_main_treeHTML);
+    
+    // Littoral tree
+    const littoral_data = await loadCSVData('./rc_littoral.csv');
+    const littoral_tree = buildLittoralTreeStructure(littoral_data);
+    const littoral_treeHTML = createLittoralTreeHTML(littoral_tree);
+
+    const littoralHeader = document.createElement('h3');
+    littoralHeader.textContent = "Littoral Directory";
+    document.getElementById('placeDirectory').appendChild(littoralHeader);
+    document.getElementById('placeDirectory').appendChild(littoral_treeHTML);
+
+    // Add click handlers for expanding/collapsing
+    document.querySelectorAll('.caret').forEach(caret => {
+        caret.addEventListener('click', function() {
+            this.classList.toggle('caret-down');
+            this.parentElement.querySelector('.nested').classList.toggle('active');
+        });
+    });
+});
+
+// Restore toggleAncestors function for expanding parent nodes in the directory tree
+const toggleAncestors = el => {
+  while (el) {
+    el = el.parentNode;
+    if (el !== null && typeof el.classList !== 'undefined' && el.classList.contains("nested")) {
+      el.classList.add("active");
+      const caret = el.parentElement.querySelector(".caret");
+      if (caret) caret.classList.add("caret-down");
+    }
+  }
+};
+
+//*** popup contents****************
+
+var rc_popup = {
+  //  title: "<a href=\"https://www.tabula-peutingeriana.de/sources.html?pars={rc_book}&amp;typ=rc#{weber_list_no}\">{rc_toponym}</a> (No. {rc_index_no}, Book {rc_book}, list {rc_list_number})",
+    title: "<a href=\"https://archive.org/details/ravennatisanony02ravegoog/page/{pp_page}/mode/2up?view=theater\" target=\"_blank\">{rc_toponym}</a> (No. {rc_index_no}, Book {rc_book}, list {rc_list_number})",
+    content: "<table>"
+            + "<tr><td><b>Region:</b></td><td>{rc_patria}</td><td><b>TP (TP-Online):</b></td><td><a href=\"{ku_uri_lookup}\">{ku_name_lookup}</a></td></tr>"
+            + "<tr><td><b>Pleiades:</b></td><td><a href=\"{pleiades_uri_lookup}\">{pleiades_name_lookup}</a></td><td><b>TP (Talbert):</b></td><td><a href=\"{talbert_uri_lookup}\">{talbert_name_lookup}</a></td></tr>"
+            + "<tr><td><b>Primary Source:</b></td><td>{primary_source}</td><td><b>Other Sources:</b></td><td>{other_sources}</td></tr>"
+            + "</table>"
+};
+
+var littoral_popup = {
+   // title: "<a href=\"https://www.tabula-peutingeriana.de/sources.html?pars=5&amp;typ=rc#c{stage}\">{RC_peri}</a> (Bk 5 littoral itin. Stage {stage}, no. {RC_peri_count})",
+    title: "<a href=\"https://archive.org/details/ravennatisanony02ravegoog/page/{pp_page}/mode/2up?view=theater\" target=\"_blank\">{RC_peri}</a> (Bk 5 littoral itin. Stage {stage}, no. {RC_peri_count})",
+    content: "<table>"
+            + "<tr><td><b>Guidonis Geographica:</b></td><td>{GG_peri}</td><td><b>TP-Online:</b></td><td><a href=\"https://tp-online.ku.de/trefferanzeige_en.php?id={ku_id}\">{ku_name_lookup}</a></td></tr>"
+            + "<tr><td><b>Pleiades:</b></td><td><a href=\"https://pleiades.stoa.org/places/{pleiades_id}\">{pleiades_toponym}</a></td><td><b>TP (Talbert):</b></td><td><a href=\"https://www.cambridge.org/us/talbert/talbertdatabase/TPPlace{Talbert_id}.html\">{talbert_name_lookup}</a></td></tr>"
+            + "</table>"
+};
+
+// ****** RENDERERS
+
+//you can set transparency for first object via hex number (last 2 digits): https://www.w3schools.com/cssref/tryit.php?filename=trycss_color_hexa
+var colors = [ //dirty hack!
+    "red", "darkblue", "lightgreen", "brown", "cyan", "darkgreen", "orange", "purple", "magenta", "yellow",
+    "red", "darkblue", "lightgreen", "brown", "cyan", "darkgreen", "orange", "purple", "magenta", "yellow", 
+    "red", "darkblue", "lightgreen", "brown", "cyan", "darkgreen", "orange", "purple", "magenta", "yellow", 
+    "red", "darkblue", "lightgreen", "brown", "cyan", "darkgreen", "orange", "purple", "magenta", "yellow", 
+    "red", "darkblue", "lightgreen", "brown", "cyan", "darkgreen", "orange", "purple", "magenta", "yellow", 
+    "red", "darkblue", "lightgreen", "brown", "cyan", "darkgreen", "orange", "purple", "magenta", "yellow", 
+    "red", "darkblue", "lightgreen", "brown", "cyan", "darkgreen", "orange", "purple", "magenta", "yellow", 
+ ];
+
+
+//***********CREATE RC SYMBOLS
+var topo_marker_uv_infos = [];
+var topo_marker_region_uv_infos = [];
+var topo_marker_uv_groups = [];
+var topo_region_path_uv_infos = [];
+//var onTP_classes =[];
+//var notOnTP_classes =[];
+//let topo_poly_uv_infos = [];
+
+for (let j = 0; j < patriae.length; j++) {
+
+    //create region-only symbology map
+    var pointRegionSym = {type: "simple-marker", size: "11px", color: colors[j]};
+    var pointRegionOffTPSym = {type: "simple-marker", style: "cross", size: "12", color: "black", outline: {color: colors[j], width: "3px" }};
+
+    var region_point_uv = {value: j + ', ' + "TRUE", symbol: pointRegionSym, label: "region " + j};
+    var region_OFFTP_point_uv = {value: j + ', ' + "FALSE", symbol: pointRegionOffTPSym, label: "region " + j + " (not TP)"};
+   
+    topo_marker_region_uv_infos.push(region_point_uv);
+    topo_marker_region_uv_infos.push(region_OFFTP_point_uv);
+
+    for (let i = 0; i < 26; i++) {  
+        //   let sublist = patriae[j] + ", " + String.fromCharCode(97 + i);
+
+        //create sublist symbology map
+        let sublist = String(j) + String.fromCharCode(97 + i);
+
+        var onTP_PointSym = {type: "simple-marker", size: "8px", color: colors[j+i], outline: { color: colors[j], width: "3px" }};
+        var NotOnTP_PointSym = {type: "simple-marker", style: "cross", size: "12px", color: colors[j+i], outline: { color: colors[j], width: "3px" }};
+        var lineRegionSym = {type: "simple-line", width: "2", color: colors[j+i]};
+        
+
+        var onTP_sublist_point_uv = {value: sublist + ', ' + "TRUE", symbol: onTP_PointSym, label: sublist};
+        var notOnTP_sublist_point_uv = {value: sublist + ', ' + "FALSE", symbol: NotOnTP_PointSym, label: sublist}; 
+        var region_line_uv = {value: sublist, symbol: lineRegionSym, label: "region " + sublist};
+
+        topo_marker_uv_infos.push(onTP_sublist_point_uv);
+        topo_marker_uv_infos.push(notOnTP_sublist_point_uv);
+        topo_region_path_uv_infos.push(region_line_uv);
+
+        //create sublist polygon symbology map (not needed?)
+        //const polySym = {type: "simple-fill", color: colors[i], outline: { color: colors[j], width: "2px" }};
+        //const sublist_poly_uv = {value: sublist, symbol: polySym, label: sublist};
+        //topo_poly_uv_infos.push(sublist_poly_uv);
+    }
+}
+
+
+var topo_marker_renderer = {
+    type: "unique-value", // autocasts as new UniqueValueRenderer()
+    legendOptions: {title: "RC sublist"},
+    field: "rc_list_number",
+    field2: "on_tp",
+    fieldDelimiter: ", ", 
+    uniqueValueInfos: topo_marker_uv_infos
+};  
+
+var topo_region_marker_renderer = {
+    type: "unique-value", // autocasts as new UniqueValueRenderer()
+    legendOptions: {title: "RC region"},
+    field: "weber_list_no",
+    field2: "on_tp",
+    fieldDelimiter: ", ", 
+    uniqueValueInfos: topo_marker_region_uv_infos
+};  
+
+var littoral_line_renderer = {
+    type: "simple",
+    symbol: {
+        type: "simple-line",
+        color: "grey",
+       // style: "dash",
+        width: "2px"
+    }
+};  
+
+var topo_region_line_renderer = {
+    type: "unique-value", // autocasts as new UniqueValueRenderer()
+    legendOptions: {title: "RC place sequence"},
+    field: "rc_list",
+    uniqueValueInfos: topo_region_path_uv_infos
+};  
+
+/*const topo_poly_renderer = {
+    type: "unique-value", // autocasts as new UniqueValueRenderer()
+    legendOptions: {
+    title: "RC sublist"
+    },
+    defaultSymbol: tp_default_poly_symbol,
+    defaultLabel: "Other",
+    field: "ravenclaw_rc_list_number",
+ //   field: "ravenclaw_rc_patria",
+ //   field2: "ravenclaw_rc_list_number",
+    fieldDelimiter: ", ",
+    uniqueValueInfos: topo_poly_uv_infos
+};   */
+
+//create littoral symbology map
+let littoral_marker_infos = []; //dirty hack (calculate this)
+littoral_marker_infos.push({value: 1, symbol: {type: "simple-marker", size: "14px", color: "white", outline: { color: "black", width: "1px" }, label: "1"}});
+littoral_marker_infos.push({value: 2, symbol: {type: "simple-marker", size: "14px", color: "black", outline: { color: "white", width: "1px" }, label: "2"}});
+littoral_marker_infos.push({value: 3, symbol: {type: "simple-marker", size: "14px", color: "white", outline: { color: "black", width: "1px" }, label: "1"}});
+littoral_marker_infos.push({value: 4, symbol: {type: "simple-marker", size: "14px", color: "black", outline: { color: "white", width: "1px" }, label: "2"}});
+littoral_marker_infos.push({value: 5, symbol: {type: "simple-marker", size: "14px", color: "white", outline: { color: "black", width: "1px" }, label: "1"}});
+littoral_marker_infos.push({value: 6, symbol: {type: "simple-marker", size: "14px", color: "black", outline: { color: "white", width: "1px" }, label: "2"}});
+littoral_marker_infos.push({value: 7, symbol: {type: "simple-marker", size: "14px", color: "white", outline: { color: "black", width: "1px" }, label: "1"}});
+littoral_marker_infos.push({value: 8, symbol: {type: "simple-marker", size: "14px", color: "black", outline: { color: "white", width: "1px" }, label: "2"}});
+littoral_marker_infos.push({value: 9, symbol: {type: "simple-marker", size: "14px", color: "white", outline: { color: "black", width: "1px" }, label: "1"}});
+littoral_marker_infos.push({value: 10, symbol: {type: "simple-marker", size: "14px", color: "black", outline: { color: "white", width: "1px" }, label: "2"}});
+littoral_marker_infos.push({value: 11, symbol: {type: "simple-marker", size: "14px", color: "white", outline: { color: "black", width: "1px" }, label: "1"}});
+littoral_marker_infos.push({value: 12, symbol: {type: "simple-marker", size: "14px", color: "black", outline: { color: "white", width: "1px" }, label: "2"}});
+littoral_marker_infos.push({value: 13, symbol: {type: "simple-marker", size: "14px", color: "white", outline: { color: "black", width: "1px" }, label: "1"}});
+littoral_marker_infos.push({value: 14, symbol: {type: "simple-marker", size: "14px", color: "black", outline: { color: "white", width: "1px" }, label: "2"}});
+
+var littoral_renderer = {
+    type: "unique-value", // autocasts as new UniqueValueRenderer()
+    legendOptions: {title: "RC littoral itinerary"},
+    field: "stage",
+    uniqueValueInfos: littoral_marker_infos
+};  
+
+
+//*****create additional symbologies
+
+var coast_renderer = {
+    type: "simple", 
+    symbol: {
+        type: "simple-line",
+        color: "darkblue",
+        width: "0.5px"
+    }
+};
+
+var route_renderer = {
+    type: "simple",
+    symbol: {
+        type: "simple-line",
+        color: "purple",
+        style: "dash",
+        width: "2px"
+    }
+};
+
+var river_renderer = {
+    type: "simple",
+    symbol: {
+        type: "simple-line",
+        color: "darkgreen",
+        width: "2px"
+    }
+}
+
+var mountain_renderer = {
+    type: "simple",
+    symbol: {
+        type: "simple-fill",
+        color: "#964B00"
+    }
+};
+
+var region_300_renderer = {
+    type: "simple",
+    symbol: {
+        type: "simple-fill",
+        color: "green",
+        outline: { color: "white", width: "5px" }
+    }
+};
+
+var region_600_renderer = {
+    type: "simple",
+    symbol: {
+        type: "simple-fill",
+        color: "orange",
+        outline: { color: "white", width: "5px" }
+    }
+};
+
+var tp_outline_renderer = {
+    type: "simple",
+    symbol: {
+        type: "simple-line",
+        color: "grey",
+        width: "0.5px"
+    }
+};
+
+var tp_toponym_poly_renderer = {
+    type: "simple",
+    symbol: {
+        type: "simple-fill",
+        color: "#FFFF0030",
+        outline: {color: "black", width: "1px"}
+    }
+};
+
+
+ //LABELS*********************************************
+ 
+ var blk_12_label = {
+        type: "text",
+        color: "white",
+        haloColor: "black",
+        haloSize: 1,
+        font: { family: "Noto Sans", size: 12 }
+    }
+
+    var littoral_labelClass = {
+    symbol: blk_12_label,
+    labelExpressionInfo: {expression: "$feature.stage + '.' + $feature.RC_peri_count + TextFormatting.NewLine + $feature.RC_peri"},
+    labelPlacement: "above-center",
+    maxScale: 0,
+    minScale: 20000
+};
+
+var tp_labelClass = {
+    symbol: blk_12_label,
+    labelExpressionInfo: {expression: "$feature.Number + '.' +   $feature.Toponym"},
+    maxScale: 0,
+    minScale: 20000
+}; 
+
+var rc_labelClass = {
+    symbol: {
+        type: "text",
+        color: "white",
+        haloColor: "blue",
+        haloSize: 1,
+        font: { family: "Noto Sans", size: 11 }
+    },
+    labelExpressionInfo: {expression: "$feature.rc_index_no + '.' +TextFormatting.NewLine + $feature.rc_toponym"},
+    labelPlacement: "below-center",
+    maxScale: 0,
+    minScale: 20000
+};
+
+var geo_littoral_labelClass = {
+    symbol: {
+        type: "text",
+        color: "white",
+        haloColor: "black",
+        haloSize: 1.5,
+        font: { family: "Noto Sans", size: 11 }
+    },
+    labelExpressionInfo: {expression: "$feature.stage + '.' + $feature.RC_peri_count + TextFormatting.NewLine + $feature.RC_peri"},
+    labelPlacement: "above-center",
+    maxScale: 0,
+    minScale: 2000000
+};
+
+var geoLabelClass = {  
+    symbol: {
+        type: "text",  
+        color: "white",
+        haloColor: "blue",
+        haloSize: 1.5,
+        font: { family: "Noto Sans", size: 11 }
+    },
+    labelExpressionInfo: { expression: "$feature.rc_index_no + '.' + TextFormatting.NewLine + $feature.rc_toponym"},
+    labelPlacement: "below-center",
+    maxScale: 0,
+    minScale: 2000000
+};
+
+//region labels----------------------
+var region_label = {
+    type: "text",  
+    color: "black",
+    haloColor: "white",
+    haloSize: 2,
+    font: {  family: "Noto Sans", size: 12 }
+}
+
+var provinceLabelClass = {  
+    symbol: region_label,
+    labelExpressionInfo: { expression: "$feature.Province"},
+    maxScale: 0,
+};
+
+var dioceseLabelClass = {  
+    symbol: region_label,
+    labelExpressionInfo: { expression: "upper($feature.Name)"},
+    maxScale: 0,
+};
+
+var regionLabelClass = {  
+    symbol: region_label,
+    labelExpressionInfo: { expression: "$feature.sname_o + TextFormatting.NewLine + $feature.short_name"},
+    maxScale: 0,
+};
+
+//************* ACTIONS
+
+function locate_toponym_on_geoMap(feature_id) {
+    let geoQuery = geo_csv_layer.createQuery();
+    geoQuery.where = "rc_index_no = " + feature_id;
+    geo_csv_layer.queryFeatures(geoQuery).then(function(response){
+        if (response.features.length > 0) {
+            geoView.goTo(response.features[0].geometry);
+            geoView.zoom = 8;
+            geoView.openPopup({features: response.features, location: response.features[0].geometry});
+        }
+    }); 
+}
+
+function locate_feature_on_tp(feature_id) {
+    let query = rc_tp_csv_layer.createQuery();
+    query.where = "rc_index_no =" + feature_id;
+    rc_tp_csv_layer.queryFeatures(query).then(function(response){
+        if (response.features.length > 0) {
+            tpView.goTo(response.features[0].geometry);
+            tpView.scale = 10000;
+            tpView.openPopup({features: response.features, location: response.features[0].geometry});
+        }
+    });
+}
+
+function locate_littoral_on_map(RC_peri_count, stage) {
+    // Locate on geoView (littoral_csv_layer)
+    let query = littoral_csv_layer.createQuery();
+    query.where = "RC_peri_count = '" + RC_peri_count + "' AND stage = '" + stage + "'";
+    littoral_csv_layer.queryFeatures(query).then(function(response){
+        if (response.features.length > 0) {
+            geoView.goTo(response.features[0].geometry);
+            geoView.zoom = 8;
+            geoView.openPopup({features: response.features, location: response.features[0].geometry});
+        }
+    });
+    // Locate on tpView (rc_littoral_csv_layer)
+    if (typeof rc_littoral_csv_layer !== 'undefined' && typeof tpView !== 'undefined') {
+        let tpQuery = rc_littoral_csv_layer.createQuery();
+        tpQuery.where = "RC_peri_count = '" + RC_peri_count + "' AND stage = '" + stage + "'";
+        rc_littoral_csv_layer.queryFeatures(tpQuery).then(function(response){
+            if (response.features.length > 0) {
+                tpView.goTo(response.features[0].geometry);
+                tpView.scale = 10000;
+                tpView.openPopup({features: response.features, location: response.features[0].geometry});
+            }
+        });
+    }
+}
+
+//************* CREATE PEUTINGER MAP VIEW
+require([
+"esri/Map",
+"esri/views/MapView",
+"esri/widgets/Home",
+"esri/layers/WMTSLayer",
+"esri/core/urlUtils",
+"esri/identity/IdentityManager",
+"esri/config",
+"esri/layers/FeatureLayer",
+"esri/layers/GeoJSONLayer",
+"esri/layers/CSVLayer",
+"esri/widgets/Legend",
+"esri/widgets/LayerList", 
+"esri/widgets/Search",
+"esri/widgets/Popup",
+"esri/widgets/Search/LayerSearchSource",
+"esri/widgets/Expand",
+"esri/widgets/Fullscreen",
+"esri/core/reactiveUtils"
+], function(Map, MapView, Home, WMTSLayer, UrlUtils, esriId, esriConfig, FeatureLayer, GeoJSONLayer, CSVLayer, Legend, LayerList, Search, LayerSearchSource, Popup, Expand, Fullscreen, reactiveUtils) {
+        
+    //Create Peutinger Map View
+    tpMap = new Map();
+    tpView = new MapView({
+        container: "tpViewDiv",
+        map: tpMap,
+        center: [0.216, -0.017],
+        scale: 25000
+    });
+
+    // Define popup actions for both geoView and tpView
+  /*  const locateAction = {
+        type: "button",  
+        title: "Locate on TP / in RC", 
+        id: "locate", // The ID by which to reference the action in the event handler
+        icon: "image-pin" // Sets the icon used to style the action button
+    }; */
+    const nextAction = {
+        type: "button",  
+        title: "next", 
+        id: "next", // The ID by which to reference the action in the event handler
+        icon: "arrow-bold-right" // Sets the icon used to style the action button
+    };
+    const prevAction = {
+        type: "button",  
+        title: "previous", 
+        id: "previous", // The ID by which to reference the action in the event handler
+        icon: "arrow-bold-left" // Sets the icon used to style the action button
+    };
+    const locateToponymAction = {
+        type: "button",  
+        title: "Locate on world map / in RC", 
+        id: "locateToponym", // The ID by which to reference the action in the event handler
+        icon: "map-pin" 
+    };
+
+    // Set popup actions for geoView and tpView
+  //  geoView.popup.actions = [prevAction, locateAction, nextAction];
+    tpView.popup.actions = [prevAction, locateToponymAction, nextAction];
+    
+    reactiveUtils.on(() => 
+        tpView.popup,
+        "trigger-action",
+        (event) => {
+            if (event.action.id === "locateToponym") {
+                var feature_id = tpView.popup.features[0].attributes.rc_index_no;
+                document.getElementById(feature_id).dispatchEvent(new Event('open')); 
+                locate_toponym_on_geoMap(feature_id);
+            }
+        }
+    );
+
+    //BASEMAP**************************************
+    var tp_layer = new WMTSLayer("https://tiles.arcgis.com/tiles/ng2xfLT71MDOMwFn/arcgis/rest/services/TP_1to11_WTL1/MapServer/WMTS");
+    tp_layer.title = "Extant Peutinger Map (TP)";
+    tpMap.add(tp_layer);
+    
+    //outline of original size of Peutinger Map
+    var original_size_layer = new GeoJSONLayer({
+        title: "TP Original size",
+        url: "./original_size_wgs84.geojson",
+        renderer: tp_outline_renderer,
+        opacity: 0.6
+    });
+    tpMap.add(original_size_layer);
+
+
+    //FEATURE LAYERS*******************************************************
+
+    //   var coast_layer = new FeatureLayer({ url: "https://services9.arcgis.com/ng2xfLT71MDOMwFn/arcgis/rest/services/Coastlines/FeatureServer/0",
+    var coast_layer = new GeoJSONLayer({
+        url: "./ku_tp_coastline.geojson",
+        title: "TP Coastlines",
+        copyright: "Peutinger basemap & feature digitization: <a href=\"https://www1.ku.de/ggf/ag/tabula_peutingeriana/index_en.php\">TP-Online</a>",
+        renderer: coast_renderer
+    });
+    tpMap.add(coast_layer);
+    
+    //   var island_layer = new FeatureLayer({ url: "https://services9.arcgis.com/ng2xfLT71MDOMwFn/arcgis/rest/services/Islands/FeatureServer/0",
+    var island_layer = new GeoJSONLayer({
+        url: "./ku_tp_islands.geojson",
+        title: "TP Islands",
+        copyright: "Peutinger basemap & feature digitization: <a href=\"https://www1.ku.de/ggf/ag/tabula_peutingeriana/index_en.php\">TP-Online</a>",
+        renderer: coast_renderer
+    });
+    tpMap.add(island_layer);
+
+    //   var river_layer = new FeatureLayer({url: "https://services9.arcgis.com/ng2xfLT71MDOMwFn/arcgis/rest/services/River_2/FeatureServer/0",
+    var river_layer = new GeoJSONLayer({
+        url: "./ku_tp_rivers.geojson",
+        title: "TP Rivers",
+        copyright: "Peutinger basemap & feature digitization: <a href=\"https://www1.ku.de/ggf/ag/tabula_peutingeriana/index_en.php\">TP-Online</a>",
+        renderer: river_renderer,
+        opacity: 0.5
+    });
+    tpMap.add(river_layer);
+
+    //  var mountain_layer = new FeatureLayer({url: "https://services9.arcgis.com/ng2xfLT71MDOMwFn/arcgis/rest/services/Mountains/FeatureServer/0",
+    var mountain_layer = new GeoJSONLayer({
+        url: "./ku_tp_mountains.geojson",
+        title: "TP Mountains",
+        copyright: "Peutinger basemap & feature digitization: <a href=\"https://www1.ku.de/ggf/ag/tabula_peutingeriana/index_en.php\">TP-Online</a>",
+        renderer: mountain_renderer,
+        opacity: 0.3
+    }); 
+    tpMap.add(mountain_layer);
+
+    var tp_toponym_layer = new GeoJSONLayer({
+        url: "./ku_tp_toponyms.geojson",
+        title: "TP toponyms",
+        copyright: "Peutinger basemap & feature digitization: <a href=\"https://www1.ku.de/ggf/ag/tabula_peutingeriana/index_en.php\">TP-Online</a>",
+        renderer: tp_toponym_poly_renderer,
+        labelingInfo: [tp_labelClass],
+        outfields: ["*"],
+        objectIdField: "Number",
+        opacity: 0.6,
+        visible: false, //off by default
+    });
+    tpMap.add(tp_toponym_layer);
+
+    //if user double clicks on tp_toponym layer, take them to the TP-Online database
+    tpView.on("double-click", (event) => {
+        event.stopPropagation(); //prevents zoom
+        tpView.hitTest(event, {include: tp_toponym_layer}).then((response) => {
+            if (response.results.length){
+                var url = "https://tp-online.ku.de/trefferanzeige_en.php?id=" + response.results[0].graphic.attributes.Number;
+                window.open(url, '_blank').focus(); //open TP-online datbase entry
+            }
+        })
+    });
+
+
+    //RC Data Layers-------------------------------------
+
+    tp_rc_sequence_layer = new GeoJSONLayer({
+        title: "RC place sequence",
+        url: "./tp_ravenclaw_paths.geojson",
+        renderer: topo_region_line_renderer,
+        visible: false
+    });
+    tpMap.add(tp_rc_sequence_layer);
+
+    rc_littoral_csv_layer = new CSVLayer({
+        title: "RC Littoral",
+        url: "./rc_littoral.csv",
+        popupTemplate: littoral_popup,
+        renderer: littoral_renderer,
+        labelingInfo: [littoral_labelClass],
+        latitudeField: "ku_y",
+        longitudeField: "ku_x"
+    });
+    tpMap.add(rc_littoral_csv_layer); 
+
+
+    rc_tp_csv_layer = new CSVLayer({
+        title: "RC Cities",
+        url: "./ravenclaw.csv",
+        popupTemplate: rc_popup,
+        renderer: topo_region_marker_renderer,
+        labelingInfo: [rc_labelClass],
+        latitudeField: "ku_y",
+        longitudeField: "ku_x"
+    });
+    tpMap.add(rc_tp_csv_layer); 
+
+
+    //Poly layer (no longer needed?)
+    /*  var rc_tp_layer_polys = new GeoJSONLayer({
+        title: "RC Cities (polys)",
+        url: "./ravenclaw_tp_toponyms.geojson",
+        popupTemplate: topo_popup,
+        renderer: topo_poly_renderer,
+        labelingInfo: [rc_labelClass],
+        opacity: 0.6,
+        minScale: 20000,
+        copyright: "RC & TP alignment: <a href=\"https://www.tabula-peutingeriana.de/sources.html?typ=rc&pars=1\">Martin Weber</a> & Leif Isaksen"
+    });
+    //    rc_tp_layer_polys.on('click', function (evt) {
+    //         console.log("featured clicked");
+    //});
+    tpMap.add(rc_tp_layer_polys); */
+
+
+
+//WIDGETS***********************************************
+
+ /*   //Search   
+    let sources = [{
+        layer: rc_tp_csv_layer,
+        searchFields: ["rc_name"],
+        displayField: "rc_name",
+        exactMatch: false,
+        outFields: ['rc_index_no'],
+        name: "RC cities",
+        maxResults: 6,
+        maxSuggestions: 6,
+        suggestionsEnabled: true,
+        minSuggestCharacters: 0,
+    }];
+
+    const tpSearchWidget = new Search({
+        view: tpView,
+        viewModel: { // autocasts as new SearchViewModel()
+            sources: sources,
+            locationEnabled: false,
+            includeDefaultSources: false
+        }
+    });
+
+    const tpSearchExpand = new Expand({
+        expandIcon: "search",  // see https://developers.arcgis.com/calcite-design-system/icons/
+        view: tpView,
+        content: tpSearchWidget
+    });
+    tpView.ui.add(tpSearchExpand, "top-left");
+
+    tpSearchWidget.on("search-complete", function(event){
+        var feature_id = event.results[0].results[0].feature.attributes.rc_index_no
+        document.getElementById(feature_id).dispatchEvent(new Event('open')); 
+        locate_feature_on_tp(feature_id);
+        locate_toponym_on_geoMap(feature_id);
+    });
+
+    */
+
+
+    // Layer List-----------------------------------------------------
+    const tpLayerList = new LayerList({
+        view: tpView,
+        visible: true,
+        listItemCreatedFunction: function(event){
+            event.item.panel = {content: "legend"};
+        }
+    });
+
+    const tpLayerListExpand = new Expand({
+        expandIcon: "layers",  // see https://developers.arcgis.com/calcite-design-system/icons/
+        view: tpView,
+        content: tpLayerList
+    });
+    tpView.ui.add(tpLayerListExpand, "top-left");
+
+
+    // Home button ----------------------------
+    var homeBtn = new Home({view: tpView});
+    tpView.ui.add(homeBtn, "top-left");   
+
+    // Fullscreen -----------------------------
+    var fullscreen = new Fullscreen({view: tpView});
+    tpView.ui.add(fullscreen, "top-left");
+
+    
+});
+</script>
+
+<!--Geodetic MAP******************************************-->
+<script type="text/javascript">
+
+require([
+"esri/layers/WebTileLayer", 
+"esri/Map",
+"esri/Basemap", 
+"esri/widgets/BasemapGallery",
+"esri/widgets/BasemapGallery/support/LocalBasemapsSource",
+"esri/views/MapView",
+"esri/widgets/Home",
+"esri/core/urlUtils",
+"esri/identity/IdentityManager",
+"esri/config",
+"esri/layers/FeatureLayer",
+"esri/layers/GeoJSONLayer",
+"esri/layers/CSVLayer",
+"esri/widgets/Legend",
+"esri/widgets/LayerList", 
+"esri/widgets/Search",
+"esri/rest/support/Query",
+"esri/widgets/Search/LayerSearchSource",
+"esri/widgets/Expand",
+"esri/widgets/Fullscreen",
+"esri/widgets/ValuePicker",
+"esri/core/reactiveUtils"
+], function(WebTileLayer, Map, Basemap, BasemapGallery, LocalBasemapsSource, MapView, Home, UrlUtils, esriId, esriConfig, FeatureLayer, GeoJSONLayer, CSVLayer, Legend, LayerList, Search, LayerSearchSource, Query, Expand, Fullscreen, ValuePicker, reactiveUtils) {
+
+    //create basemap
+    const dare_basemap = new Basemap({
+        title: "Digital Atlas of the Roman Empire",
+        baseLayers: [
+            new WebTileLayer({
+                urlTemplate: "https://dh.gu.se/tiles/imperium/{z}/{x}/{y}.png",
+                copyright: 'Basemap: <a href="https://www.imperium.ahlfeldt.se" target="_blank">Digital Atlas of the Roman Empire</a>'
+            })
+        ]
+    });
+    
+    //create GeoMap View
+    geoMap = new Map({
+        basemap: dare_basemap
+    });
+
+    //Create basemap
+    geoView = new MapView({
+        container: "geoViewDiv", // Reference to the DOM node that will contain the view
+        map: geoMap,
+        center: [14, 40],
+        zoom: 6
+    });
+
+
+    //layers*********************************************
+    
+    var tp_routes_layer = new GeoJSONLayer({
+        title: "TP route network",
+        url: "./tp_routes_pleiades.geojson",
+        renderer: route_renderer,
+        copyright: "TP routes: <a href=\"https://pleiades.stoa.org\">Pleiades</a>",
+        visible: false
+    });
+    geoMap.add(tp_routes_layer);
+    
+    late_dioceses_layer = new GeoJSONLayer({
+        title: "Late Roman dioceses",
+        url: "./RomDiocesesAD303.geojson",
+        renderer: region_300_renderer,
+        labelingInfo: [dioceseLabelClass],
+        copyright: "Late Roman dioceses: <a href=\"https://pleiades.stoa.org\">Pleiades</a>",
+        opacity: 0.15,
+        visible: false
+        
+    });
+    geoMap.add(late_dioceses_layer);
+
+    late_provinces_layer = new GeoJSONLayer({
+        title: "Late Roman provinces",
+        url: "./RomProvAD303.geojson",
+        renderer: region_300_renderer,
+        labelingInfo: [provinceLabelClass],
+        copyright: "Late Roman provinces: <a href=\"https://pleiades.stoa.org\">Pleiades</a>",
+        opacity: 0.15,
+        visible: false
+    });
+    geoMap.add(late_provinces_layer);
+
+    regions_600_layer = new GeoJSONLayer({
+        title: "Polities c. 600AD",
+        url: "./regions_600AD.geojson",
+        renderer: region_600_renderer,
+        labelingInfo: [regionLabelClass],
+        copyright: "Polities c. 600AD: <a href=\"https://euratlas.com\">Euratlas</a>",
+        opacity: 0.3,
+        visible: false
+    });
+    geoMap.add(regions_600_layer);
+
+
+    
+    //RC Data Layers ------------------------------------------------
+
+    littoral_sequence_layer = new GeoJSONLayer({
+        title: "RC littoral sequence",
+        url: "./littoral_sequence.geojson",
+        renderer: littoral_line_renderer,
+        visible: false
+    });
+    geoMap.add(littoral_sequence_layer);
+   
+    littoral_csv_layer = new CSVLayer({
+        title: "RC littoral",
+        url: "./rc_littoral.csv",
+        popupTemplate: littoral_popup,
+        renderer: littoral_renderer,
+        labelingInfo: [geo_littoral_labelClass],
+        copyright: "Location coordinates: <a href=\"https://pleiades.stoa.org\">Pleiades</a>",
+        latitudeField: "representative_latitude",
+        longitudeField: "representative_longitude"
+    });
+    geoMap.add(littoral_csv_layer); 
+
+    rc_sequence_layer = new GeoJSONLayer({
+        title: "RC place sequence",
+        url: "./ravenclaw_paths.geojson",
+        renderer: topo_region_line_renderer,
+        visible: false
+    });
+    geoMap.add(rc_sequence_layer);
+
+
+    geo_csv_layer = new CSVLayer({
+        title: "RC Cities",
+        url: "./ravenclaw.csv",
+        popupTemplate: rc_popup,
+    //    renderer:  topo_marker_renderer,
+        renderer: topo_region_marker_renderer,
+        labelingInfo: [geoLabelClass],
+        copyright: "Location coordinates: <a href=\"https://pleiades.stoa.org\">Pleiades</a>",
+        latitudeField: "rep_lat",
+        longitudeField: "rep_long"
+    });
+    geoMap.add(geo_csv_layer); 
+
+
+    const locateAction = {
+        type: "button",  
+        title: "Locate on TP / in RC", 
+        id: "locate", // The ID by which to reference the action in the event handler
+        icon: "image-pin" // Sets the icon used to style the action button
+    };
+   // geoView.popup.actions = [locateAction];
+
+    const nextAction = {
+        type: "button",  
+        title: "next", 
+        id: "next", // The ID by which to reference the action in the event handler
+        icon: "arrow-bold-right" // Sets the icon used to style the action button
+    };
+    const prevAction = {
+        type: "button",  
+        title: "previous", 
+        id: "previous", // The ID by which to reference the action in the event handler
+        icon: "arrow-bold-left" // Sets the icon used to style the action button
+    };
+    geoView.popup.actions = [prevAction, locateAction, nextAction];
+
+    // Add popup actions to tpView as well
+  //  tpView.popup.actions = [prevAction, locateToponymAction, nextAction];
+
+    // Helper for RC cities navigation
+    function navigateToRCPlace(direction, current_id) {
+        loadCSVData('./ravenclaw.csv').then(data => {
+            const ids = data.map(row => parseInt(row.rc_index_no)).filter(Number.isFinite);
+            const idx = ids.indexOf(parseInt(current_id));
+            let nextIdx;
+            if (direction === 'next') {
+                nextIdx = (idx + 1) % ids.length;
+            } else {
+                nextIdx = (idx - 1 + ids.length) % ids.length;
+            }
+            const next_id = ids[nextIdx];
+            document.getElementById(next_id).dispatchEvent(new Event('open'));
+            locate_feature_on_tp(next_id);
+            locate_toponym_on_geoMap(next_id);
+        });
+    }
+
+    // Helper for Littoral navigation
+    function navigateToLittoralPlace(direction, current_stage, current_RC_peri_count) {
+        loadCSVData('./rc_littoral.csv').then(data => {
+            const idx = data.findIndex(row => row.stage == current_stage && row.RC_peri_count == current_RC_peri_count);
+            let nextIdx;
+            if (direction === 'next') {
+                nextIdx = (idx + 1) % data.length;
+            } else {
+                nextIdx = (idx - 1 + data.length) % data.length;
+            }
+            const next = data[nextIdx];
+            let next_stage = next.stage;
+            let next_RC_peri_count = next.RC_peri_count;
+            locate_littoral_on_map(next_RC_peri_count, next_stage);
+            let directory_id = "littoral_" + next_RC_peri_count + "_" + next_stage;
+            document.getElementById(directory_id).dispatchEvent(new Event('open'));
+        });
+    }
+
+    // geoView popup action handler
+    reactiveUtils.on(() => 
+        geoView.popup,
+        "trigger-action",
+        (event) => {
+            let feature = geoView.popup.features[0];
+            let layer = feature.layer;
+            if (event.action.id === "locate") {
+                if (layer === geo_csv_layer) {
+                    let feature_id = feature.attributes.rc_index_no;
+                    document.getElementById(feature_id).dispatchEvent(new Event('open'));
+                    locate_feature_on_tp(feature_id);
+                    locate_toponym_on_geoMap(feature_id);
+                } else if (layer === littoral_csv_layer) {
+                    let stage = feature.attributes.stage;
+                    let RC_peri_count = feature.attributes.RC_peri_count;
+                    locate_littoral_on_map(RC_peri_count, stage);
+                    let directory_id = "littoral_" + RC_peri_count + "_" + stage;
+                    console.log(directory_id);
+                    document.getElementById(directory_id).dispatchEvent(new Event('open')); 
+                }
+            } else if (event.action.id === "next" || event.action.id === "previous") {
+                if (layer === geo_csv_layer) {
+                    let feature_id = feature.attributes.rc_index_no;
+                    navigateToRCPlace(event.action.id, feature_id);
+                } else if (layer === littoral_csv_layer) {
+                    let stage = feature.attributes.stage;
+                    let RC_peri_count = feature.attributes.RC_peri_count;
+                    navigateToLittoralPlace(event.action.id, stage, RC_peri_count);
+                }
+            }
+        }
+    );
+
+    // tpView popup action handler
+    reactiveUtils.on(() => 
+        tpView.popup,
+        "trigger-action",
+        (event) => {
+            let feature = tpView.popup.features[0];
+            let layer = feature.layer;
+            if (event.action.id === "next" || event.action.id === "previous") {
+                if (layer === rc_tp_csv_layer) {
+                    let feature_id = feature.attributes.rc_index_no;
+                    navigateToRCPlace(event.action.id, feature_id);
+                } else if (layer === rc_littoral_csv_layer) {
+                    let stage = feature.attributes.stage;
+                    let RC_peri_count = feature.attributes.RC_peri_count;
+                    navigateToLittoralPlace(event.action.id, stage, RC_peri_count);
+                }
+            }
+        }
+    );
+
+//WIDGETS *************************************************
+
+    //  SEARCH--------------------------------------
+
+    //Search sources 
+    let rc_source = {
+        layer: geo_csv_layer,
+        searchFields: ["rc_toponym"],
+        displayField: "rc_toponym",
+        exactMatch: false,
+        outFields: ["rc_index_no"],
+        name: "RC cities",
+        maxResults: 6,
+        maxSuggestions: 6,
+        suggestionsEnabled: true,
+        minSuggestCharacters: 0,
+        popupEnabled: true
+    };
+
+    //not currently implemented
+    let littoral_source = {
+        layer: littoral_csv_layer,
+        searchFields: ["RC_peri"],
+        displayField: "RC_peri",
+        exactMatch: false,
+        outFields: ["stage", "RC_peri_count"], //needs identifier(?) to locate on tp and map?
+        name: "RC Littoral",
+        maxResults: 6,
+        maxSuggestions: 6,
+        suggestionsEnabled: true,
+        minSuggestCharacters: 0,
+        popupEnabled: true
+    };
+
+
+
+    const geoSearchWidget = new Search({
+        view: geoView,
+        viewModel: { // autocasts as new SearchViewModel()
+            sources: [rc_source, littoral_source],
+            locationEnabled: false,
+            includeDefaultSources: false
+        }});
+
+    const geoSearchExpand = new Expand({
+        expandIcon: "search",  // see https://developers.arcgis.com/calcite-design-system/icons/
+        view: geoView,
+        content: geoSearchWidget
+    });
+    geoView.ui.add(geoSearchExpand, "top-left");
+
+    geoSearchWidget.on("search-complete", function(event){
+        
+        if (event.results[0].sourceIndex == 0) {
+            var feature_id = event.results[0].results[0].feature.attributes.rc_index_no;
+            document.getElementById(feature_id).dispatchEvent(new Event('open')); 
+            locate_feature_on_tp(feature_id);
+            locate_toponym_on_geoMap(feature_id);
+        } else {
+            var stage = event.results[0].results[0].feature.attributes.stage;
+            var RC_peri_count = event.results[0].results[0].feature.attributes.RC_peri_count;
+            locate_littoral_on_map(RC_peri_count, stage);
+            var directory_id = "littoral_" + RC_peri_count + "_" + stage;
+            console.log(directory_id);
+            document.getElementById(directory_id).dispatchEvent(new Event('open')); 
+        }
+
+    });
+
+    // Layer List-----------------------------------------------------
+    const geoLayerList = new LayerList({
+        view: geoView,
+        visible: true,
+        listItemCreatedFunction: function(event){
+            event.item.panel = {content: "legend"};
+        }
+    });
+
+    const geolayerListExpand = new Expand({
+        expandIcon: "layers",  // see https://developers.arcgis.com/calcite-design-system/icons/
+        view: geoView,
+        content: geoLayerList
+    });
+    geoView.ui.add(geolayerListExpand, "top-left");
+
+    //home button ------------------------
+    var geoHomeBtn = new Home({view: geoView });
+    geoView.ui.add(geoHomeBtn, "top-left");
+
+    //full screen -------------------------
+    var fullscreen = new Fullscreen({ view: geoView });
+    geoView.ui.add(fullscreen, "top-left");
+
+    //basemap gallery ----------------------
+    let basemapGallery = new BasemapGallery({
+        source: new LocalBasemapsSource({
+            basemaps: [ 
+                dare_basemap,
+                Basemap.fromId("topo-vector"),
+                Basemap.fromId("satellite")
+            ]
+        }),
+        view: geoView
+    });
+
+    const galleryExpand = new Expand({
+        expandIcon: "basemap",  // see https://developers.arcgis.com/calcite-design-system/icons/
+        view: geoView,
+        content: basemapGallery
+    });
+    geoView.ui.add(galleryExpand, {position: "top-left" });
+
+
+    // Symbology selector ---------------------
+    const symbologyPicker = new ValuePicker({
+        component: { // autocasts ValuePickerCombobox when type is "combobox".
+            type: "combobox",
+            placeholder: "Symbolize",
+            items: [
+            { value: "region", label: "By region" },
+            { value: "list", label: "By sequence" },
+            { value: "source", label: "By primary source" }
+            ]
+        },
+        values: ["region"],
+        visibleElements: {nextButton: false, playButton: false, previousButton: false}
+    });
+
+    const symbologyPickerExpand = new Expand({
+        expandIcon: "buffer-point",  // see https://developers.arcgis.com/calcite-design-system/icons/
+        view: geoView,
+        content: symbologyPicker
+    });
+    geoView.ui.add(symbologyPickerExpand, "top-left");
+
+    reactiveUtils.watch(
+        () => symbologyPicker.values,
+        (values) => updateRCRenderers(values[0])
+    );
+
+    // Add after other renderers:
+    // PRIMARY SOURCE RENDERER
+    // We'll use a fixed color palette for up to 10 sources, then cycle.
+    const primarySourceColors = [
+        "#e6194b", "#3cb44b", "#ffe119", "#4363d8", "#f58231", "#911eb4", "#46f0f0", "#f032e6", "#bcf60c", "#fabebe"
+    ];
+
+    function getPrimarySourceRenderer(uniqueSources) {
+        return {
+            type: "unique-value",
+            legendOptions: {title: "Primary Source"},
+            field: "primary_source",
+            uniqueValueInfos: uniqueSources.map((source, i) => ({
+                value: source,
+                symbol: {
+                    type: "simple-marker",
+                    size: "11px",
+                    color: primarySourceColors[i % primarySourceColors.length],
+                    outline: { color: "black", width: "1px" }
+                },
+                label: source
+            }))
+        };
+    }
+
+    function updateRCRenderers(rendererType) {
+        switch(rendererType) {
+            case "region":
+                rc_tp_csv_layer.renderer = topo_region_marker_renderer;
+                geo_csv_layer.renderer = topo_region_marker_renderer;
+                rc_sequence_layer.visible = false;
+                tp_rc_sequence_layer.visible = false;
+                console.log("region");
+                break;
+            case "list":
+                rc_tp_csv_layer.renderer = topo_marker_renderer;
+                geo_csv_layer.renderer = topo_marker_renderer;
+                rc_sequence_layer.visible = true;
+                tp_rc_sequence_layer.visible = true;
+
+                console.log("list");
+                break;
+            case "source":
+                // Get unique primary_source values from ravenclaw.csv
+                loadCSVData('./ravenclaw.csv').then(data => {
+                    const uniqueSources = Array.from(new Set(data.map(row => row.primary_source).filter(Boolean)));
+                    const renderer = getPrimarySourceRenderer(uniqueSources);
+                    rc_tp_csv_layer.renderer = renderer;
+                    geo_csv_layer.renderer = renderer;
+                });
+                rc_sequence_layer.visible = false;
+                tp_rc_sequence_layer.visible = false;
+                console.log("source");
+                break;
+            default:
+                console.log("C");
+        }
+    }
+});
+</script>
+</head>
+
+<body>
+<h1><a href="https://archive.org/details/ravennatisanony02ravegoog/page/n30/mode/2up?view=theater" target="_blank">Ravenna Cosmography</a>: Locations, Alignments & Weblinks (RavenC:LAW v.0.5)</h1>
+
+<!--PLACE DIRECTORY************************************ -->
+
+<style>
+.caret {
+    cursor: pointer;
+    user-select: none;
+}
+
+.caret::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+.caret-down::before {
+    transform: rotate(90deg);
+}
+
+.nested {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+#placeDirectory ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+</style>
+
+<div id="placeDirectory" style="width: 250px; float: left; background-color: lightgray;  height: 100vh; overflow-y: auto; ">
+<h3> Place Directory</h3>
+</div>
+
+<div id="geoViewDiv" style="margin-left: 250px" class="mapView"></div>
+<div id="tpViewDiv" style="margin-left: 250px" class="mapView"></div>
+
+</script>
+</body>
+</html>
