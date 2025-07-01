@@ -328,9 +328,23 @@ const toggleAncestors = el => {
 
 //*** popup contents****************
 
+function createTitle(feature) {
+    var offset = 14;
+    console.log(feature.graphic.attributes);
+    console.log(feature.graphic.attributes.schnetz_page);
+    var schnetz_page = feature.graphic.attributes.schnetz_page + offset;
+    var rc_toponym = feature.graphic.attributes.rc_toponym;
+    console.log(schnetz_page);
+    var title = "<a href=\"https://scotchbon.net/ravenclaw/schnetz.pdf#page=" + schnetz_page + "\" target=\"_blank\">{rc_toponym}</a> (No. {rc_index_no}, Book {rc_book}, list {rc_list_number})";
+    console.log(title);
+    return title;
+};
+
 var rc_popup = {
   //  title: "<a href=\"https://www.tabula-peutingeriana.de/sources.html?pars={rc_book}&amp;typ=rc#{weber_list_no}\">{rc_toponym}</a> (No. {rc_index_no}, Book {rc_book}, list {rc_list_number})",
-    title: "<a href=\"https://archive.org/details/ravennatisanony02ravegoog/page/{pp_page}/mode/2up?view=theater\" target=\"_blank\">{rc_toponym}</a> (No. {rc_index_no}, Book {rc_book}, list {rc_list_number})",
+  //  title: "<a href=\"https://archive.org/details/ravennatisanony02ravegoog/page/{pp_page}/mode/2up?view=theater\" target=\"_blank\">{rc_toponym}</a> (No. {rc_index_no}, Book {rc_book}, list {rc_list_number})",
+ // title: "<a href=\"https://scotchbon.net/ravenclaw/schnetz.pdf#page={schnetz_page}\" target=\"_blank\">{rc_toponym}</a> (No. {rc_index_no}, Book {rc_book}, list {rc_list_number})",
+    title: createTitle,
     content: "<table>"
             + "<tr><td><b>Region:</b></td><td>{rc_patria}</td><td><b>TP (TP-Online):</b></td><td><a href=\"{ku_uri_lookup}\">{ku_name_lookup}</a></td></tr>"
             + "<tr><td><b>Pleiades:</b></td><td><a href=\"{pleiades_uri_lookup}\">{pleiades_name_lookup}</a></td><td><b>TP (Talbert):</b></td><td><a href=\"{talbert_uri_lookup}\">{talbert_name_lookup}</a></td></tr>"
@@ -1483,7 +1497,7 @@ require([
 </head>
 
 <body>
-<h1><a href="https://archive.org/details/ravennatisanony02ravegoog/page/n30/mode/2up?view=theater" target="_blank">Ravenna Cosmography</a>: Locations, Alignments & Weblinks (RavenC:LAW v.0.5)</h1>
+<h1><a href="https://scotchbon.net/ravenclaw/schnetz.pdf#page=13" target="_blank">Ravenna Cosmography</a>: Locations, Alignments & Weblinks (RavenC:LAW beta v.0.5)</h1>
 
 <!--PLACE DIRECTORY************************************ -->
 
@@ -1518,8 +1532,9 @@ require([
 }
 </style>
 
-<div id="placeDirectory" style="width: 250px; float: left; background-color: lightgray;  height: 100vh; overflow-y: auto; ">
-<h3> Place Directory</h3>
+<div id="placeDirectory" style="width: 250px; float: left; background-color: white;  height: 100vh; overflow-y: auto; ">
+    <pre> <a href="https://github.com/leifuss/ravenclaw?tab=readme-ov-file#ravenclaw" target="_blank">About</a></pre>    
+    <h3> Place Directory</h3>
 </div>
 
 <div id="geoViewDiv" style="margin-left: 250px" class="mapView"></div>
