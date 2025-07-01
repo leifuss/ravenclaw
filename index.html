@@ -354,8 +354,9 @@ var rc_popup = {
 
 var littoral_popup = {
    // title: "<a href=\"https://www.tabula-peutingeriana.de/sources.html?pars=5&amp;typ=rc#c{stage}\">{RC_peri}</a> (Bk 5 littoral itin. Stage {stage}, no. {RC_peri_count})",
-    title: "<a href=\"https://archive.org/details/ravennatisanony02ravegoog/page/{pp_page}/mode/2up?view=theater\" target=\"_blank\">{RC_peri}</a> (Bk 5 littoral itin. Stage {stage}, no. {RC_peri_count})",
-    content: "<table>"
+   // title: "<a href=\"https://archive.org/details/ravennatisanony02ravegoog/page/{pp_page}/mode/2up?view=theater\" target=\"_blank\">{RC_peri}</a> (Bk 5 littoral itin. Stage {stage}, no. {RC_peri_count})",
+   title: createTitle,
+   content: "<table>"
             + "<tr><td><b>Guidonis Geographica:</b></td><td>{GG_peri}</td><td><b>TP-Online:</b></td><td><a href=\"https://tp-online.ku.de/trefferanzeige_en.php?id={ku_id}\">{ku_name_lookup}</a></td></tr>"
             + "<tr><td><b>Pleiades:</b></td><td><a href=\"https://pleiades.stoa.org/places/{pleiades_id}\">{pleiades_toponym}</a></td><td><b>TP (Talbert):</b></td><td><a href=\"https://www.cambridge.org/us/talbert/talbertdatabase/TPPlace{Talbert_id}.html\">{talbert_name_lookup}</a></td></tr>"
             + "</table>"
