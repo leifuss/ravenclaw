@@ -335,7 +335,7 @@ function createTitle(feature) {
     var schnetz_page = feature.graphic.attributes.schnetz_page + offset;
     var rc_toponym = feature.graphic.attributes.rc_toponym;
     console.log(schnetz_page);
-    var title = "<a href=\"https://scotchbon.net/ravenclaw/schnetz.pdf#page=" + schnetz_page + "\" target=\"_blank\">{rc_toponym}</a> (No. {rc_index_no}, Book {rc_book}, list {rc_list_number})";
+    var title = "<a href=\"https://scotchbon.net/ravenclaw/schnetz.pdf#page=" + schnetz_page + "\" target=\"_blank\">{rc_toponym}</a> (No. {rc_index_no}, Book {rc_book}, list {rc_list_number_original})";
     console.log(title);
     return title;
 };
