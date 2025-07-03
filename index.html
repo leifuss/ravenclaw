@@ -339,7 +339,6 @@ function createTitle(feature) {
     console.log(title);
     return title;
 };
-//comment
 
 var rc_popup = {
   //  title: "<a href=\"https://www.tabula-peutingeriana.de/sources.html?pars={rc_book}&amp;typ=rc#{weber_list_no}\">{rc_toponym}</a> (No. {rc_index_no}, Book {rc_book}, list {rc_list_number})",
@@ -382,9 +381,6 @@ var topo_marker_uv_infos = [];
 var topo_marker_region_uv_infos = [];
 var topo_marker_uv_groups = [];
 var topo_region_path_uv_infos = [];
-//var onTP_classes =[];
-//var notOnTP_classes =[];
-//let topo_poly_uv_infos = [];
 
 for (let j = 0; j < patriae.length; j++) {
 
@@ -399,7 +395,6 @@ for (let j = 0; j < patriae.length; j++) {
     topo_marker_region_uv_infos.push(region_OFFTP_point_uv);
 
     for (let i = 0; i < 26; i++) {  
-        //   let sublist = patriae[j] + ", " + String.fromCharCode(97 + i);
 
         //create sublist symbology map
         let sublist = String(j) + String.fromCharCode(97 + i);
@@ -416,11 +411,6 @@ for (let j = 0; j < patriae.length; j++) {
         topo_marker_uv_infos.push(onTP_sublist_point_uv);
         topo_marker_uv_infos.push(notOnTP_sublist_point_uv);
         topo_region_path_uv_infos.push(region_line_uv);
-
-        //create sublist polygon symbology map (not needed?)
-        //const polySym = {type: "simple-fill", color: colors[i], outline: { color: colors[j], width: "2px" }};
-        //const sublist_poly_uv = {value: sublist, symbol: polySym, label: sublist};
-        //topo_poly_uv_infos.push(sublist_poly_uv);
     }
 }
 
@@ -459,20 +449,6 @@ var topo_region_line_renderer = {
     field: "rc_list",
     uniqueValueInfos: topo_region_path_uv_infos
 };  
-
-/*const topo_poly_renderer = {
-    type: "unique-value", // autocasts as new UniqueValueRenderer()
-    legendOptions: {
-    title: "RC sublist"
-    },
-    defaultSymbol: tp_default_poly_symbol,
-    defaultLabel: "Other",
-    field: "ravenclaw_rc_list_number",
- //   field: "ravenclaw_rc_patria",
- //   field2: "ravenclaw_rc_list_number",
-    fieldDelimiter: ", ",
-    uniqueValueInfos: topo_poly_uv_infos
-};   */
 
 //create littoral symbology map
 let littoral_marker_infos = []; //dirty hack (calculate this)
@@ -772,12 +748,7 @@ require([
     });
 
     // Define popup actions for both geoView and tpView
-  /*  const locateAction = {
-        type: "button",  
-        title: "Locate on TP / in RC", 
-        id: "locate", // The ID by which to reference the action in the event handler
-        icon: "image-pin" // Sets the icon used to style the action button
-    }; */
+
     const nextAction = {
         type: "button",  
         title: "next", 
@@ -798,7 +769,6 @@ require([
     };
 
     // Set popup actions for geoView and tpView
-  //  geoView.popup.actions = [prevAction, locateAction, nextAction];
     tpView.popup.actions = [prevAction, locateToponymAction, nextAction];
     
     reactiveUtils.on(() => 
@@ -927,64 +897,7 @@ require([
     tpMap.add(rc_tp_csv_layer); 
 
 
-    //Poly layer (no longer needed?)
-    /*  var rc_tp_layer_polys = new GeoJSONLayer({
-        title: "RC Cities (polys)",
-        url: "./ravenclaw_tp_toponyms.geojson",
-        popupTemplate: topo_popup,
-        renderer: topo_poly_renderer,
-        labelingInfo: [rc_labelClass],
-        opacity: 0.6,
-        minScale: 20000,
-        copyright: "RC & TP alignment: <a href=\"https://www.tabula-peutingeriana.de/sources.html?typ=rc&pars=1\">Martin Weber</a> & Leif Isaksen"
-    });
-    //    rc_tp_layer_polys.on('click', function (evt) {
-    //         console.log("featured clicked");
-    //});
-    tpMap.add(rc_tp_layer_polys); */
-
-
-
 //WIDGETS***********************************************
-
- /*   //Search   
-    let sources = [{
-        layer: rc_tp_csv_layer,
-        searchFields: ["rc_name"],
-        displayField: "rc_name",
-        exactMatch: false,
-        outFields: ['rc_index_no'],
-        name: "RC cities",
-        maxResults: 6,
-        maxSuggestions: 6,
-        suggestionsEnabled: true,
-        minSuggestCharacters: 0,
-    }];
-
-    const tpSearchWidget = new Search({
-        view: tpView,
-        viewModel: { // autocasts as new SearchViewModel()
-            sources: sources,
-            locationEnabled: false,
-            includeDefaultSources: false
-        }
-    });
-
-    const tpSearchExpand = new Expand({
-        expandIcon: "search",  // see https://developers.arcgis.com/calcite-design-system/icons/
-        view: tpView,
-        content: tpSearchWidget
-    });
-    tpView.ui.add(tpSearchExpand, "top-left");
-
-    tpSearchWidget.on("search-complete", function(event){
-        var feature_id = event.results[0].results[0].feature.attributes.rc_index_no
-        document.getElementById(feature_id).dispatchEvent(new Event('open')); 
-        locate_feature_on_tp(feature_id);
-        locate_toponym_on_geoMap(feature_id);
-    });
-
-    */
 
 
     // Layer List-----------------------------------------------------
@@ -1133,7 +1046,6 @@ require([
     });
     geoMap.add(regions_600_layer);
 
-
     
     //RC Data Layers ------------------------------------------------
 
@@ -1201,9 +1113,6 @@ require([
         icon: "arrow-bold-left" // Sets the icon used to style the action button
     };
     geoView.popup.actions = [prevAction, locateAction, nextAction];
-
-    // Add popup actions to tpView as well
-  //  tpView.popup.actions = [prevAction, locateToponymAction, nextAction];
 
     // Helper for RC cities navigation
     function navigateToRCPlace(direction, current_id) {
@@ -1362,7 +1271,6 @@ require([
             console.log(directory_id);
             document.getElementById(directory_id).dispatchEvent(new Event('open')); 
         }
-
     });
 
     // Layer List-----------------------------------------------------
