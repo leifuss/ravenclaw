@@ -19,18 +19,57 @@
 <script type="text/javascript" src="//js.arcgis.com/next/"></script>
 
 <style>
-    html,
-    body,
-    #tpViewDiv {padding: 0;margin: 0;height: 60%}
-</style>
-<style>
-    html,
-    body,
-    #geoViewDiv {padding: 0;margin: 0;height: 75%}
+    html, body {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+    }
+    #tpViewDiv {
+        height: 50%;
+    }
+    #geoViewDiv {
+        height: 50%;
+    }
 </style>
 <style>
 .selected{font-weight:bold;}
 .mapView{border-style: solid; border-color: grey}
+
+/* Loading overlay */
+#loadingOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+#loadingOverlay.hidden {
+    display: none;
+}
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+#loadingOverlay p {
+    margin-top: 15px;
+    font-family: "Noto Sans", sans-serif;
+    color: #333;
+}
 </style>
 
 <script>
@@ -44,27 +83,120 @@ var rc_tp_layer_points;
 var rc_tp_csv_layer;
 var patriae = ["India Dimirica Evilat",	"India Themantica & Elatis",	"India Serica",	"Parthia",	"Parsagadae",	"Arabia Eudaemon",	"Arabia Major",	"Hyrcania",	"Media Major",	"Media Minor",	"Persians & Assyrians",	"Various countries near Media",	"Mesopotamia",	"Judaea Palestina",	"Syria Cilesene & Commagene",	"Mesogia Graecorum",	"Ethiopia",	"Egypt",	"Cyrenaican Mauretania",	"Africana",	"Numidia Bizacium",	"Mauretania Sitifensis",	"Mauritania Caesariensis",	"Getulia",	"Mauritania Gaditana",	"Mauritania Tingitana",	"Abasgia",	"Bosphoran Licania",	"Maeotic region/Dardania",	"Thrace",	"Mysia",	"Epirus & Pelagonia",	"Macedonia",	"Hellas",	"Dacia",	"Illyricum",	"Dalmatia",	"Pannonia",	"Valeria",	"Carneola/Julian Alps",	"Liburnia Tarsaticensis",	"Francia Rinensis",	"Alamani",	"Gallia",	"Burgundia",	"Septimana",	"Italia [North of the Po]",	"Italia [Coastal]",	"Italia",	"Britania in the Marshes (Armorica)",	"Guasconia",	"Spano-guasconia",	"Spania [Coastal]",	"Spania [Caesaraugusta]",	"Spania [Complutum]",	"Spania [Augusta Merita & Corduba]",	"Spania [Hispalis]",	"Spania [Ossaron-Merita Augusta]",	"Spania [Augusta Braciarum]",	"Cypros",	"Cretam quae et Crete",	"Peloponissum et Achaia",	"Sicilia",	"Sardinia",	"Corsica",	"Britannia",];
 
-// Function to fetch and parse CSV
+// Data cache to avoid repeated loading
+const dataCache = {};
+
+// Helper to update loading status
+function updateLoadingStatus(message) {
+    const statusEl = document.getElementById('loadingStatus');
+    if (statusEl) statusEl.textContent = message;
+}
+
+// Helper to hide loading overlay
+function hideLoadingOverlay() {
+    const overlay = document.getElementById('loadingOverlay');
+    if (overlay) overlay.classList.add('hidden');
+}
+
+// Helper to show error message
+function showLoadingError(message) {
+    const overlay = document.getElementById('loadingOverlay');
+    if (overlay) {
+        overlay.innerHTML = `
+            <div style="color: #c0392b; text-align: center; padding: 20px;">
+                <h3>Error Loading Data</h3>
+                <p>${message}</p>
+                <button onclick="location.reload()" style="padding: 10px 20px; cursor: pointer;">Retry</button>
+            </div>
+        `;
+    }
+}
+
+// Proper CSV parser that handles quoted fields
+function parseCSV(csvText) {
+    const lines = [];
+    let currentLine = [];
+    let currentField = '';
+    let inQuotes = false;
+
+    for (let i = 0; i < csvText.length; i++) {
+        const char = csvText[i];
+        const nextChar = csvText[i + 1];
+
+        if (inQuotes) {
+            if (char === '"' && nextChar === '"') {
+                currentField += '"';
+                i++; // Skip next quote
+            } else if (char === '"') {
+                inQuotes = false;
+            } else {
+                currentField += char;
+            }
+        } else {
+            if (char === '"') {
+                inQuotes = true;
+            } else if (char === ',') {
+                currentLine.push(currentField.trim());
+                currentField = '';
+            } else if (char === '\n' || (char === '\r' && nextChar === '\n')) {
+                currentLine.push(currentField.trim());
+                if (currentLine.length > 1 || currentLine[0] !== '') {
+                    lines.push(currentLine);
+                }
+                currentLine = [];
+                currentField = '';
+                if (char === '\r') i++; // Skip \n in \r\n
+            } else if (char !== '\r') {
+                currentField += char;
+            }
+        }
+    }
+    // Don't forget the last field/line
+    if (currentField || currentLine.length > 0) {
+        currentLine.push(currentField.trim());
+        if (currentLine.length > 1 || currentLine[0] !== '') {
+            lines.push(currentLine);
+        }
+    }
+    return lines;
+}
+
+// Function to fetch and parse CSV with caching and error handling
 async function loadCSVData(filepath) {
+    // Return cached data if available
+    if (dataCache[filepath]) {
+        return dataCache[filepath];
+    }
+
     try {
         const response = await fetch(filepath);
+        if (!response.ok) {
+            throw new Error(`Failed to load ${filepath}: ${response.status} ${response.statusText}`);
+        }
         const csvText = await response.text();
-        const rows = csvText.split('\n').map(row => row.split(','));
+        const rows = parseCSV(csvText);
+
+        if (rows.length === 0) {
+            throw new Error(`No data found in ${filepath}`);
+        }
+
         const headers = rows[0];
-        
+
         // Create objects from CSV rows
         const data = rows.slice(1).map(row => {
             const obj = {};
             headers.forEach((header, i) => {
-                obj[header.trim()] = row[i]?.trim();
+                obj[header] = row[i] || '';
             });
             return obj;
         });
-        
+
+        // Cache the data
+        dataCache[filepath] = data;
         return data;
     } catch (error) {
         console.error('Error loading CSV:', error);
-        return [];
+        throw error; // Re-throw to let caller handle it
     }
 }
 
@@ -290,28 +422,41 @@ function createLittoralTreeHTML(tree) {
 
 // Initialize tree when document loads
 document.addEventListener('DOMContentLoaded', async () => {
-    const rc_itinerary_data = await loadCSVData('./ravenclaw.csv');
-    const rc_main_tree = buildTreeStructure(rc_itinerary_data);
-    const rc_main_treeHTML = createTreeHTML(rc_main_tree);
-    document.getElementById('placeDirectory').appendChild(rc_main_treeHTML);
-    
-    // Littoral tree
-    const littoral_data = await loadCSVData('./rc_littoral.csv');
-    const littoral_tree = buildLittoralTreeStructure(littoral_data);
-    const littoral_treeHTML = createLittoralTreeHTML(littoral_tree);
+    try {
+        updateLoadingStatus('Loading main toponyms...');
+        const rc_itinerary_data = await loadCSVData('./ravenclaw.csv');
 
-    const littoralHeader = document.createElement('h3');
-    littoralHeader.textContent = "Littoral Directory";
-    document.getElementById('placeDirectory').appendChild(littoralHeader);
-    document.getElementById('placeDirectory').appendChild(littoral_treeHTML);
+        updateLoadingStatus('Building place directory...');
+        const rc_main_tree = buildTreeStructure(rc_itinerary_data);
+        const rc_main_treeHTML = createTreeHTML(rc_main_tree);
+        document.getElementById('placeDirectory').appendChild(rc_main_treeHTML);
 
-    // Add click handlers for expanding/collapsing
-    document.querySelectorAll('.caret').forEach(caret => {
-        caret.addEventListener('click', function() {
-            this.classList.toggle('caret-down');
-            this.parentElement.querySelector('.nested').classList.toggle('active');
+        updateLoadingStatus('Loading littoral data...');
+        const littoral_data = await loadCSVData('./rc_littoral.csv');
+        const littoral_tree = buildLittoralTreeStructure(littoral_data);
+        const littoral_treeHTML = createLittoralTreeHTML(littoral_tree);
+
+        const littoralHeader = document.createElement('h3');
+        littoralHeader.textContent = "Littoral Directory";
+        document.getElementById('placeDirectory').appendChild(littoralHeader);
+        document.getElementById('placeDirectory').appendChild(littoral_treeHTML);
+
+        // Add click handlers for expanding/collapsing
+        document.querySelectorAll('.caret').forEach(caret => {
+            caret.addEventListener('click', function() {
+                this.classList.toggle('caret-down');
+                this.parentElement.querySelector('.nested').classList.toggle('active');
+            });
         });
-    });
+
+        updateLoadingStatus('Ready!');
+        // Short delay to show "Ready!" before hiding
+        setTimeout(hideLoadingOverlay, 300);
+
+    } catch (error) {
+        console.error('Failed to initialize:', error);
+        showLoadingError(error.message || 'Failed to load data. Please check your connection and try again.');
+    }
 });
 
 // Restore toggleAncestors function for expanding parent nodes in the directory tree
@@ -362,16 +507,13 @@ var littoral_popup = {
 
 // ****** RENDERERS
 
-//you can set transparency for first object via hex number (last 2 digits): https://www.w3schools.com/cssref/tryit.php?filename=trycss_color_hexa
-var colors = [ //dirty hack!
-    "red", "darkblue", "lightgreen", "brown", "cyan", "darkgreen", "orange", "purple", "magenta", "yellow",
-    "red", "darkblue", "lightgreen", "brown", "cyan", "darkgreen", "orange", "purple", "magenta", "yellow", 
-    "red", "darkblue", "lightgreen", "brown", "cyan", "darkgreen", "orange", "purple", "magenta", "yellow", 
-    "red", "darkblue", "lightgreen", "brown", "cyan", "darkgreen", "orange", "purple", "magenta", "yellow", 
-    "red", "darkblue", "lightgreen", "brown", "cyan", "darkgreen", "orange", "purple", "magenta", "yellow", 
-    "red", "darkblue", "lightgreen", "brown", "cyan", "darkgreen", "orange", "purple", "magenta", "yellow", 
-    "red", "darkblue", "lightgreen", "brown", "cyan", "darkgreen", "orange", "purple", "magenta", "yellow", 
- ];
+// Color palette for region symbology - cycles through 10 colors for 63+ patriae
+// Transparency can be added via hex (e.g., "#FF000080" for 50% red)
+const BASE_COLORS = ["red", "darkblue", "lightgreen", "brown", "cyan", "darkgreen", "orange", "purple", "magenta", "yellow"];
+
+// Generate enough colors to cover all patriae + sublists (cycling through base palette)
+const MAX_ITEMS = 100; // More than enough for patriae (63) + sublists
+var colors = Array.from({length: MAX_ITEMS}, (_, i) => BASE_COLORS[i % BASE_COLORS.length]);
 
 
 //***********CREATE RC SYMBOLS
@@ -448,22 +590,22 @@ var topo_region_line_renderer = {
     uniqueValueInfos: topo_region_path_uv_infos
 };  
 
-//create littoral symbology map
-let littoral_marker_infos = []; //dirty hack (calculate this)
-littoral_marker_infos.push({value: 1, symbol: {type: "simple-marker", size: "14px", color: "white", outline: { color: "black", width: "1px" }, label: "1"}});
-littoral_marker_infos.push({value: 2, symbol: {type: "simple-marker", size: "14px", color: "black", outline: { color: "white", width: "1px" }, label: "2"}});
-littoral_marker_infos.push({value: 3, symbol: {type: "simple-marker", size: "14px", color: "white", outline: { color: "black", width: "1px" }, label: "1"}});
-littoral_marker_infos.push({value: 4, symbol: {type: "simple-marker", size: "14px", color: "black", outline: { color: "white", width: "1px" }, label: "2"}});
-littoral_marker_infos.push({value: 5, symbol: {type: "simple-marker", size: "14px", color: "white", outline: { color: "black", width: "1px" }, label: "1"}});
-littoral_marker_infos.push({value: 6, symbol: {type: "simple-marker", size: "14px", color: "black", outline: { color: "white", width: "1px" }, label: "2"}});
-littoral_marker_infos.push({value: 7, symbol: {type: "simple-marker", size: "14px", color: "white", outline: { color: "black", width: "1px" }, label: "1"}});
-littoral_marker_infos.push({value: 8, symbol: {type: "simple-marker", size: "14px", color: "black", outline: { color: "white", width: "1px" }, label: "2"}});
-littoral_marker_infos.push({value: 9, symbol: {type: "simple-marker", size: "14px", color: "white", outline: { color: "black", width: "1px" }, label: "1"}});
-littoral_marker_infos.push({value: 10, symbol: {type: "simple-marker", size: "14px", color: "black", outline: { color: "white", width: "1px" }, label: "2"}});
-littoral_marker_infos.push({value: 11, symbol: {type: "simple-marker", size: "14px", color: "white", outline: { color: "black", width: "1px" }, label: "1"}});
-littoral_marker_infos.push({value: 12, symbol: {type: "simple-marker", size: "14px", color: "black", outline: { color: "white", width: "1px" }, label: "2"}});
-littoral_marker_infos.push({value: 13, symbol: {type: "simple-marker", size: "14px", color: "white", outline: { color: "black", width: "1px" }, label: "1"}});
-littoral_marker_infos.push({value: 14, symbol: {type: "simple-marker", size: "14px", color: "black", outline: { color: "white", width: "1px" }, label: "2"}});
+// Create littoral symbology map - alternating black/white by stage
+const LITTORAL_STAGES = 14;
+const littoral_marker_infos = Array.from({length: LITTORAL_STAGES}, (_, i) => {
+    const stageNum = i + 1;
+    const isOdd = stageNum % 2 === 1;
+    return {
+        value: stageNum,
+        symbol: {
+            type: "simple-marker",
+            size: "14px",
+            color: isOdd ? "white" : "black",
+            outline: { color: isOdd ? "black" : "white", width: "1px" }
+        },
+        label: String(stageNum)
+    };
+});
 
 var littoral_renderer = {
     type: "unique-value", // autocasts as new UniqueValueRenderer()
@@ -1405,6 +1547,12 @@ require([
 </head>
 
 <body>
+<!-- Loading Overlay -->
+<div id="loadingOverlay">
+    <div class="spinner"></div>
+    <p id="loadingStatus">Loading place directory...</p>
+</div>
+
     <div style="text-align: right;"><pre><a href="https://github.com/leifuss/ravenclaw?tab=readme-ov-file#ravenclaw" target="_blank">About</a>   <a href="mailto:l.isaksen@exeter.ac.uk?subject=RavenC:LAW">Feedback</a>  </div></pre></div>
 <h1><a href="https://scotchbon.net/ravenclaw/schnetz.pdf#page=13" target="_blank">Ravenna Cosmography</a>: Locations, Alignments & Weblinks (RavenC:LAW beta v.0.6)</h1>
 
@@ -1442,8 +1590,48 @@ require([
 </style>
 
 <div id="placeDirectory" style="width: 250px; float: left; background-color: white;  height: 100vh; overflow-y: auto; ">
-      
-    <h3> Place Directory</h3>
+    <h3>Place Directory</h3>
+
+    <!-- Legend Panel -->
+    <details id="legendPanel" style="margin: 0 10px 15px 10px; padding: 8px; background: #f5f5f5; border-radius: 4px; font-size: 11px;">
+        <summary style="cursor: pointer; font-weight: bold; margin-bottom: 8px;">Legend (click to expand)</summary>
+        <div style="margin-top: 8px;">
+            <p style="margin: 0 0 8px 0; font-weight: bold;">Directory Colors:</p>
+            <div style="display: flex; align-items: center; margin: 4px 0;">
+                <span style="color: green; margin-right: 8px;">&#9679;</span>
+                <span>TP-Online + Pleiades</span>
+            </div>
+            <div style="display: flex; align-items: center; margin: 4px 0;">
+                <span style="color: orange; margin-right: 8px;">&#9679;</span>
+                <span>TP-Online only</span>
+            </div>
+            <div style="display: flex; align-items: center; margin: 4px 0;">
+                <span style="color: blue; margin-right: 8px;">&#9679;</span>
+                <span>Pleiades only</span>
+            </div>
+            <div style="display: flex; align-items: center; margin: 4px 0;">
+                <span style="color: red; margin-right: 8px;">&#9679;</span>
+                <span>No coordinates</span>
+            </div>
+            <hr style="margin: 10px 0; border: none; border-top: 1px solid #ccc;">
+            <p style="margin: 0 0 8px 0; font-weight: bold;">Map Symbols:</p>
+            <div style="display: flex; align-items: center; margin: 4px 0;">
+                <span style="display: inline-block; width: 12px; height: 12px; background: currentColor; border-radius: 50%; margin-right: 8px;"></span>
+                <span>Place on Peutinger Map</span>
+            </div>
+            <div style="display: flex; align-items: center; margin: 4px 0;">
+                <span style="font-size: 14px; margin-right: 8px;">&#10010;</span>
+                <span>Place NOT on Peutinger Map</span>
+            </div>
+            <hr style="margin: 10px 0; border: none; border-top: 1px solid #ccc;">
+            <p style="margin: 0 0 8px 0; font-weight: bold;">Littoral Stages:</p>
+            <div style="display: flex; align-items: center; margin: 4px 0;">
+                <span style="display: inline-block; width: 14px; height: 14px; background: white; border: 1px solid black; border-radius: 50%; margin-right: 8px;"></span>
+                <span style="display: inline-block; width: 14px; height: 14px; background: black; border: 1px solid white; border-radius: 50%; margin-right: 8px;"></span>
+                <span>Alternating by stage</span>
+            </div>
+        </div>
+    </details>
 </div>
 
 <div id="geoViewDiv" style="margin-left: 250px" class="mapView"></div>
