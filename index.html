@@ -1124,8 +1124,10 @@ require([
 "esri/widgets/Search",
 "esri/widgets/Popup",
 "esri/widgets/Search/LayerSearchSource",
+"esri/widgets/Expand",
+"esri/widgets/Fullscreen",
 "esri/core/reactiveUtils"
-], function(Map, MapView, Home, WMTSLayer, UrlUtils, esriId, esriConfig, FeatureLayer, GeoJSONLayer, CSVLayer, Legend, LayerList, Search, LayerSearchSource, Popup, reactiveUtils) {
+], function(Map, MapView, Home, WMTSLayer, UrlUtils, esriId, esriConfig, FeatureLayer, GeoJSONLayer, CSVLayer, Legend, LayerList, Search, LayerSearchSource, Popup, Expand, Fullscreen, reactiveUtils) {
         
     //Create Peutinger Map View
     tpMap = new Map();
@@ -1172,13 +1174,13 @@ require([
         }
     );
 
-    // Watch for popup opening on tpView to show sidebar panel
+    // Watch for popup features changing on tpView to show sidebar panel
     reactiveUtils.watch(
-        () => tpView.popup.visible,
-        (visible) => {
-            if (visible && tpView.popup.selectedFeature) {
-                const attrs = tpView.popup.selectedFeature.attributes;
-                const layer = tpView.popup.selectedFeature.layer;
+        () => tpView.popup.selectedFeature,
+        (feature) => {
+            if (feature && feature.attributes) {
+                const attrs = feature.attributes;
+                const layer = feature.layer;
                 // Determine if it's littoral or regular RC place
                 const isLittoral = layer && layer.title === "RC Littoral";
                 showPlaceDetails(attrs, isLittoral);
@@ -1314,20 +1316,21 @@ require([
         }
     });
 
-    // Layer List Expand - using new web component
-    const tpLayerListExpand = document.createElement('arcgis-expand');
-    tpLayerListExpand.icon = 'layers';
-    tpLayerListExpand.content = tpLayerList;
+    // Layer List Expand - using legacy widget (deprecation warnings expected)
+    const tpLayerListExpand = new Expand({
+        expandIcon: "layers",
+        view: tpView,
+        content: tpLayerList
+    });
     tpView.ui.add(tpLayerListExpand, "top-left");
 
 
     // Home button ----------------------------
    // var homeBtn = new Home({view: tpView});
-   // tpView.ui.add(homeBtn, "top-left");   
+   // tpView.ui.add(homeBtn, "top-left");
 
-    // Fullscreen - using new web component
-    const tpFullscreen = document.createElement('arcgis-fullscreen');
-    tpFullscreen.referenceElement = tpView.container;
+    // Fullscreen - using legacy widget (deprecation warnings expected)
+    var tpFullscreen = new Fullscreen({view: tpView});
     tpView.ui.add(tpFullscreen, "top-left");
 
     
@@ -1356,9 +1359,11 @@ require([
 "esri/widgets/Search",
 "esri/rest/support/Query",
 "esri/widgets/Search/LayerSearchSource",
+"esri/widgets/Expand",
+"esri/widgets/Fullscreen",
 "esri/widgets/ValuePicker",
 "esri/core/reactiveUtils"
-], function(WebTileLayer, Map, Basemap, BasemapGallery, LocalBasemapsSource, MapView, Home, UrlUtils, esriId, esriConfig, FeatureLayer, GeoJSONLayer, CSVLayer, Legend, LayerList, Search, LayerSearchSource, Query, ValuePicker, reactiveUtils) {
+], function(WebTileLayer, Map, Basemap, BasemapGallery, LocalBasemapsSource, MapView, Home, UrlUtils, esriId, esriConfig, FeatureLayer, GeoJSONLayer, CSVLayer, Legend, LayerList, Search, LayerSearchSource, Query, Expand, Fullscreen, ValuePicker, reactiveUtils) {
 
     //create basemap
     const dare_basemap = new Basemap({
@@ -1590,13 +1595,13 @@ require([
         }
     );
 
-    // Watch for popup opening on geoView to show sidebar panel
+    // Watch for popup features changing on geoView to show sidebar panel
     reactiveUtils.watch(
-        () => geoView.popup.visible,
-        (visible) => {
-            if (visible && geoView.popup.selectedFeature) {
-                const attrs = geoView.popup.selectedFeature.attributes;
-                const layer = geoView.popup.selectedFeature.layer;
+        () => geoView.popup.selectedFeature,
+        (feature) => {
+            if (feature && feature.attributes) {
+                const attrs = feature.attributes;
+                const layer = feature.layer;
                 // Determine if it's littoral or regular RC place
                 const isLittoral = layer && layer.title === "RC littoral";
                 showPlaceDetails(attrs, isLittoral);
@@ -1668,10 +1673,12 @@ require([
             includeDefaultSources: false
         }});
 
-    // Search Expand - using new web component
-    const geoSearchExpand = document.createElement('arcgis-expand');
-    geoSearchExpand.icon = 'search';
-    geoSearchExpand.content = geoSearchWidget;
+    // Search Expand - using legacy widget (deprecation warnings expected)
+    const geoSearchExpand = new Expand({
+        expandIcon: "search",
+        view: geoView,
+        content: geoSearchWidget
+    });
     geoView.ui.add(geoSearchExpand, "top-left");
 
     geoSearchWidget.on("search-complete", function(event){
@@ -1700,19 +1707,20 @@ require([
         }
     });
 
-    // Layer List Expand - using new web component
-    const geolayerListExpand = document.createElement('arcgis-expand');
-    geolayerListExpand.icon = 'layers';
-    geolayerListExpand.content = geoLayerList;
+    // Layer List Expand - using legacy widget (deprecation warnings expected)
+    const geolayerListExpand = new Expand({
+        expandIcon: "layers",
+        view: geoView,
+        content: geoLayerList
+    });
     geoView.ui.add(geolayerListExpand, "top-left");
 
     //home button ------------------------
   //  var geoHomeBtn = new Home({view: geoView });
   //  geoView.ui.add(geoHomeBtn, "top-left");
 
-    //full screen - using new web component
-    const geoFullscreen = document.createElement('arcgis-fullscreen');
-    geoFullscreen.referenceElement = geoView.container;
+    //full screen - using legacy widget (deprecation warnings expected)
+    var geoFullscreen = new Fullscreen({ view: geoView });
     geoView.ui.add(geoFullscreen, "top-left");
 
     //basemap gallery ----------------------
@@ -1727,10 +1735,12 @@ require([
         view: geoView
     });
 
-    // Basemap Gallery Expand - using new web component
-    const galleryExpand = document.createElement('arcgis-expand');
-    galleryExpand.icon = 'basemap';
-    galleryExpand.content = basemapGallery;
+    // Basemap Gallery Expand - using legacy widget (deprecation warnings expected)
+    const galleryExpand = new Expand({
+        expandIcon: "basemap",
+        view: geoView,
+        content: basemapGallery
+    });
     geoView.ui.add(galleryExpand, "top-left");
 
 
@@ -1749,10 +1759,12 @@ require([
         visibleElements: {nextButton: false, playButton: false, previousButton: false}
     });
 
-    // Symbology Picker Expand - using new web component
-    const symbologyPickerExpand = document.createElement('arcgis-expand');
-    symbologyPickerExpand.icon = 'legend';  // Changed from buffer-point to legend
-    symbologyPickerExpand.content = symbologyPicker;
+    // Symbology Picker Expand - using legacy widget (deprecation warnings expected)
+    const symbologyPickerExpand = new Expand({
+        expandIcon: "legend",
+        view: geoView,
+        content: symbologyPicker
+    });
     geoView.ui.add(symbologyPickerExpand, "top-left");
 
     reactiveUtils.watch(
@@ -1856,7 +1868,7 @@ function closeMobileMenu() {
     </h1>
     <p style="font-family: 'Crimson Text', serif; font-size: 0.9em; margin: 2px 0 0 0; color: #c9b896; font-style: italic;">
         Locations, Alignments & Weblinks
-        <span style="font-size: 0.8em; color: #a89878;">(RavenC:LAW beta v.0.2.1)</span>
+        <span style="font-size: 0.8em; color: #a89878;">(RavenC:LAW beta v.0.2.2)</span>
     </p>
 </header>
 
