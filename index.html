@@ -1007,6 +1007,85 @@ function locate_littoral_on_map(RC_peri_count, stage) {
     }
 }
 
+// Place Details Panel functions
+function closePlaceDetails() {
+    document.getElementById('placeDetailsPanel').style.display = 'none';
+}
+
+function showPlaceDetails(attributes, isLittoral) {
+    const panel = document.getElementById('placeDetailsPanel');
+    const titleEl = document.getElementById('placeDetailsTitle');
+    const contentEl = document.getElementById('placeDetailsContent');
+
+    if (!panel || !titleEl || !contentEl) {
+        console.log('Place details panel elements not found');
+        return;
+    }
+
+    if (isLittoral) {
+        // Littoral place details
+        titleEl.textContent = (attributes.RC_peri || 'Unknown') + ' (Stage ' + attributes.stage + ', #' + attributes.RC_peri_count + ')';
+
+        var content = '<table style="width: 100%; border-collapse: collapse;">';
+        if (attributes.GG_peri) {
+            content += '<tr><td style="padding: 4px 0;"><b>Guidonis Geographica:</b></td><td>' + attributes.GG_peri + '</td></tr>';
+        }
+        if (attributes.ku_id && attributes.ku_name_lookup) {
+            content += '<tr><td style="padding: 4px 0;"><b>TP-Online:</b></td><td><a href="https://tp-online.ku.de/trefferanzeige_en.php?id=' + attributes.ku_id + '" target="_blank" style="color: #6b4423;">' + attributes.ku_name_lookup + '</a></td></tr>';
+        }
+        if (attributes.pleiades_id && attributes.pleiades_toponym) {
+            content += '<tr><td style="padding: 4px 0;"><b>Pleiades:</b></td><td><a href="https://pleiades.stoa.org/places/' + attributes.pleiades_id + '" target="_blank" style="color: #6b4423;">' + attributes.pleiades_toponym + '</a></td></tr>';
+        }
+        if (attributes.Talbert_id && attributes.talbert_name_lookup) {
+            content += '<tr><td style="padding: 4px 0;"><b>TP (Talbert):</b></td><td><a href="https://www.cambridge.org/us/talbert/talbertdatabase/TPPlace' + attributes.Talbert_id + '.html" target="_blank" style="color: #6b4423;">' + attributes.talbert_name_lookup + '</a></td></tr>';
+        }
+        if (attributes.schnetz_page) {
+            content += '<tr><td colspan="2" style="padding: 8px 0 0 0;"><a href="https://scotchbon.net/ravenclaw/schnetz.pdf#page=' + attributes.schnetz_page + '" target="_blank" style="color: #6b4423;">View in Schnetz edition (p.' + attributes.schnetz_page + ')</a></td></tr>';
+        }
+        content += '</table>';
+        contentEl.innerHTML = content;
+    } else {
+        // RC Cities place details
+        titleEl.textContent = (attributes.rc_toponym || 'Unknown') + ' (No. ' + attributes.rc_index_no + ', Bk ' + attributes.rc_book + ', list ' + (attributes.rc_list_number_original || attributes.rc_list_number) + ')';
+
+        var content = '<table style="width: 100%; border-collapse: collapse;">';
+        if (attributes.rc_patria) {
+            content += '<tr><td style="padding: 4px 0;"><b>Region:</b></td><td>' + attributes.rc_patria + '</td></tr>';
+        }
+        if (attributes.ku_uri_lookup && attributes.ku_name_lookup) {
+            content += '<tr><td style="padding: 4px 0;"><b>TP (TP-Online):</b></td><td><a href="' + attributes.ku_uri_lookup + '" target="_blank" style="color: #6b4423;">' + attributes.ku_name_lookup + '</a></td></tr>';
+        }
+        if (attributes.pleiades_uri_lookup && attributes.pleiades_name_lookup) {
+            content += '<tr><td style="padding: 4px 0;"><b>Pleiades:</b></td><td><a href="' + attributes.pleiades_uri_lookup + '" target="_blank" style="color: #6b4423;">' + attributes.pleiades_name_lookup + '</a></td></tr>';
+        }
+        if (attributes.talbert_uri_lookup && attributes.talbert_name_lookup) {
+            content += '<tr><td style="padding: 4px 0;"><b>TP (Talbert):</b></td><td><a href="' + attributes.talbert_uri_lookup + '" target="_blank" style="color: #6b4423;">' + attributes.talbert_name_lookup + '</a></td></tr>';
+        }
+        if (attributes.primary_source) {
+            content += '<tr><td style="padding: 4px 0;"><b>Primary Source:</b></td><td>' + attributes.primary_source + '</td></tr>';
+        }
+        if (attributes.other_sources) {
+            content += '<tr><td style="padding: 4px 0;"><b>Other Sources:</b></td><td>' + attributes.other_sources + '</td></tr>';
+        }
+        if (attributes.schnetz_page) {
+            content += '<tr><td colspan="2" style="padding: 8px 0 0 0;"><a href="https://scotchbon.net/ravenclaw/schnetz.pdf#page=' + attributes.schnetz_page + '" target="_blank" style="color: #6b4423;">View in Schnetz edition (p.' + attributes.schnetz_page + ')</a></td></tr>';
+        }
+        content += '</table>';
+        contentEl.innerHTML = content;
+    }
+
+    panel.style.display = 'block';
+    // On mobile, re-open the sidebar so user can see the details panel
+    if (window.innerWidth <= 768) {
+        document.getElementById('placeDirectory').classList.add('open');
+        document.getElementById('menuOverlay').classList.add('open');
+        // Small delay to let sidebar open, then scroll panel into view
+        setTimeout(function() {
+            panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+    }
+}
+
 //************* CREATE PEUTINGER MAP VIEW
 require([
 "esri/Map",
@@ -1724,101 +1803,19 @@ function closeMobileMenu() {
         document.getElementById('menuOverlay').classList.remove('open');
     }
 }
-
-// Place Details Panel functions
-function closePlaceDetails() {
-    document.getElementById('placeDetailsPanel').style.display = 'none';
-}
-
-function showPlaceDetails(attributes, isLittoral) {
-    const panel = document.getElementById('placeDetailsPanel');
-    const titleEl = document.getElementById('placeDetailsTitle');
-    const contentEl = document.getElementById('placeDetailsContent');
-
-    if (isLittoral) {
-        // Littoral place details
-        titleEl.textContent = `${attributes.RC_peri || 'Unknown'} (Stage ${attributes.stage}, #${attributes.RC_peri_count})`;
-
-        let content = '<table style="width: 100%; border-collapse: collapse;">';
-        if (attributes.GG_peri) {
-            content += `<tr><td style="padding: 4px 0;"><b>Guidonis Geographica:</b></td><td>${attributes.GG_peri}</td></tr>`;
-        }
-        if (attributes.ku_id && attributes.ku_name_lookup) {
-            content += `<tr><td style="padding: 4px 0;"><b>TP-Online:</b></td><td><a href="https://tp-online.ku.de/trefferanzeige_en.php?id=${attributes.ku_id}" target="_blank" style="color: #6b4423;">${attributes.ku_name_lookup}</a></td></tr>`;
-        }
-        if (attributes.pleiades_id && attributes.pleiades_toponym) {
-            content += `<tr><td style="padding: 4px 0;"><b>Pleiades:</b></td><td><a href="https://pleiades.stoa.org/places/${attributes.pleiades_id}" target="_blank" style="color: #6b4423;">${attributes.pleiades_toponym}</a></td></tr>`;
-        }
-        if (attributes.Talbert_id && attributes.talbert_name_lookup) {
-            content += `<tr><td style="padding: 4px 0;"><b>TP (Talbert):</b></td><td><a href="https://www.cambridge.org/us/talbert/talbertdatabase/TPPlace${attributes.Talbert_id}.html" target="_blank" style="color: #6b4423;">${attributes.talbert_name_lookup}</a></td></tr>`;
-        }
-        if (attributes.schnetz_page) {
-            content += `<tr><td colspan="2" style="padding: 8px 0 0 0;"><a href="https://scotchbon.net/ravenclaw/schnetz.pdf#page=${attributes.schnetz_page}" target="_blank" style="color: #6b4423;">View in Schnetz edition (p.${attributes.schnetz_page})</a></td></tr>`;
-        }
-        content += '</table>';
-        contentEl.innerHTML = content;
-    } else {
-        // RC Cities place details
-        titleEl.textContent = `${attributes.rc_toponym || 'Unknown'} (No. ${attributes.rc_index_no}, Bk ${attributes.rc_book}, list ${attributes.rc_list_number_original || attributes.rc_list_number})`;
-
-        let content = '<table style="width: 100%; border-collapse: collapse;">';
-        if (attributes.rc_patria) {
-            content += `<tr><td style="padding: 4px 0;"><b>Region:</b></td><td>${attributes.rc_patria}</td></tr>`;
-        }
-        if (attributes.ku_uri_lookup && attributes.ku_name_lookup) {
-            content += `<tr><td style="padding: 4px 0;"><b>TP (TP-Online):</b></td><td><a href="${attributes.ku_uri_lookup}" target="_blank" style="color: #6b4423;">${attributes.ku_name_lookup}</a></td></tr>`;
-        }
-        if (attributes.pleiades_uri_lookup && attributes.pleiades_name_lookup) {
-            content += `<tr><td style="padding: 4px 0;"><b>Pleiades:</b></td><td><a href="${attributes.pleiades_uri_lookup}" target="_blank" style="color: #6b4423;">${attributes.pleiades_name_lookup}</a></td></tr>`;
-        }
-        if (attributes.talbert_uri_lookup && attributes.talbert_name_lookup) {
-            content += `<tr><td style="padding: 4px 0;"><b>TP (Talbert):</b></td><td><a href="${attributes.talbert_uri_lookup}" target="_blank" style="color: #6b4423;">${attributes.talbert_name_lookup}</a></td></tr>`;
-        }
-        if (attributes.primary_source) {
-            content += `<tr><td style="padding: 4px 0;"><b>Primary Source:</b></td><td>${attributes.primary_source}</td></tr>`;
-        }
-        if (attributes.other_sources) {
-            content += `<tr><td style="padding: 4px 0;"><b>Other Sources:</b></td><td>${attributes.other_sources}</td></tr>`;
-        }
-        if (attributes.schnetz_page) {
-            content += `<tr><td colspan="2" style="padding: 8px 0 0 0;"><a href="https://scotchbon.net/ravenclaw/schnetz.pdf#page=${attributes.schnetz_page}" target="_blank" style="color: #6b4423;">View in Schnetz edition (p.${attributes.schnetz_page})</a></td></tr>`;
-        }
-        content += '</table>';
-        contentEl.innerHTML = content;
-    }
-
-    panel.style.display = 'block';
-    // On mobile, re-open the sidebar so user can see the details panel
-    if (window.innerWidth <= 768) {
-        document.getElementById('placeDirectory').classList.add('open');
-        document.getElementById('menuOverlay').classList.add('open');
-        // Small delay to let sidebar open, then scroll panel into view
-        setTimeout(function() {
-            panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100);
-    }
-}
 </script>
 
 <!-- Page Header -->
 <header style="background: linear-gradient(135deg, #2c1810 0%, #4a2c1a 50%, #2c1810 100%); color: #f4e4bc; padding: 8px 15px; border-bottom: 3px solid #8b6914;">
-    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-        <div style="flex: 1; min-width: 200px;">
-            <h1 style="font-family: 'Cinzel', serif; font-size: 1.4em; margin: 0; font-weight: 600; letter-spacing: 1px;">
-                <a href="https://scotchbon.net/ravenclaw/schnetz.pdf#page=13" target="_blank" style="color: #f4e4bc; text-decoration: none;">
-                    Ravenna Cosmography
-                </a>
-            </h1>
-            <p style="font-family: 'Crimson Text', serif; font-size: 0.9em; margin: 2px 0 0 0; color: #c9b896; font-style: italic;">
-                Locations, Alignments & Weblinks
-                <span style="font-size: 0.8em; color: #a89878;">(RavenC:LAW beta v.0.1.6)</span>
-            </p>
-        </div>
-        <nav style="font-family: 'Crimson Text', serif; font-size: 0.9em;">
-            <a href="https://github.com/leifuss/ravenclaw?tab=readme-ov-file#ravenclaw" target="_blank" style="color: #c9b896; text-decoration: none; margin-left: 15px;">About</a>
-            <a href="mailto:l.isaksen@exeter.ac.uk?subject=RavenC:LAW" style="color: #c9b896; text-decoration: none; margin-left: 15px;">Feedback</a>
-        </nav>
-    </div>
+    <h1 style="font-family: 'Cinzel', serif; font-size: 1.4em; margin: 0; font-weight: 600; letter-spacing: 1px;">
+        <a href="https://scotchbon.net/ravenclaw/schnetz.pdf#page=13" target="_blank" style="color: #f4e4bc; text-decoration: none;">
+            Ravenna Cosmography
+        </a>
+    </h1>
+    <p style="font-family: 'Crimson Text', serif; font-size: 0.9em; margin: 2px 0 0 0; color: #c9b896; font-style: italic;">
+        Locations, Alignments & Weblinks
+        <span style="font-size: 0.8em; color: #a89878;">(RavenC:LAW beta v.0.1.7)</span>
+    </p>
 </header>
 
 <!--PLACE DIRECTORY************************************ -->
