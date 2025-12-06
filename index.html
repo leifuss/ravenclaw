@@ -1013,12 +1013,17 @@ function closePlaceDetails() {
 }
 
 function showPlaceDetails(attributes, isLittoral) {
+    console.log('showPlaceDetails called', attributes, isLittoral);
+
     const panel = document.getElementById('placeDetailsPanel');
     const titleEl = document.getElementById('placeDetailsTitle');
     const contentEl = document.getElementById('placeDetailsContent');
 
+    console.log('Panel elements:', panel, titleEl, contentEl);
+
     if (!panel || !titleEl || !contentEl) {
         console.log('Place details panel elements not found');
+        alert('Panel elements not found!');
         return;
     }
 
@@ -1075,6 +1080,9 @@ function showPlaceDetails(attributes, isLittoral) {
     }
 
     panel.style.display = 'block';
+    console.log('Panel display set to block, current style:', panel.style.display);
+    console.log('Panel computed style:', window.getComputedStyle(panel).display);
+
     // On mobile, re-open the sidebar so user can see the details panel
     if (window.innerWidth <= 768) {
         document.getElementById('placeDirectory').classList.add('open');
@@ -1814,7 +1822,7 @@ function closeMobileMenu() {
     </h1>
     <p style="font-family: 'Crimson Text', serif; font-size: 0.9em; margin: 2px 0 0 0; color: #c9b896; font-style: italic;">
         Locations, Alignments & Weblinks
-        <span style="font-size: 0.8em; color: #a89878;">(RavenC:LAW beta v.0.1.7)</span>
+        <span style="font-size: 0.8em; color: #a89878;">(RavenC:LAW beta v.0.1.8)</span>
     </p>
 </header>
 
