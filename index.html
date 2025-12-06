@@ -574,61 +574,24 @@ const toggleAncestors = el => {
 
 //*** popup contents****************
 
-function createRCTitle(feature) {
-    var attrs = feature.graphic.attributes;
-    // Debug: show available attribute keys
-    var keys = attrs ? Object.keys(attrs).join(', ') : 'NO ATTRS';
-    console.log('RC attrs keys:', keys);
-    console.log('RC attrs:', JSON.stringify(attrs));
-
-    var schnetz_page_raw = attrs.schnetz_page;
-    var schnetz_page = schnetz_page_raw ? (parseInt(schnetz_page_raw, 10) + 14) : null;
-    var toponym = attrs.rc_toponym || '(unnamed - keys: ' + keys.substring(0, 50) + ')';
-    var index_no = attrs.rc_index_no || '?';
-    var book = attrs.rc_book || '?';
-    var list = attrs.rc_list_number_original || '?';
-
-    if (schnetz_page && !isNaN(schnetz_page)) {
-        return "<a href=\"https://scotchbon.net/ravenclaw/schnetz.pdf#page=" + schnetz_page + "\" target=\"_blank\">" + toponym + "</a> (No. " + index_no + ", Book " + book + ", list " + list + ")";
-    } else {
-        return toponym + " (No. " + index_no + ", Book " + book + ", list " + list + ")";
-    }
-}
-
-function createLittoralTitle(feature) {
-    var attrs = feature.graphic.attributes;
-    var schnetz_page_raw = attrs.schnetz_page;
-    var schnetz_page = schnetz_page_raw ? (parseInt(schnetz_page_raw, 10) + 14) : null;
-    var peri = attrs.RC_peri || '(unnamed)';
-    var stage = attrs.stage || '?';
-    var count = attrs.RC_peri_count || '?';
-
-    if (schnetz_page && !isNaN(schnetz_page)) {
-        return "<a href=\"https://scotchbon.net/ravenclaw/schnetz.pdf#page=" + schnetz_page + "\" target=\"_blank\">" + peri + "</a> (Bk 5 littoral itin. Stage " + stage + ", no. " + count + ")";
-    } else {
-        return peri + " (Bk 5 littoral itin. Stage " + stage + ", no. " + count + ")";
-    }
-}
-
 var rc_popup = {
   //  title: "<a href=\"https://www.tabula-peutingeriana.de/sources.html?pars={rc_book}&amp;typ=rc#{weber_list_no}\">{rc_toponym}</a> (No. {rc_index_no}, Book {rc_book}, list {rc_list_number})",
   //  title: "<a href=\"https://archive.org/details/ravennatisanony02ravegoog/page/{pp_page}/mode/2up?view=theater\" target=\"_blank\">{rc_toponym}</a> (No. {rc_index_no}, Book {rc_book}, list {rc_list_number})",
- // title: "<a href=\"https://scotchbon.net/ravenclaw/schnetz.pdf#page={schnetz_page}\" target=\"_blank\">{rc_toponym}</a> (No. {rc_index_no}, Book {rc_book}, list {rc_list_number})",
-    title: createRCTitle,
+    title: "{rc_toponym} (No. {rc_index_no}, Book {rc_book}, list {rc_list_number_original})",
     content: "<table>"
             + "<tr><td><b>Region:</b></td><td>{rc_patria}</td><td><b>TP (TP-Online):</b></td><td><a href=\"{ku_uri_lookup}\">{ku_name_lookup}</a></td></tr>"
             + "<tr><td><b>Pleiades:</b></td><td><a href=\"{pleiades_uri_lookup}\">{pleiades_name_lookup}</a></td><td><b>TP (Talbert):</b></td><td><a href=\"{talbert_uri_lookup}\">{talbert_name_lookup}</a></td></tr>"
             + "<tr><td><b>Primary Source:</b></td><td>{primary_source}</td><td><b>Other Sources:</b></td><td>{other_sources}</td></tr>"
+            + "<tr><td colspan='4'><a href=\"https://scotchbon.net/ravenclaw/schnetz.pdf#page={schnetz_page}\" target=\"_blank\">View in Schnetz edition (p.{schnetz_page})</a></td></tr>"
             + "</table>"
 };
 
 var littoral_popup = {
-   // title: "<a href=\"https://www.tabula-peutingeriana.de/sources.html?pars=5&amp;typ=rc#c{stage}\">{RC_peri}</a> (Bk 5 littoral itin. Stage {stage}, no. {RC_peri_count})",
-  //  title: "<a href=\"https://archive.org/details/ravennatisanony02ravegoog/page/{pp_page}/mode/2up?view=theater\" target=\"_blank\">{RC_peri}</a> (Bk 5 littoral itin. Stage {stage}, no. {RC_peri_count})",
-   title: createLittoralTitle,
-   content: "<table>"
+    title: "{RC_peri} (Bk 5 littoral, Stage {stage}, no. {RC_peri_count})",
+    content: "<table>"
             + "<tr><td><b>Guidonis Geographica:</b></td><td>{GG_peri}</td><td><b>TP-Online:</b></td><td><a href=\"https://tp-online.ku.de/trefferanzeige_en.php?id={ku_id}\">{ku_name_lookup}</a></td></tr>"
             + "<tr><td><b>Pleiades:</b></td><td><a href=\"https://pleiades.stoa.org/places/{pleiades_id}\">{pleiades_toponym}</a></td><td><b>TP (Talbert):</b></td><td><a href=\"https://www.cambridge.org/us/talbert/talbertdatabase/TPPlace{Talbert_id}.html\">{talbert_name_lookup}</a></td></tr>"
+            + "<tr><td colspan='4'><a href=\"https://scotchbon.net/ravenclaw/schnetz.pdf#page={schnetz_page}\" target=\"_blank\">View in Schnetz edition (p.{schnetz_page})</a></td></tr>"
             + "</table>"
 };
 
@@ -1703,7 +1666,7 @@ function closeMobileMenu() {
 </script>
 
     <div class="topBar" style="text-align: right;"><pre><a href="https://github.com/leifuss/ravenclaw?tab=readme-ov-file#ravenclaw" target="_blank">About</a>   <a href="mailto:l.isaksen@exeter.ac.uk?subject=RavenC:LAW">Feedback</a>  </div></pre></div>
-<h1><a href="https://scotchbon.net/ravenclaw/schnetz.pdf#page=13" target="_blank">Ravenna Cosmography</a>: Locations, Alignments & Weblinks (RavenC:LAW beta v.0.1.2)</h1>
+<h1><a href="https://scotchbon.net/ravenclaw/schnetz.pdf#page=13" target="_blank">Ravenna Cosmography</a>: Locations, Alignments & Weblinks (RavenC:LAW beta v.0.1.3)</h1>
 
 <!--PLACE DIRECTORY************************************ -->
 
