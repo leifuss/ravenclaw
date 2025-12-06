@@ -634,33 +634,13 @@ const toggleAncestors = el => {
 
 //*** popup contents****************
 
+// Popup templates - minimal since details are shown in sidebar panel
 var rc_popup = {
-  //  title: "<a href=\"https://www.tabula-peutingeriana.de/sources.html?pars={rc_book}&amp;typ=rc#{weber_list_no}\">{rc_toponym}</a> (No. {rc_index_no}, Book {rc_book}, list {rc_list_number})",
-  //  title: "<a href=\"https://archive.org/details/ravennatisanony02ravegoog/page/{pp_page}/mode/2up?view=theater\" target=\"_blank\">{rc_toponym}</a> (No. {rc_index_no}, Book {rc_book}, list {rc_list_number})",
-    title: "{rc_toponym} (No. {rc_index_no}, Book {rc_book}, list {rc_list_number_original})",
-    content: function(feature) {
-        var a = feature.graphic.attributes;
-        var pdfPage = a.schnetz_page ? parseInt(a.schnetz_page) + 14 : '';
-        return "<table>"
-            + "<tr><td><b>Region:</b></td><td>" + (a.rc_patria || '') + "</td><td><b>TP (TP-Online):</b></td><td><a href=\"" + (a.ku_uri_lookup || '') + "\">" + (a.ku_name_lookup || '') + "</a></td></tr>"
-            + "<tr><td><b>Pleiades:</b></td><td><a href=\"" + (a.pleiades_uri_lookup || '') + "\">" + (a.pleiades_name_lookup || '') + "</a></td><td><b>TP (Talbert):</b></td><td><a href=\"" + (a.talbert_uri_lookup || '') + "\">" + (a.talbert_name_lookup || '') + "</a></td></tr>"
-            + "<tr><td><b>Primary Source:</b></td><td>" + (a.primary_source || '') + "</td><td><b>Other Sources:</b></td><td>" + (a.other_sources || '') + "</td></tr>"
-            + (a.schnetz_page ? "<tr><td colspan='4'><a href=\"https://scotchbon.net/ravenclaw/schnetz.pdf#page=" + pdfPage + "\" target=\"_blank\">View in Schnetz edition (p." + a.schnetz_page + ")</a></td></tr>" : '')
-            + "</table>";
-    }
+    title: "{rc_toponym} (No. {rc_index_no}, Book {rc_book}, list {rc_list_number_original})"
 };
 
 var littoral_popup = {
-    title: "{RC_peri} (Bk 5 littoral, Stage {stage}, no. {RC_peri_count})",
-    content: function(feature) {
-        var a = feature.graphic.attributes;
-        var pdfPage = a.schnetz_page ? parseInt(a.schnetz_page) + 14 : '';
-        return "<table>"
-            + "<tr><td><b>Guidonis Geographica:</b></td><td>" + (a.GG_peri || '') + "</td><td><b>TP-Online:</b></td><td><a href=\"https://tp-online.ku.de/trefferanzeige_en.php?id=" + (a.ku_id || '') + "\">" + (a.ku_name_lookup || '') + "</a></td></tr>"
-            + "<tr><td><b>Pleiades:</b></td><td><a href=\"https://pleiades.stoa.org/places/" + (a.pleiades_id || '') + "\">" + (a.pleiades_toponym || '') + "</a></td><td><b>TP (Talbert):</b></td><td><a href=\"https://www.cambridge.org/us/talbert/talbertdatabase/TPPlace" + (a.Talbert_id || '') + ".html\">" + (a.talbert_name_lookup || '') + "</a></td></tr>"
-            + (a.schnetz_page ? "<tr><td colspan='4'><a href=\"https://scotchbon.net/ravenclaw/schnetz.pdf#page=" + pdfPage + "\" target=\"_blank\">View in Schnetz edition (p." + a.schnetz_page + ")</a></td></tr>" : '')
-            + "</table>";
-    }
+    title: "{RC_peri} (Bk 5 littoral, Stage {stage}, no. {RC_peri_count})"
 };
 
 // ****** RENDERERS
@@ -1878,7 +1858,7 @@ function closeMobileMenu() {
     </h1>
     <p style="font-family: 'Crimson Text', serif; font-size: 0.9em; margin: 2px 0 0 0; color: #c9b896; font-style: italic;">
         Locations, Alignments & Weblinks
-        <span style="font-size: 0.8em; color: #a89878;">(RavenC:LAW beta v.0.2.3)</span>
+        <span style="font-size: 0.8em; color: #a89878;">(RavenC:LAW beta v.0.2.4)</span>
     </p>
 </header>
 
