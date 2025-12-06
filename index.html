@@ -958,16 +958,26 @@ var regionLabelClass = {
 //************* ACTIONS
 
 function locate_toponym_on_geoMap(feature_id) {
+    console.log('locate_toponym_on_geoMap called with:', feature_id);
     let geoQuery = geo_csv_layer.createQuery();
     geoQuery.where = "rc_index_no = " + feature_id;
     geo_csv_layer.queryFeatures(geoQuery).then(function(response){
+        console.log('Query response:', response.features.length, 'features');
         if (response.features.length > 0) {
             geoView.goTo(response.features[0].geometry);
             geoView.zoom = 8;
             geoView.openPopup({features: response.features, location: response.features[0].geometry});
             // Also show in sidebar panel
-            showPlaceDetails(response.features[0].attributes, false);
+            console.log('About to call showPlaceDetails');
+            try {
+                showPlaceDetails(response.features[0].attributes, false);
+                console.log('showPlaceDetails completed');
+            } catch (e) {
+                console.error('Error in showPlaceDetails:', e);
+            }
         }
+    }).catch(function(error) {
+        console.error('Query error:', error);
     });
 }
 
@@ -1115,9 +1125,8 @@ require([
 "esri/widgets/Popup",
 "esri/widgets/Search/LayerSearchSource",
 "esri/widgets/Expand",
-"esri/widgets/Fullscreen",
 "esri/core/reactiveUtils"
-], function(Map, MapView, Home, WMTSLayer, UrlUtils, esriId, esriConfig, FeatureLayer, GeoJSONLayer, CSVLayer, Legend, LayerList, Search, LayerSearchSource, Popup, Expand, Fullscreen, reactiveUtils) {
+], function(Map, MapView, Home, WMTSLayer, UrlUtils, esriId, esriConfig, FeatureLayer, GeoJSONLayer, CSVLayer, Legend, LayerList, Search, LayerSearchSource, Popup, Expand, reactiveUtils) {
         
     //Create Peutinger Map View
     tpMap = new Map();
@@ -1304,9 +1313,10 @@ require([
    // var homeBtn = new Home({view: tpView});
    // tpView.ui.add(homeBtn, "top-left");   
 
-    // Fullscreen -----------------------------
-    var fullscreen = new Fullscreen({view: tpView});
-    tpView.ui.add(fullscreen, "top-left");
+    // Fullscreen - using new web component
+    const tpFullscreen = document.createElement('arcgis-fullscreen');
+    tpFullscreen.referenceElement = tpView.container;
+    tpView.ui.add(tpFullscreen, "top-left");
 
     
 });
@@ -1335,10 +1345,9 @@ require([
 "esri/rest/support/Query",
 "esri/widgets/Search/LayerSearchSource",
 "esri/widgets/Expand",
-"esri/widgets/Fullscreen",
 "esri/widgets/ValuePicker",
 "esri/core/reactiveUtils"
-], function(WebTileLayer, Map, Basemap, BasemapGallery, LocalBasemapsSource, MapView, Home, UrlUtils, esriId, esriConfig, FeatureLayer, GeoJSONLayer, CSVLayer, Legend, LayerList, Search, LayerSearchSource, Query, Expand, Fullscreen, ValuePicker, reactiveUtils) {
+], function(WebTileLayer, Map, Basemap, BasemapGallery, LocalBasemapsSource, MapView, Home, UrlUtils, esriId, esriConfig, FeatureLayer, GeoJSONLayer, CSVLayer, Legend, LayerList, Search, LayerSearchSource, Query, Expand, ValuePicker, reactiveUtils) {
 
     //create basemap
     const dare_basemap = new Basemap({
@@ -1678,9 +1687,10 @@ require([
   //  var geoHomeBtn = new Home({view: geoView });
   //  geoView.ui.add(geoHomeBtn, "top-left");
 
-    //full screen -------------------------
-    var fullscreen = new Fullscreen({ view: geoView });
-    geoView.ui.add(fullscreen, "top-left");
+    //full screen - using new web component
+    const geoFullscreen = document.createElement('arcgis-fullscreen');
+    geoFullscreen.referenceElement = geoView.container;
+    geoView.ui.add(geoFullscreen, "top-left");
 
     //basemap gallery ----------------------
     let basemapGallery = new BasemapGallery({
@@ -1825,7 +1835,7 @@ function closeMobileMenu() {
     </h1>
     <p style="font-family: 'Crimson Text', serif; font-size: 0.9em; margin: 2px 0 0 0; color: #c9b896; font-style: italic;">
         Locations, Alignments & Weblinks
-        <span style="font-size: 0.8em; color: #a89878;">(RavenC:LAW beta v.0.1.9)</span>
+        <span style="font-size: 0.8em; color: #a89878;">(RavenC:LAW beta v.0.2.0)</span>
     </p>
 </header>
 
