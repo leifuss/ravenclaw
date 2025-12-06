@@ -80,7 +80,7 @@ Tested on modern browsers (Chrome, Firefox, Safari, Edge). Requires JavaScript e
 
 ## Version History
 
-### v.0.2.5 (December 2024)
+### v.0.2.5 (December 2025)
 - **Place Details Panel**: Sidebar panel shows detailed place information when clicking on map or directory
 - **Simplified popups**: Map popups now show title only; full details appear in sidebar panel
 - **Schnetz PDF links**: Fixed page offset (+14) for correct PDF navigation
@@ -99,7 +99,7 @@ Tested on modern browsers (Chrome, Firefox, Safari, Edge). Requires JavaScript e
 
 If you use RavenC:LAW in your research, please cite:
 
-> Isaksen, L. (2024). RavenC:LAW: Ravenna Cosmography Locations, Alignments & Weblinks [Web application]. https://github.com/leifuss/ravenclaw
+> Isaksen, L. (2025). RavenC:LAW: Ravenna Cosmography Locations, Alignments & Weblinks [Web application]. https://github.com/leifuss/ravenclaw
 
 ## Contributing
 
