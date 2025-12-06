@@ -76,7 +76,24 @@ The place directory uses colors to indicate data completeness:
 
 ## Browser Compatibility
 
-Tested on modern browsers (Chrome, Firefox, Safari, Edge). Requires JavaScript enabled.
+Tested on modern browsers (Chrome, Firefox, Safari, Edge). Requires JavaScript enabled. Mobile-responsive design with slide-out menu for smaller screens.
+
+## Version History
+
+### v.0.2.5 (December 2024)
+- **Place Details Panel**: Sidebar panel shows detailed place information when clicking on map or directory
+- **Simplified popups**: Map popups now show title only; full details appear in sidebar panel
+- **Schnetz PDF links**: Fixed page offset (+14) for correct PDF navigation
+- **Mobile improvements**: Panel and sidebar work properly on mobile devices
+- **First-click fix**: Details panel now loads correctly on first map click
+
+### v.0.1.x - v.0.2.x
+- Classical Roman styling theme (Cinzel/Crimson Text fonts, parchment colors)
+- Mobile-responsive sidebar with hamburger menu
+- Loading state overlay with spinner
+- About and Feedback links in sidebar
+- Improved CSV parsing for quoted fields
+- UTF-8 BOM handling for popup titles
 
 ## Citation
 
