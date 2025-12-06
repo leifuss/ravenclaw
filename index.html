@@ -1169,11 +1169,26 @@ require([
         () => tpView.popup.selectedFeature,
         (feature) => {
             if (feature && feature.attributes) {
-                const attrs = feature.attributes;
                 const layer = feature.layer;
-                // Determine if it's littoral or regular RC place
                 const isLittoral = layer && layer.title === "RC Littoral";
-                showPlaceDetails(attrs, isLittoral);
+                // Query layer for full attributes to ensure all fields are loaded
+                if (isLittoral && feature.attributes.RC_peri_count) {
+                    let query = rc_littoral_csv_layer.createQuery();
+                    query.where = "RC_peri_count = '" + feature.attributes.RC_peri_count + "' AND stage = '" + feature.attributes.stage + "'";
+                    rc_littoral_csv_layer.queryFeatures(query).then(function(response) {
+                        if (response.features.length > 0) {
+                            showPlaceDetails(response.features[0].attributes, true);
+                        }
+                    });
+                } else if (feature.attributes.rc_index_no) {
+                    let query = rc_tp_csv_layer.createQuery();
+                    query.where = "rc_index_no = " + feature.attributes.rc_index_no;
+                    rc_tp_csv_layer.queryFeatures(query).then(function(response) {
+                        if (response.features.length > 0) {
+                            showPlaceDetails(response.features[0].attributes, false);
+                        }
+                    });
+                }
             }
         }
     );
@@ -1590,11 +1605,26 @@ require([
         () => geoView.popup.selectedFeature,
         (feature) => {
             if (feature && feature.attributes) {
-                const attrs = feature.attributes;
                 const layer = feature.layer;
-                // Determine if it's littoral or regular RC place
                 const isLittoral = layer && layer.title === "RC littoral";
-                showPlaceDetails(attrs, isLittoral);
+                // Query layer for full attributes to ensure all fields are loaded
+                if (isLittoral && feature.attributes.RC_peri_count) {
+                    let query = littoral_csv_layer.createQuery();
+                    query.where = "RC_peri_count = '" + feature.attributes.RC_peri_count + "' AND stage = '" + feature.attributes.stage + "'";
+                    littoral_csv_layer.queryFeatures(query).then(function(response) {
+                        if (response.features.length > 0) {
+                            showPlaceDetails(response.features[0].attributes, true);
+                        }
+                    });
+                } else if (feature.attributes.rc_index_no) {
+                    let query = geo_csv_layer.createQuery();
+                    query.where = "rc_index_no = " + feature.attributes.rc_index_no;
+                    geo_csv_layer.queryFeatures(query).then(function(response) {
+                        if (response.features.length > 0) {
+                            showPlaceDetails(response.features[0].attributes, false);
+                        }
+                    });
+                }
             }
         }
     );
@@ -1858,7 +1888,7 @@ function closeMobileMenu() {
     </h1>
     <p style="font-family: 'Crimson Text', serif; font-size: 0.9em; margin: 2px 0 0 0; color: #c9b896; font-style: italic;">
         Locations, Alignments & Weblinks
-        <span style="font-size: 0.8em; color: #a89878;">(RavenC:LAW beta v.0.2.4)</span>
+        <span style="font-size: 0.8em; color: #a89878;">(RavenC:LAW beta v.0.2.5)</span>
     </p>
 </header>
 
