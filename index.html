@@ -1788,9 +1788,14 @@ function showPlaceDetails(attributes, isLittoral) {
     }
 
     panel.style.display = 'block';
-    // Scroll the panel into view on mobile
+    // On mobile, re-open the sidebar so user can see the details panel
     if (window.innerWidth <= 768) {
-        panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.getElementById('placeDirectory').classList.add('open');
+        document.getElementById('menuOverlay').classList.add('open');
+        // Small delay to let sidebar open, then scroll panel into view
+        setTimeout(function() {
+            panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
     }
 }
 </script>
@@ -1806,7 +1811,7 @@ function showPlaceDetails(attributes, isLittoral) {
             </h1>
             <p style="font-family: 'Crimson Text', serif; font-size: 0.9em; margin: 2px 0 0 0; color: #c9b896; font-style: italic;">
                 Locations, Alignments & Weblinks
-                <span style="font-size: 0.8em; color: #a89878;">(RavenC:LAW beta v.0.1.5)</span>
+                <span style="font-size: 0.8em; color: #a89878;">(RavenC:LAW beta v.0.1.6)</span>
             </p>
         </div>
         <nav style="font-family: 'Crimson Text', serif; font-size: 0.9em;">
