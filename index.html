@@ -576,9 +576,14 @@ const toggleAncestors = el => {
 
 function createRCTitle(feature) {
     var attrs = feature.graphic.attributes;
+    // Debug: show available attribute keys
+    var keys = attrs ? Object.keys(attrs).join(', ') : 'NO ATTRS';
+    console.log('RC attrs keys:', keys);
+    console.log('RC attrs:', JSON.stringify(attrs));
+
     var schnetz_page_raw = attrs.schnetz_page;
     var schnetz_page = schnetz_page_raw ? (parseInt(schnetz_page_raw, 10) + 14) : null;
-    var toponym = attrs.rc_toponym || '(unnamed)';
+    var toponym = attrs.rc_toponym || '(unnamed - keys: ' + keys.substring(0, 50) + ')';
     var index_no = attrs.rc_index_no || '?';
     var book = attrs.rc_book || '?';
     var list = attrs.rc_list_number_original || '?';
@@ -1698,7 +1703,7 @@ function closeMobileMenu() {
 </script>
 
     <div class="topBar" style="text-align: right;"><pre><a href="https://github.com/leifuss/ravenclaw?tab=readme-ov-file#ravenclaw" target="_blank">About</a>   <a href="mailto:l.isaksen@exeter.ac.uk?subject=RavenC:LAW">Feedback</a>  </div></pre></div>
-<h1><a href="https://scotchbon.net/ravenclaw/schnetz.pdf#page=13" target="_blank">Ravenna Cosmography</a>: Locations, Alignments & Weblinks (RavenC:LAW beta v.1.0.1)</h1>
+<h1><a href="https://scotchbon.net/ravenclaw/schnetz.pdf#page=13" target="_blank">Ravenna Cosmography</a>: Locations, Alignments & Weblinks (RavenC:LAW beta v.0.1.2)</h1>
 
 <!--PLACE DIRECTORY************************************ -->
 
