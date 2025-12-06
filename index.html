@@ -1124,9 +1124,8 @@ require([
 "esri/widgets/Search",
 "esri/widgets/Popup",
 "esri/widgets/Search/LayerSearchSource",
-"esri/widgets/Expand",
 "esri/core/reactiveUtils"
-], function(Map, MapView, Home, WMTSLayer, UrlUtils, esriId, esriConfig, FeatureLayer, GeoJSONLayer, CSVLayer, Legend, LayerList, Search, LayerSearchSource, Popup, Expand, reactiveUtils) {
+], function(Map, MapView, Home, WMTSLayer, UrlUtils, esriId, esriConfig, FeatureLayer, GeoJSONLayer, CSVLayer, Legend, LayerList, Search, LayerSearchSource, Popup, reactiveUtils) {
         
     //Create Peutinger Map View
     tpMap = new Map();
@@ -1161,14 +1160,28 @@ require([
     // Set popup actions for geoView and tpView
     tpView.popup.actions = [prevAction, locateToponymAction, nextAction];
     
-    reactiveUtils.on(() => 
+    reactiveUtils.on(() =>
         tpView.popup,
         "trigger-action",
         (event) => {
             if (event.action.id === "locateToponym") {
                 var feature_id = tpView.popup.features[0].attributes.rc_index_no;
-                document.getElementById(feature_id).dispatchEvent(new Event('open')); 
+                document.getElementById(feature_id).dispatchEvent(new Event('open'));
                 locate_toponym_on_geoMap(feature_id);
+            }
+        }
+    );
+
+    // Watch for popup opening on tpView to show sidebar panel
+    reactiveUtils.watch(
+        () => tpView.popup.visible,
+        (visible) => {
+            if (visible && tpView.popup.selectedFeature) {
+                const attrs = tpView.popup.selectedFeature.attributes;
+                const layer = tpView.popup.selectedFeature.layer;
+                // Determine if it's littoral or regular RC place
+                const isLittoral = layer && layer.title === "RC Littoral";
+                showPlaceDetails(attrs, isLittoral);
             }
         }
     );
@@ -1301,11 +1314,10 @@ require([
         }
     });
 
-    const tpLayerListExpand = new Expand({
-        expandIcon: "layers",  // see https://developers.arcgis.com/calcite-design-system/icons/
-        view: tpView,
-        content: tpLayerList
-    });
+    // Layer List Expand - using new web component
+    const tpLayerListExpand = document.createElement('arcgis-expand');
+    tpLayerListExpand.icon = 'layers';
+    tpLayerListExpand.content = tpLayerList;
     tpView.ui.add(tpLayerListExpand, "top-left");
 
 
@@ -1344,10 +1356,9 @@ require([
 "esri/widgets/Search",
 "esri/rest/support/Query",
 "esri/widgets/Search/LayerSearchSource",
-"esri/widgets/Expand",
 "esri/widgets/ValuePicker",
 "esri/core/reactiveUtils"
-], function(WebTileLayer, Map, Basemap, BasemapGallery, LocalBasemapsSource, MapView, Home, UrlUtils, esriId, esriConfig, FeatureLayer, GeoJSONLayer, CSVLayer, Legend, LayerList, Search, LayerSearchSource, Query, Expand, ValuePicker, reactiveUtils) {
+], function(WebTileLayer, Map, Basemap, BasemapGallery, LocalBasemapsSource, MapView, Home, UrlUtils, esriId, esriConfig, FeatureLayer, GeoJSONLayer, CSVLayer, Legend, LayerList, Search, LayerSearchSource, Query, ValuePicker, reactiveUtils) {
 
     //create basemap
     const dare_basemap = new Basemap({
@@ -1546,7 +1557,7 @@ require([
     }
 
     // geoView popup action handler
-    reactiveUtils.on(() => 
+    reactiveUtils.on(() =>
         geoView.popup,
         "trigger-action",
         (event) => {
@@ -1564,7 +1575,7 @@ require([
                     locate_littoral_on_map(RC_peri_count, stage);
                     let directory_id = "littoral_" + RC_peri_count + "_" + stage;
                     console.log(directory_id);
-                    document.getElementById(directory_id).dispatchEvent(new Event('open')); 
+                    document.getElementById(directory_id).dispatchEvent(new Event('open'));
                 }
             } else if (event.action.id === "next" || event.action.id === "previous") {
                 if (layer === geo_csv_layer) {
@@ -1575,6 +1586,20 @@ require([
                     let RC_peri_count = feature.attributes.RC_peri_count;
                     navigateToLittoralPlace(event.action.id, stage, RC_peri_count);
                 }
+            }
+        }
+    );
+
+    // Watch for popup opening on geoView to show sidebar panel
+    reactiveUtils.watch(
+        () => geoView.popup.visible,
+        (visible) => {
+            if (visible && geoView.popup.selectedFeature) {
+                const attrs = geoView.popup.selectedFeature.attributes;
+                const layer = geoView.popup.selectedFeature.layer;
+                // Determine if it's littoral or regular RC place
+                const isLittoral = layer && layer.title === "RC littoral";
+                showPlaceDetails(attrs, isLittoral);
             }
         }
     );
@@ -1643,11 +1668,10 @@ require([
             includeDefaultSources: false
         }});
 
-    const geoSearchExpand = new Expand({
-        expandIcon: "search",  // see https://developers.arcgis.com/calcite-design-system/icons/
-        view: geoView,
-        content: geoSearchWidget
-    });
+    // Search Expand - using new web component
+    const geoSearchExpand = document.createElement('arcgis-expand');
+    geoSearchExpand.icon = 'search';
+    geoSearchExpand.content = geoSearchWidget;
     geoView.ui.add(geoSearchExpand, "top-left");
 
     geoSearchWidget.on("search-complete", function(event){
@@ -1676,11 +1700,10 @@ require([
         }
     });
 
-    const geolayerListExpand = new Expand({
-        expandIcon: "layers",  // see https://developers.arcgis.com/calcite-design-system/icons/
-        view: geoView,
-        content: geoLayerList
-    });
+    // Layer List Expand - using new web component
+    const geolayerListExpand = document.createElement('arcgis-expand');
+    geolayerListExpand.icon = 'layers';
+    geolayerListExpand.content = geoLayerList;
     geoView.ui.add(geolayerListExpand, "top-left");
 
     //home button ------------------------
@@ -1704,12 +1727,11 @@ require([
         view: geoView
     });
 
-    const galleryExpand = new Expand({
-        expandIcon: "basemap",  // see https://developers.arcgis.com/calcite-design-system/icons/
-        view: geoView,
-        content: basemapGallery
-    });
-    geoView.ui.add(galleryExpand, {position: "top-left" });
+    // Basemap Gallery Expand - using new web component
+    const galleryExpand = document.createElement('arcgis-expand');
+    galleryExpand.icon = 'basemap';
+    galleryExpand.content = basemapGallery;
+    geoView.ui.add(galleryExpand, "top-left");
 
 
     // Symbology selector ---------------------
@@ -1727,11 +1749,10 @@ require([
         visibleElements: {nextButton: false, playButton: false, previousButton: false}
     });
 
-    const symbologyPickerExpand = new Expand({
-        expandIcon: "buffer-point",  // see https://developers.arcgis.com/calcite-design-system/icons/
-        view: geoView,
-        content: symbologyPicker
-    });
+    // Symbology Picker Expand - using new web component
+    const symbologyPickerExpand = document.createElement('arcgis-expand');
+    symbologyPickerExpand.icon = 'legend';  // Changed from buffer-point to legend
+    symbologyPickerExpand.content = symbologyPicker;
     geoView.ui.add(symbologyPickerExpand, "top-left");
 
     reactiveUtils.watch(
@@ -1835,7 +1856,7 @@ function closeMobileMenu() {
     </h1>
     <p style="font-family: 'Crimson Text', serif; font-size: 0.9em; margin: 2px 0 0 0; color: #c9b896; font-style: italic;">
         Locations, Alignments & Weblinks
-        <span style="font-size: 0.8em; color: #a89878;">(RavenC:LAW beta v.0.2.0)</span>
+        <span style="font-size: 0.8em; color: #a89878;">(RavenC:LAW beta v.0.2.1)</span>
     </p>
 </header>
 
