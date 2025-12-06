@@ -13,9 +13,10 @@
 <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
 <!-- Favorite Bookmark Icon -->
 <link rel="shortcut icon" type="image/ico" href="//www.esri.com/favicon.ico" />
-<!-- End Favorite Bookmark Icon --> 
-<link href="/tiles/static/esri-info.css" rel="stylesheet" type="text/css"> 
+<!-- End Favorite Bookmark Icon -->
+<link href="/tiles/static/esri-info.css" rel="stylesheet" type="text/css">
 <link href="//js.arcgis.com/next/esri/css/main.css" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Crimson+Text:ital@0;1&display=swap" rel="stylesheet">
 <script type="text/javascript" src="//js.arcgis.com/next/"></script>
 
 <style>
@@ -36,29 +37,36 @@
     #menuToggle {
         display: none;
         position: fixed;
-        top: 10px;
-        left: 10px;
+        top: 8px;
+        left: 8px;
         z-index: 1000;
-        background: #3498db;
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 5px;
-        font-size: 16px;
+        background: linear-gradient(135deg, #4a2c1a 0%, #2c1810 100%);
+        color: #f4e4bc;
+        border: 1px solid #8b6914;
+        padding: 8px 12px;
+        border-radius: 4px;
+        font-size: 14px;
         cursor: pointer;
         box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        font-family: 'Cinzel', serif;
     }
     #menuToggle:active {
-        background: #2980b9;
+        background: #2c1810;
     }
 
     /* Mobile responsive styles */
     @media screen and (max-width: 768px) {
-        h1 {
-            font-size: 14px !important;
-            padding: 5px 50px 5px 50px;
-            margin: 0;
-            line-height: 1.3;
+        header {
+            padding: 6px 10px 6px 50px !important;
+        }
+        header h1 {
+            font-size: 1.1em !important;
+        }
+        header p {
+            font-size: 0.8em !important;
+        }
+        header nav {
+            display: none;
         }
 
         #menuToggle {
@@ -133,7 +141,55 @@
 </style>
 <style>
 .selected{font-weight:bold;}
-.mapView{border-style: solid; border-color: grey}
+.mapView{border-style: solid; border-color: #4a2c1a; border-width: 2px 0;}
+
+/* Custom popup styling */
+.esri-popup__header-title {
+    font-family: 'Cinzel', serif !important;
+    font-size: 1.1em !important;
+    color: #2c1810 !important;
+}
+.esri-popup__content {
+    font-family: 'Crimson Text', serif !important;
+}
+.esri-popup__content table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.esri-popup__content td {
+    padding: 4px 8px;
+    border-bottom: 1px solid #e0d5c5;
+}
+.esri-popup__content td b {
+    color: #4a2c1a;
+}
+.esri-popup__content a {
+    color: #6b4423;
+}
+.esri-popup__content a:hover {
+    color: #8b6914;
+}
+
+/* Sidebar styling */
+#placeDirectory {
+    font-family: 'Crimson Text', serif;
+    background: linear-gradient(180deg, #faf8f5 0%, #f5f0e8 100%) !important;
+    border-right: 2px solid #d4c4a8;
+}
+#placeDirectory h3 {
+    font-family: 'Cinzel', serif;
+    color: #2c1810;
+    border-bottom: 2px solid #8b6914;
+    padding-bottom: 8px;
+    margin: 10px;
+}
+#placeDirectory li {
+    color: #3d2817;
+}
+#placeDirectory .caret {
+    color: #4a2c1a;
+    font-weight: 500;
+}
 
 /* Loading overlay */
 #loadingOverlay {
@@ -142,7 +198,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.9);
+    background: linear-gradient(135deg, rgba(250,248,245,0.97) 0%, rgba(245,240,232,0.97) 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -155,8 +211,8 @@
 .spinner {
     width: 50px;
     height: 50px;
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #3498db;
+    border: 5px solid #d4c4a8;
+    border-top: 5px solid #8b6914;
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
@@ -166,8 +222,9 @@
 }
 #loadingOverlay p {
     margin-top: 15px;
-    font-family: "Noto Sans", sans-serif;
-    color: #333;
+    font-family: 'Crimson Text', serif;
+    color: #2c1810;
+    font-size: 1.1em;
 }
 </style>
 
@@ -1665,8 +1722,26 @@ function closeMobileMenu() {
 }
 </script>
 
-    <div class="topBar" style="text-align: right;"><pre><a href="https://github.com/leifuss/ravenclaw?tab=readme-ov-file#ravenclaw" target="_blank">About</a>   <a href="mailto:l.isaksen@exeter.ac.uk?subject=RavenC:LAW">Feedback</a>  </div></pre></div>
-<h1><a href="https://scotchbon.net/ravenclaw/schnetz.pdf#page=13" target="_blank">Ravenna Cosmography</a>: Locations, Alignments & Weblinks (RavenC:LAW beta v.0.1.3)</h1>
+<!-- Page Header -->
+<header style="background: linear-gradient(135deg, #2c1810 0%, #4a2c1a 50%, #2c1810 100%); color: #f4e4bc; padding: 8px 15px; border-bottom: 3px solid #8b6914;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 200px;">
+            <h1 style="font-family: 'Cinzel', serif; font-size: 1.4em; margin: 0; font-weight: 600; letter-spacing: 1px;">
+                <a href="https://scotchbon.net/ravenclaw/schnetz.pdf#page=13" target="_blank" style="color: #f4e4bc; text-decoration: none;">
+                    Ravenna Cosmography
+                </a>
+            </h1>
+            <p style="font-family: 'Crimson Text', serif; font-size: 0.9em; margin: 2px 0 0 0; color: #c9b896; font-style: italic;">
+                Locations, Alignments & Weblinks
+                <span style="font-size: 0.8em; color: #a89878;">(RavenC:LAW beta v.0.1.4)</span>
+            </p>
+        </div>
+        <nav style="font-family: 'Crimson Text', serif; font-size: 0.9em;">
+            <a href="https://github.com/leifuss/ravenclaw?tab=readme-ov-file#ravenclaw" target="_blank" style="color: #c9b896; text-decoration: none; margin-left: 15px;">About</a>
+            <a href="mailto:l.isaksen@exeter.ac.uk?subject=RavenC:LAW" style="color: #c9b896; text-decoration: none; margin-left: 15px;">Feedback</a>
+        </nav>
+    </div>
+</header>
 
 <!--PLACE DIRECTORY************************************ -->
 
@@ -1705,8 +1780,8 @@ function closeMobileMenu() {
     <h3>Place Directory</h3>
 
     <!-- Legend Panel -->
-    <details id="legendPanel" style="margin: 0 10px 15px 10px; padding: 8px; background: #f5f5f5; border-radius: 4px; font-size: 11px;">
-        <summary style="cursor: pointer; font-weight: bold; margin-bottom: 8px;">Legend (click to expand)</summary>
+    <details id="legendPanel" style="margin: 0 10px 15px 10px; padding: 10px; background: linear-gradient(135deg, #f5f0e8 0%, #ebe4d8 100%); border-radius: 4px; font-size: 11px; border: 1px solid #d4c4a8;">
+        <summary style="cursor: pointer; font-weight: bold; margin-bottom: 8px; font-family: 'Cinzel', serif; color: #2c1810;">Legend</summary>
         <div style="margin-top: 8px;">
             <p style="margin: 0 0 8px 0; font-weight: bold;">Directory Colors:</p>
             <div style="display: flex; align-items: center; margin: 4px 0;">
