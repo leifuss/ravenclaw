@@ -13,24 +13,222 @@
 <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
 <!-- Favorite Bookmark Icon -->
 <link rel="shortcut icon" type="image/ico" href="//www.esri.com/favicon.ico" />
-<!-- End Favorite Bookmark Icon --> 
-<link href="/tiles/static/esri-info.css" rel="stylesheet" type="text/css"> 
+<!-- End Favorite Bookmark Icon -->
+<link href="/tiles/static/esri-info.css" rel="stylesheet" type="text/css">
 <link href="//js.arcgis.com/next/esri/css/main.css" rel="stylesheet" type="text/css" />
+<!-- Calcite Design System -->
+<link rel="stylesheet" href="https://js.arcgis.com/calcite-components/2.13.2/calcite.css" />
+<script type="module" src="https://js.arcgis.com/calcite-components/2.13.2/calcite.esm.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Crimson+Text:ital@0;1&display=swap" rel="stylesheet">
 <script type="text/javascript" src="//js.arcgis.com/next/"></script>
 
 <style>
-    html,
-    body,
-    #tpViewDiv {padding: 0;margin: 0;height: 60%}
-</style>
-<style>
-    html,
-    body,
-    #geoViewDiv {padding: 0;margin: 0;height: 75%}
+    html, body {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+    }
+    #tpViewDiv {
+        height: 50%;
+    }
+    #geoViewDiv {
+        height: 50%;
+    }
+
+    /* Mobile menu toggle button */
+    #menuToggle {
+        display: none;
+        position: fixed;
+        top: 8px;
+        left: 8px;
+        z-index: 1000;
+        background: linear-gradient(135deg, #4a2c1a 0%, #2c1810 100%);
+        color: #f4e4bc;
+        border: 1px solid #8b6914;
+        padding: 8px 12px;
+        border-radius: 4px;
+        font-size: 14px;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        font-family: 'Cinzel', serif;
+    }
+    #menuToggle:active {
+        background: #2c1810;
+    }
+
+    /* Mobile responsive styles */
+    @media screen and (max-width: 768px) {
+        header {
+            padding: 6px 10px 6px 50px !important;
+        }
+        header h1 {
+            font-size: 1.1em !important;
+        }
+        header p {
+            font-size: 0.8em !important;
+        }
+        header nav {
+            display: none;
+        }
+
+        #menuToggle {
+            display: block;
+        }
+
+        #placeDirectory {
+            position: fixed;
+            left: -280px;
+            top: 0;
+            width: 280px !important;
+            height: 100vh;
+            z-index: 999;
+            transition: left 0.3s ease;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+        }
+        #placeDirectory.open {
+            left: 0;
+        }
+
+        /* Overlay when menu is open */
+        #menuOverlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 998;
+        }
+        #menuOverlay.open {
+            display: block;
+        }
+
+        #geoViewDiv, #tpViewDiv {
+            margin-left: 0 !important;
+            height: 50%;
+        }
+
+        /* Larger touch targets for tree items */
+        #placeDirectory li {
+            padding: 8px 4px;
+            font-size: 14px;
+        }
+        #placeDirectory .caret {
+            padding: 5px;
+        }
+
+        /* Make legend more compact */
+        #legendPanel {
+            font-size: 12px !important;
+        }
+
+        /* Hide top links bar on very small screens */
+        .topBar {
+            font-size: 11px;
+        }
+    }
+
+    /* Even smaller screens */
+    @media screen and (max-width: 480px) {
+        h1 {
+            font-size: 12px !important;
+            padding: 5px 45px;
+        }
+        #placeDirectory {
+            width: 260px !important;
+            left: -270px;
+        }
+    }
 </style>
 <style>
 .selected{font-weight:bold;}
-.mapView{border-style: solid; border-color: grey}
+.mapView{border-style: solid; border-color: #4a2c1a; border-width: 2px 0;}
+
+/* Custom popup styling */
+.esri-popup__header-title {
+    font-family: 'Cinzel', serif !important;
+    font-size: 1.1em !important;
+    color: #2c1810 !important;
+}
+.esri-popup__content {
+    font-family: 'Crimson Text', serif !important;
+}
+.esri-popup__content table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.esri-popup__content td {
+    padding: 4px 8px;
+    border-bottom: 1px solid #e0d5c5;
+}
+.esri-popup__content td b {
+    color: #4a2c1a;
+}
+.esri-popup__content a {
+    color: #6b4423;
+}
+.esri-popup__content a:hover {
+    color: #8b6914;
+}
+
+/* Sidebar styling */
+#placeDirectory {
+    font-family: 'Crimson Text', serif;
+    background: linear-gradient(180deg, #faf8f5 0%, #f5f0e8 100%) !important;
+    border-right: 2px solid #d4c4a8;
+}
+#placeDirectory h3 {
+    font-family: 'Cinzel', serif;
+    color: #2c1810;
+    border-bottom: 2px solid #8b6914;
+    padding-bottom: 8px;
+    margin: 10px;
+}
+#placeDirectory li {
+    color: #3d2817;
+}
+#placeDirectory .caret {
+    color: #4a2c1a;
+    font-weight: 500;
+}
+
+/* Loading overlay */
+#loadingOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(250,248,245,0.97) 0%, rgba(245,240,232,0.97) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+#loadingOverlay.hidden {
+    display: none;
+}
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #d4c4a8;
+    border-top: 5px solid #8b6914;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+#loadingOverlay p {
+    margin-top: 15px;
+    font-family: 'Crimson Text', serif;
+    color: #2c1810;
+    font-size: 1.1em;
+}
 </style>
 
 <script>
@@ -44,27 +242,120 @@ var rc_tp_layer_points;
 var rc_tp_csv_layer;
 var patriae = ["India Dimirica Evilat",	"India Themantica & Elatis",	"India Serica",	"Parthia",	"Parsagadae",	"Arabia Eudaemon",	"Arabia Major",	"Hyrcania",	"Media Major",	"Media Minor",	"Persians & Assyrians",	"Various countries near Media",	"Mesopotamia",	"Judaea Palestina",	"Syria Cilesene & Commagene",	"Mesogia Graecorum",	"Ethiopia",	"Egypt",	"Cyrenaican Mauretania",	"Africana",	"Numidia Bizacium",	"Mauretania Sitifensis",	"Mauritania Caesariensis",	"Getulia",	"Mauritania Gaditana",	"Mauritania Tingitana",	"Abasgia",	"Bosphoran Licania",	"Maeotic region/Dardania",	"Thrace",	"Mysia",	"Epirus & Pelagonia",	"Macedonia",	"Hellas",	"Dacia",	"Illyricum",	"Dalmatia",	"Pannonia",	"Valeria",	"Carneola/Julian Alps",	"Liburnia Tarsaticensis",	"Francia Rinensis",	"Alamani",	"Gallia",	"Burgundia",	"Septimana",	"Italia [North of the Po]",	"Italia [Coastal]",	"Italia",	"Britania in the Marshes (Armorica)",	"Guasconia",	"Spano-guasconia",	"Spania [Coastal]",	"Spania [Caesaraugusta]",	"Spania [Complutum]",	"Spania [Augusta Merita & Corduba]",	"Spania [Hispalis]",	"Spania [Ossaron-Merita Augusta]",	"Spania [Augusta Braciarum]",	"Cypros",	"Cretam quae et Crete",	"Peloponissum et Achaia",	"Sicilia",	"Sardinia",	"Corsica",	"Britannia",];
 
-// Function to fetch and parse CSV
+// Data cache to avoid repeated loading
+const dataCache = {};
+
+// Helper to update loading status
+function updateLoadingStatus(message) {
+    const statusEl = document.getElementById('loadingStatus');
+    if (statusEl) statusEl.textContent = message;
+}
+
+// Helper to hide loading overlay
+function hideLoadingOverlay() {
+    const overlay = document.getElementById('loadingOverlay');
+    if (overlay) overlay.classList.add('hidden');
+}
+
+// Helper to show error message
+function showLoadingError(message) {
+    const overlay = document.getElementById('loadingOverlay');
+    if (overlay) {
+        overlay.innerHTML = `
+            <div style="color: #c0392b; text-align: center; padding: 20px;">
+                <h3>Error Loading Data</h3>
+                <p>${message}</p>
+                <button onclick="location.reload()" style="padding: 10px 20px; cursor: pointer;">Retry</button>
+            </div>
+        `;
+    }
+}
+
+// Proper CSV parser that handles quoted fields
+function parseCSV(csvText) {
+    const lines = [];
+    let currentLine = [];
+    let currentField = '';
+    let inQuotes = false;
+
+    for (let i = 0; i < csvText.length; i++) {
+        const char = csvText[i];
+        const nextChar = csvText[i + 1];
+
+        if (inQuotes) {
+            if (char === '"' && nextChar === '"') {
+                currentField += '"';
+                i++; // Skip next quote
+            } else if (char === '"') {
+                inQuotes = false;
+            } else {
+                currentField += char;
+            }
+        } else {
+            if (char === '"') {
+                inQuotes = true;
+            } else if (char === ',') {
+                currentLine.push(currentField.trim());
+                currentField = '';
+            } else if (char === '\n' || (char === '\r' && nextChar === '\n')) {
+                currentLine.push(currentField.trim());
+                if (currentLine.length > 1 || currentLine[0] !== '') {
+                    lines.push(currentLine);
+                }
+                currentLine = [];
+                currentField = '';
+                if (char === '\r') i++; // Skip \n in \r\n
+            } else if (char !== '\r') {
+                currentField += char;
+            }
+        }
+    }
+    // Don't forget the last field/line
+    if (currentField || currentLine.length > 0) {
+        currentLine.push(currentField.trim());
+        if (currentLine.length > 1 || currentLine[0] !== '') {
+            lines.push(currentLine);
+        }
+    }
+    return lines;
+}
+
+// Function to fetch and parse CSV with caching and error handling
 async function loadCSVData(filepath) {
+    // Return cached data if available
+    if (dataCache[filepath]) {
+        return dataCache[filepath];
+    }
+
     try {
         const response = await fetch(filepath);
+        if (!response.ok) {
+            throw new Error(`Failed to load ${filepath}: ${response.status} ${response.statusText}`);
+        }
         const csvText = await response.text();
-        const rows = csvText.split('\n').map(row => row.split(','));
+        const rows = parseCSV(csvText);
+
+        if (rows.length === 0) {
+            throw new Error(`No data found in ${filepath}`);
+        }
+
         const headers = rows[0];
-        
+
         // Create objects from CSV rows
         const data = rows.slice(1).map(row => {
             const obj = {};
             headers.forEach((header, i) => {
-                obj[header.trim()] = row[i]?.trim();
+                obj[header] = row[i] || '';
             });
             return obj;
         });
-        
+
+        // Cache the data
+        dataCache[filepath] = data;
         return data;
     } catch (error) {
         console.error('Error loading CSV:', error);
-        return [];
+        throw error; // Re-throw to let caller handle it
     }
 }
 
@@ -202,7 +493,8 @@ function createTreeHTML(tree) {
                     //update TpView and GeoView
                     toponymLi.addEventListener('click', function() {
                         locate_feature_on_tp(toponymLi.id);
-                        locate_toponym_on_geoMap(toponymLi.id)
+                        locate_toponym_on_geoMap(toponymLi.id);
+                        closeMobileMenu();
                     });
                     toponymsUl.appendChild(toponymLi);
                 });
@@ -250,6 +542,7 @@ function createLittoralTreeHTML(tree) {
             // Add event listeners
             placeLi.addEventListener('click', function() {
                 locate_littoral_on_map(place[3], place[4]);
+                closeMobileMenu();
             });
 
             // Add event listener for 'open' to expand and select the item
@@ -290,28 +583,41 @@ function createLittoralTreeHTML(tree) {
 
 // Initialize tree when document loads
 document.addEventListener('DOMContentLoaded', async () => {
-    const rc_itinerary_data = await loadCSVData('./ravenclaw.csv');
-    const rc_main_tree = buildTreeStructure(rc_itinerary_data);
-    const rc_main_treeHTML = createTreeHTML(rc_main_tree);
-    document.getElementById('placeDirectory').appendChild(rc_main_treeHTML);
-    
-    // Littoral tree
-    const littoral_data = await loadCSVData('./rc_littoral.csv');
-    const littoral_tree = buildLittoralTreeStructure(littoral_data);
-    const littoral_treeHTML = createLittoralTreeHTML(littoral_tree);
+    try {
+        updateLoadingStatus('Loading main toponyms...');
+        const rc_itinerary_data = await loadCSVData('./ravenclaw.csv');
 
-    const littoralHeader = document.createElement('h3');
-    littoralHeader.textContent = "Littoral Directory";
-    document.getElementById('placeDirectory').appendChild(littoralHeader);
-    document.getElementById('placeDirectory').appendChild(littoral_treeHTML);
+        updateLoadingStatus('Building place directory...');
+        const rc_main_tree = buildTreeStructure(rc_itinerary_data);
+        const rc_main_treeHTML = createTreeHTML(rc_main_tree);
+        document.getElementById('placeDirectory').appendChild(rc_main_treeHTML);
 
-    // Add click handlers for expanding/collapsing
-    document.querySelectorAll('.caret').forEach(caret => {
-        caret.addEventListener('click', function() {
-            this.classList.toggle('caret-down');
-            this.parentElement.querySelector('.nested').classList.toggle('active');
+        updateLoadingStatus('Loading littoral data...');
+        const littoral_data = await loadCSVData('./rc_littoral.csv');
+        const littoral_tree = buildLittoralTreeStructure(littoral_data);
+        const littoral_treeHTML = createLittoralTreeHTML(littoral_tree);
+
+        const littoralHeader = document.createElement('h3');
+        littoralHeader.textContent = "Littoral Directory";
+        document.getElementById('placeDirectory').appendChild(littoralHeader);
+        document.getElementById('placeDirectory').appendChild(littoral_treeHTML);
+
+        // Add click handlers for expanding/collapsing
+        document.querySelectorAll('.caret').forEach(caret => {
+            caret.addEventListener('click', function() {
+                this.classList.toggle('caret-down');
+                this.parentElement.querySelector('.nested').classList.toggle('active');
+            });
         });
-    });
+
+        updateLoadingStatus('Ready!');
+        // Short delay to show "Ready!" before hiding
+        setTimeout(hideLoadingOverlay, 300);
+
+    } catch (error) {
+        console.error('Failed to initialize:', error);
+        showLoadingError(error.message || 'Failed to load data. Please check your connection and try again.');
+    }
 });
 
 // Restore toggleAncestors function for expanding parent nodes in the directory tree
@@ -328,50 +634,24 @@ const toggleAncestors = el => {
 
 //*** popup contents****************
 
-function createRCTitle(feature) {
-    var schnetz_page = feature.graphic.attributes.schnetz_page + 14; //offset by 14 pages
-    return "<a href=\"https://scotchbon.net/ravenclaw/schnetz.pdf#page=" + schnetz_page + "\" target=\"_blank\">{rc_toponym}</a> (No. {rc_index_no}, Book {rc_book}, list {rc_list_number_original})";
-};
-
-function createLittoralTitle(feature) {
-    var schnetz_page = feature.graphic.attributes.schnetz_page + 14; //offset by 14 pages
-    return "<a href=\"https://scotchbon.net/ravenclaw/schnetz.pdf#page=" + schnetz_page + "\" target=\"_blank\">{RC_peri}</a> (Bk 5 littoral itin. Stage {stage}, no. {RC_peri_count})";
-};
-
+// Popup templates - minimal since details are shown in sidebar panel
 var rc_popup = {
-  //  title: "<a href=\"https://www.tabula-peutingeriana.de/sources.html?pars={rc_book}&amp;typ=rc#{weber_list_no}\">{rc_toponym}</a> (No. {rc_index_no}, Book {rc_book}, list {rc_list_number})",
-  //  title: "<a href=\"https://archive.org/details/ravennatisanony02ravegoog/page/{pp_page}/mode/2up?view=theater\" target=\"_blank\">{rc_toponym}</a> (No. {rc_index_no}, Book {rc_book}, list {rc_list_number})",
- // title: "<a href=\"https://scotchbon.net/ravenclaw/schnetz.pdf#page={schnetz_page}\" target=\"_blank\">{rc_toponym}</a> (No. {rc_index_no}, Book {rc_book}, list {rc_list_number})",
-    title: createRCTitle,
-    content: "<table>"
-            + "<tr><td><b>Region:</b></td><td>{rc_patria}</td><td><b>TP (TP-Online):</b></td><td><a href=\"{ku_uri_lookup}\">{ku_name_lookup}</a></td></tr>"
-            + "<tr><td><b>Pleiades:</b></td><td><a href=\"{pleiades_uri_lookup}\">{pleiades_name_lookup}</a></td><td><b>TP (Talbert):</b></td><td><a href=\"{talbert_uri_lookup}\">{talbert_name_lookup}</a></td></tr>"
-            + "<tr><td><b>Primary Source:</b></td><td>{primary_source}</td><td><b>Other Sources:</b></td><td>{other_sources}</td></tr>"
-            + "</table>"
+    title: "{rc_toponym} (No. {rc_index_no}, Book {rc_book}, list {rc_list_number_original})"
 };
 
 var littoral_popup = {
-   // title: "<a href=\"https://www.tabula-peutingeriana.de/sources.html?pars=5&amp;typ=rc#c{stage}\">{RC_peri}</a> (Bk 5 littoral itin. Stage {stage}, no. {RC_peri_count})",
-  //  title: "<a href=\"https://archive.org/details/ravennatisanony02ravegoog/page/{pp_page}/mode/2up?view=theater\" target=\"_blank\">{RC_peri}</a> (Bk 5 littoral itin. Stage {stage}, no. {RC_peri_count})",
-   title: createLittoralTitle,
-   content: "<table>"
-            + "<tr><td><b>Guidonis Geographica:</b></td><td>{GG_peri}</td><td><b>TP-Online:</b></td><td><a href=\"https://tp-online.ku.de/trefferanzeige_en.php?id={ku_id}\">{ku_name_lookup}</a></td></tr>"
-            + "<tr><td><b>Pleiades:</b></td><td><a href=\"https://pleiades.stoa.org/places/{pleiades_id}\">{pleiades_toponym}</a></td><td><b>TP (Talbert):</b></td><td><a href=\"https://www.cambridge.org/us/talbert/talbertdatabase/TPPlace{Talbert_id}.html\">{talbert_name_lookup}</a></td></tr>"
-            + "</table>"
+    title: "{RC_peri} (Bk 5 littoral, Stage {stage}, no. {RC_peri_count})"
 };
 
 // ****** RENDERERS
 
-//you can set transparency for first object via hex number (last 2 digits): https://www.w3schools.com/cssref/tryit.php?filename=trycss_color_hexa
-var colors = [ //dirty hack!
-    "red", "darkblue", "lightgreen", "brown", "cyan", "darkgreen", "orange", "purple", "magenta", "yellow",
-    "red", "darkblue", "lightgreen", "brown", "cyan", "darkgreen", "orange", "purple", "magenta", "yellow", 
-    "red", "darkblue", "lightgreen", "brown", "cyan", "darkgreen", "orange", "purple", "magenta", "yellow", 
-    "red", "darkblue", "lightgreen", "brown", "cyan", "darkgreen", "orange", "purple", "magenta", "yellow", 
-    "red", "darkblue", "lightgreen", "brown", "cyan", "darkgreen", "orange", "purple", "magenta", "yellow", 
-    "red", "darkblue", "lightgreen", "brown", "cyan", "darkgreen", "orange", "purple", "magenta", "yellow", 
-    "red", "darkblue", "lightgreen", "brown", "cyan", "darkgreen", "orange", "purple", "magenta", "yellow", 
- ];
+// Color palette for region symbology - cycles through 10 colors for 63+ patriae
+// Transparency can be added via hex (e.g., "#FF000080" for 50% red)
+const BASE_COLORS = ["red", "darkblue", "lightgreen", "brown", "cyan", "darkgreen", "orange", "purple", "magenta", "yellow"];
+
+// Generate enough colors to cover all patriae + sublists (cycling through base palette)
+const MAX_ITEMS = 100; // More than enough for patriae (63) + sublists
+var colors = Array.from({length: MAX_ITEMS}, (_, i) => BASE_COLORS[i % BASE_COLORS.length]);
 
 
 //***********CREATE RC SYMBOLS
@@ -448,22 +728,22 @@ var topo_region_line_renderer = {
     uniqueValueInfos: topo_region_path_uv_infos
 };  
 
-//create littoral symbology map
-let littoral_marker_infos = []; //dirty hack (calculate this)
-littoral_marker_infos.push({value: 1, symbol: {type: "simple-marker", size: "14px", color: "white", outline: { color: "black", width: "1px" }, label: "1"}});
-littoral_marker_infos.push({value: 2, symbol: {type: "simple-marker", size: "14px", color: "black", outline: { color: "white", width: "1px" }, label: "2"}});
-littoral_marker_infos.push({value: 3, symbol: {type: "simple-marker", size: "14px", color: "white", outline: { color: "black", width: "1px" }, label: "1"}});
-littoral_marker_infos.push({value: 4, symbol: {type: "simple-marker", size: "14px", color: "black", outline: { color: "white", width: "1px" }, label: "2"}});
-littoral_marker_infos.push({value: 5, symbol: {type: "simple-marker", size: "14px", color: "white", outline: { color: "black", width: "1px" }, label: "1"}});
-littoral_marker_infos.push({value: 6, symbol: {type: "simple-marker", size: "14px", color: "black", outline: { color: "white", width: "1px" }, label: "2"}});
-littoral_marker_infos.push({value: 7, symbol: {type: "simple-marker", size: "14px", color: "white", outline: { color: "black", width: "1px" }, label: "1"}});
-littoral_marker_infos.push({value: 8, symbol: {type: "simple-marker", size: "14px", color: "black", outline: { color: "white", width: "1px" }, label: "2"}});
-littoral_marker_infos.push({value: 9, symbol: {type: "simple-marker", size: "14px", color: "white", outline: { color: "black", width: "1px" }, label: "1"}});
-littoral_marker_infos.push({value: 10, symbol: {type: "simple-marker", size: "14px", color: "black", outline: { color: "white", width: "1px" }, label: "2"}});
-littoral_marker_infos.push({value: 11, symbol: {type: "simple-marker", size: "14px", color: "white", outline: { color: "black", width: "1px" }, label: "1"}});
-littoral_marker_infos.push({value: 12, symbol: {type: "simple-marker", size: "14px", color: "black", outline: { color: "white", width: "1px" }, label: "2"}});
-littoral_marker_infos.push({value: 13, symbol: {type: "simple-marker", size: "14px", color: "white", outline: { color: "black", width: "1px" }, label: "1"}});
-littoral_marker_infos.push({value: 14, symbol: {type: "simple-marker", size: "14px", color: "black", outline: { color: "white", width: "1px" }, label: "2"}});
+// Create littoral symbology map - alternating black/white by stage
+const LITTORAL_STAGES = 14;
+const littoral_marker_infos = Array.from({length: LITTORAL_STAGES}, (_, i) => {
+    const stageNum = i + 1;
+    const isOdd = stageNum % 2 === 1;
+    return {
+        value: stageNum,
+        symbol: {
+            type: "simple-marker",
+            size: "14px",
+            color: isOdd ? "white" : "black",
+            outline: { color: isOdd ? "black" : "white", width: "1px" }
+        },
+        label: String(stageNum)
+    };
+});
 
 var littoral_renderer = {
     type: "unique-value", // autocasts as new UniqueValueRenderer()
@@ -666,15 +946,27 @@ var regionLabelClass = {
 //************* ACTIONS
 
 function locate_toponym_on_geoMap(feature_id) {
+    console.log('locate_toponym_on_geoMap called with:', feature_id);
     let geoQuery = geo_csv_layer.createQuery();
     geoQuery.where = "rc_index_no = " + feature_id;
     geo_csv_layer.queryFeatures(geoQuery).then(function(response){
+        console.log('Query response:', response.features.length, 'features');
         if (response.features.length > 0) {
             geoView.goTo(response.features[0].geometry);
             geoView.zoom = 8;
             geoView.openPopup({features: response.features, location: response.features[0].geometry});
+            // Also show in sidebar panel
+            console.log('About to call showPlaceDetails');
+            try {
+                showPlaceDetails(response.features[0].attributes, false);
+                console.log('showPlaceDetails completed');
+            } catch (e) {
+                console.error('Error in showPlaceDetails:', e);
+            }
         }
-    }); 
+    }).catch(function(error) {
+        console.error('Query error:', error);
+    });
 }
 
 function locate_feature_on_tp(feature_id) {
@@ -698,6 +990,8 @@ function locate_littoral_on_map(RC_peri_count, stage) {
             geoView.goTo(response.features[0].geometry);
             geoView.zoom = 8;
             geoView.openPopup({features: response.features, location: response.features[0].geometry});
+            // Also show in sidebar panel
+            showPlaceDetails(response.features[0].attributes, true);
         }
     });
     // Locate on tpView (rc_littoral_csv_layer)
@@ -711,6 +1005,95 @@ function locate_littoral_on_map(RC_peri_count, stage) {
                 tpView.openPopup({features: response.features, location: response.features[0].geometry});
             }
         });
+    }
+}
+
+// Place Details Panel functions
+function closePlaceDetails() {
+    document.getElementById('placeDetailsPanel').style.display = 'none';
+}
+
+function showPlaceDetails(attributes, isLittoral) {
+    console.log('showPlaceDetails called', attributes, isLittoral);
+
+    const panel = document.getElementById('placeDetailsPanel');
+    const titleEl = document.getElementById('placeDetailsTitle');
+    const contentEl = document.getElementById('placeDetailsContent');
+
+    console.log('Panel elements:', panel, titleEl, contentEl);
+
+    if (!panel || !titleEl || !contentEl) {
+        console.log('Place details panel elements not found');
+        alert('Panel elements not found!');
+        return;
+    }
+
+    if (isLittoral) {
+        // Littoral place details
+        titleEl.textContent = (attributes.RC_peri || 'Unknown') + ' (Stage ' + attributes.stage + ', #' + attributes.RC_peri_count + ')';
+
+        var content = '<table style="width: 100%; border-collapse: collapse;">';
+        if (attributes.GG_peri) {
+            content += '<tr><td style="padding: 4px 0;"><b>Guidonis Geographica:</b></td><td>' + attributes.GG_peri + '</td></tr>';
+        }
+        if (attributes.ku_id && attributes.ku_name_lookup) {
+            content += '<tr><td style="padding: 4px 0;"><b>TP-Online:</b></td><td><a href="https://tp-online.ku.de/trefferanzeige_en.php?id=' + attributes.ku_id + '" target="_blank" style="color: #6b4423;">' + attributes.ku_name_lookup + '</a></td></tr>';
+        }
+        if (attributes.pleiades_id && attributes.pleiades_toponym) {
+            content += '<tr><td style="padding: 4px 0;"><b>Pleiades:</b></td><td><a href="https://pleiades.stoa.org/places/' + attributes.pleiades_id + '" target="_blank" style="color: #6b4423;">' + attributes.pleiades_toponym + '</a></td></tr>';
+        }
+        if (attributes.Talbert_id && attributes.talbert_name_lookup) {
+            content += '<tr><td style="padding: 4px 0;"><b>TP (Talbert):</b></td><td><a href="https://www.cambridge.org/us/talbert/talbertdatabase/TPPlace' + attributes.Talbert_id + '.html" target="_blank" style="color: #6b4423;">' + attributes.talbert_name_lookup + '</a></td></tr>';
+        }
+        if (attributes.schnetz_page) {
+            var pdfPage = parseInt(attributes.schnetz_page) + 14;
+            content += '<tr><td colspan="2" style="padding: 8px 0 0 0;"><a href="https://scotchbon.net/ravenclaw/schnetz.pdf#page=' + pdfPage + '" target="_blank" style="color: #6b4423;">View in Schnetz edition (p.' + attributes.schnetz_page + ')</a></td></tr>';
+        }
+        content += '</table>';
+        contentEl.innerHTML = content;
+    } else {
+        // RC Cities place details
+        titleEl.textContent = (attributes.rc_toponym || 'Unknown') + ' (No. ' + attributes.rc_index_no + ', Bk ' + attributes.rc_book + ', list ' + (attributes.rc_list_number_original || attributes.rc_list_number) + ')';
+
+        var content = '<table style="width: 100%; border-collapse: collapse;">';
+        if (attributes.rc_patria) {
+            content += '<tr><td style="padding: 4px 0;"><b>Region:</b></td><td>' + attributes.rc_patria + '</td></tr>';
+        }
+        if (attributes.ku_uri_lookup && attributes.ku_name_lookup) {
+            content += '<tr><td style="padding: 4px 0;"><b>TP (TP-Online):</b></td><td><a href="' + attributes.ku_uri_lookup + '" target="_blank" style="color: #6b4423;">' + attributes.ku_name_lookup + '</a></td></tr>';
+        }
+        if (attributes.pleiades_uri_lookup && attributes.pleiades_name_lookup) {
+            content += '<tr><td style="padding: 4px 0;"><b>Pleiades:</b></td><td><a href="' + attributes.pleiades_uri_lookup + '" target="_blank" style="color: #6b4423;">' + attributes.pleiades_name_lookup + '</a></td></tr>';
+        }
+        if (attributes.talbert_uri_lookup && attributes.talbert_name_lookup) {
+            content += '<tr><td style="padding: 4px 0;"><b>TP (Talbert):</b></td><td><a href="' + attributes.talbert_uri_lookup + '" target="_blank" style="color: #6b4423;">' + attributes.talbert_name_lookup + '</a></td></tr>';
+        }
+        if (attributes.primary_source) {
+            content += '<tr><td style="padding: 4px 0;"><b>Primary Source:</b></td><td>' + attributes.primary_source + '</td></tr>';
+        }
+        if (attributes.other_sources) {
+            content += '<tr><td style="padding: 4px 0;"><b>Other Sources:</b></td><td>' + attributes.other_sources + '</td></tr>';
+        }
+        if (attributes.schnetz_page) {
+            var pdfPage = parseInt(attributes.schnetz_page) + 14;
+            content += '<tr><td colspan="2" style="padding: 8px 0 0 0;"><a href="https://scotchbon.net/ravenclaw/schnetz.pdf#page=' + pdfPage + '" target="_blank" style="color: #6b4423;">View in Schnetz edition (p.' + attributes.schnetz_page + ')</a></td></tr>';
+        }
+        content += '</table>';
+        contentEl.innerHTML = content;
+    }
+
+    panel.style.display = 'block';
+    console.log('Panel display set to block, current style:', panel.style.display);
+    console.log('Panel computed style:', window.getComputedStyle(panel).display);
+
+    // On mobile, re-open the sidebar so user can see the details panel
+    if (window.innerWidth <= 768) {
+        document.getElementById('placeDirectory').classList.add('open');
+        document.getElementById('menuOverlay').classList.add('open');
+        // Small delay to let sidebar open, then scroll panel into view
+        setTimeout(function() {
+            panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
     }
 }
 
@@ -769,14 +1152,43 @@ require([
     // Set popup actions for geoView and tpView
     tpView.popup.actions = [prevAction, locateToponymAction, nextAction];
     
-    reactiveUtils.on(() => 
+    reactiveUtils.on(() =>
         tpView.popup,
         "trigger-action",
         (event) => {
             if (event.action.id === "locateToponym") {
                 var feature_id = tpView.popup.features[0].attributes.rc_index_no;
-                document.getElementById(feature_id).dispatchEvent(new Event('open')); 
+                document.getElementById(feature_id).dispatchEvent(new Event('open'));
                 locate_toponym_on_geoMap(feature_id);
+            }
+        }
+    );
+
+    // Watch for popup features changing on tpView to show sidebar panel
+    reactiveUtils.watch(
+        () => tpView.popup.selectedFeature,
+        (feature) => {
+            if (feature && feature.attributes) {
+                const layer = feature.layer;
+                const isLittoral = layer && layer.title === "RC Littoral";
+                // Query layer for full attributes to ensure all fields are loaded
+                if (isLittoral && feature.attributes.RC_peri_count) {
+                    let query = rc_littoral_csv_layer.createQuery();
+                    query.where = "RC_peri_count = '" + feature.attributes.RC_peri_count + "' AND stage = '" + feature.attributes.stage + "'";
+                    rc_littoral_csv_layer.queryFeatures(query).then(function(response) {
+                        if (response.features.length > 0) {
+                            showPlaceDetails(response.features[0].attributes, true);
+                        }
+                    });
+                } else if (feature.attributes.rc_index_no) {
+                    let query = rc_tp_csv_layer.createQuery();
+                    query.where = "rc_index_no = " + feature.attributes.rc_index_no;
+                    rc_tp_csv_layer.queryFeatures(query).then(function(response) {
+                        if (response.features.length > 0) {
+                            showPlaceDetails(response.features[0].attributes, false);
+                        }
+                    });
+                }
             }
         }
     );
@@ -874,6 +1286,7 @@ require([
     rc_littoral_csv_layer = new CSVLayer({
         title: "RC Littoral",
         url: "./rc_littoral.csv",
+        outFields: ["*"],
         popupTemplate: littoral_popup,
         renderer: littoral_renderer,
         labelingInfo: [littoral_labelClass],
@@ -886,6 +1299,7 @@ require([
     rc_tp_csv_layer = new CSVLayer({
         title: "RC Cities",
         url: "./ravenclaw.csv",
+        outFields: ["*"],
         popupTemplate: rc_popup,
         renderer: topo_region_marker_renderer,
         labelingInfo: [rc_labelClass],
@@ -907,8 +1321,9 @@ require([
         }
     });
 
+    // Layer List Expand - using legacy widget (deprecation warnings expected)
     const tpLayerListExpand = new Expand({
-        expandIcon: "layers",  // see https://developers.arcgis.com/calcite-design-system/icons/
+        expandIcon: "layers",
         view: tpView,
         content: tpLayerList
     });
@@ -917,11 +1332,11 @@ require([
 
     // Home button ----------------------------
    // var homeBtn = new Home({view: tpView});
-   // tpView.ui.add(homeBtn, "top-left");   
+   // tpView.ui.add(homeBtn, "top-left");
 
-    // Fullscreen -----------------------------
-    var fullscreen = new Fullscreen({view: tpView});
-    tpView.ui.add(fullscreen, "top-left");
+    // Fullscreen - using legacy widget (deprecation warnings expected)
+    var tpFullscreen = new Fullscreen({view: tpView});
+    tpView.ui.add(tpFullscreen, "top-left");
 
     
 });
@@ -1058,6 +1473,7 @@ require([
     littoral_csv_layer = new CSVLayer({
         title: "RC littoral",
         url: "./rc_littoral.csv",
+        outFields: ["*"],
         popupTemplate: littoral_popup,
         renderer: littoral_renderer,
         labelingInfo: [geo_littoral_labelClass],
@@ -1079,6 +1495,7 @@ require([
     geo_csv_layer = new CSVLayer({
         title: "RC Cities",
         url: "./ravenclaw.csv",
+        outFields: ["*"],
         popupTemplate: rc_popup,
     //    renderer:  topo_marker_renderer,
         renderer: topo_region_marker_renderer,
@@ -1150,7 +1567,7 @@ require([
     }
 
     // geoView popup action handler
-    reactiveUtils.on(() => 
+    reactiveUtils.on(() =>
         geoView.popup,
         "trigger-action",
         (event) => {
@@ -1168,7 +1585,7 @@ require([
                     locate_littoral_on_map(RC_peri_count, stage);
                     let directory_id = "littoral_" + RC_peri_count + "_" + stage;
                     console.log(directory_id);
-                    document.getElementById(directory_id).dispatchEvent(new Event('open')); 
+                    document.getElementById(directory_id).dispatchEvent(new Event('open'));
                 }
             } else if (event.action.id === "next" || event.action.id === "previous") {
                 if (layer === geo_csv_layer) {
@@ -1178,6 +1595,35 @@ require([
                     let stage = feature.attributes.stage;
                     let RC_peri_count = feature.attributes.RC_peri_count;
                     navigateToLittoralPlace(event.action.id, stage, RC_peri_count);
+                }
+            }
+        }
+    );
+
+    // Watch for popup features changing on geoView to show sidebar panel
+    reactiveUtils.watch(
+        () => geoView.popup.selectedFeature,
+        (feature) => {
+            if (feature && feature.attributes) {
+                const layer = feature.layer;
+                const isLittoral = layer && layer.title === "RC littoral";
+                // Query layer for full attributes to ensure all fields are loaded
+                if (isLittoral && feature.attributes.RC_peri_count) {
+                    let query = littoral_csv_layer.createQuery();
+                    query.where = "RC_peri_count = '" + feature.attributes.RC_peri_count + "' AND stage = '" + feature.attributes.stage + "'";
+                    littoral_csv_layer.queryFeatures(query).then(function(response) {
+                        if (response.features.length > 0) {
+                            showPlaceDetails(response.features[0].attributes, true);
+                        }
+                    });
+                } else if (feature.attributes.rc_index_no) {
+                    let query = geo_csv_layer.createQuery();
+                    query.where = "rc_index_no = " + feature.attributes.rc_index_no;
+                    geo_csv_layer.queryFeatures(query).then(function(response) {
+                        if (response.features.length > 0) {
+                            showPlaceDetails(response.features[0].attributes, false);
+                        }
+                    });
                 }
             }
         }
@@ -1247,8 +1693,9 @@ require([
             includeDefaultSources: false
         }});
 
+    // Search Expand - using legacy widget (deprecation warnings expected)
     const geoSearchExpand = new Expand({
-        expandIcon: "search",  // see https://developers.arcgis.com/calcite-design-system/icons/
+        expandIcon: "search",
         view: geoView,
         content: geoSearchWidget
     });
@@ -1280,8 +1727,9 @@ require([
         }
     });
 
+    // Layer List Expand - using legacy widget (deprecation warnings expected)
     const geolayerListExpand = new Expand({
-        expandIcon: "layers",  // see https://developers.arcgis.com/calcite-design-system/icons/
+        expandIcon: "layers",
         view: geoView,
         content: geoLayerList
     });
@@ -1291,9 +1739,9 @@ require([
   //  var geoHomeBtn = new Home({view: geoView });
   //  geoView.ui.add(geoHomeBtn, "top-left");
 
-    //full screen -------------------------
-    var fullscreen = new Fullscreen({ view: geoView });
-    geoView.ui.add(fullscreen, "top-left");
+    //full screen - using legacy widget (deprecation warnings expected)
+    var geoFullscreen = new Fullscreen({ view: geoView });
+    geoView.ui.add(geoFullscreen, "top-left");
 
     //basemap gallery ----------------------
     let basemapGallery = new BasemapGallery({
@@ -1307,12 +1755,13 @@ require([
         view: geoView
     });
 
+    // Basemap Gallery Expand - using legacy widget (deprecation warnings expected)
     const galleryExpand = new Expand({
-        expandIcon: "basemap",  // see https://developers.arcgis.com/calcite-design-system/icons/
+        expandIcon: "basemap",
         view: geoView,
         content: basemapGallery
     });
-    geoView.ui.add(galleryExpand, {position: "top-left" });
+    geoView.ui.add(galleryExpand, "top-left");
 
 
     // Symbology selector ---------------------
@@ -1330,8 +1779,9 @@ require([
         visibleElements: {nextButton: false, playButton: false, previousButton: false}
     });
 
+    // Symbology Picker Expand - using legacy widget (deprecation warnings expected)
     const symbologyPickerExpand = new Expand({
-        expandIcon: "buffer-point",  // see https://developers.arcgis.com/calcite-design-system/icons/
+        expandIcon: "legend",
         view: geoView,
         content: symbologyPicker
     });
@@ -1405,8 +1855,42 @@ require([
 </head>
 
 <body>
-    <div style="text-align: right;"><pre><a href="https://github.com/leifuss/ravenclaw?tab=readme-ov-file#ravenclaw" target="_blank">About</a>   <a href="mailto:l.isaksen@exeter.ac.uk?subject=RavenC:LAW">Feedback</a>  </div></pre></div>
-<h1><a href="https://scotchbon.net/ravenclaw/schnetz.pdf#page=13" target="_blank">Ravenna Cosmography</a>: Locations, Alignments & Weblinks (RavenC:LAW beta v.0.6)</h1>
+<!-- Loading Overlay -->
+<div id="loadingOverlay">
+    <div class="spinner"></div>
+    <p id="loadingStatus">Loading place directory...</p>
+</div>
+
+<!-- Mobile menu toggle -->
+<button id="menuToggle" onclick="toggleMobileMenu()">&#9776; Menu</button>
+<div id="menuOverlay" onclick="toggleMobileMenu()"></div>
+
+<script>
+function toggleMobileMenu() {
+    document.getElementById('placeDirectory').classList.toggle('open');
+    document.getElementById('menuOverlay').classList.toggle('open');
+}
+// Close menu when a place is selected (on mobile)
+function closeMobileMenu() {
+    if (window.innerWidth <= 768) {
+        document.getElementById('placeDirectory').classList.remove('open');
+        document.getElementById('menuOverlay').classList.remove('open');
+    }
+}
+</script>
+
+<!-- Page Header -->
+<header style="background: linear-gradient(135deg, #2c1810 0%, #4a2c1a 50%, #2c1810 100%); color: #f4e4bc; padding: 8px 15px; border-bottom: 3px solid #8b6914;">
+    <h1 style="font-family: 'Cinzel', serif; font-size: 1.4em; margin: 0; font-weight: 600; letter-spacing: 1px;">
+        <a href="https://scotchbon.net/ravenclaw/schnetz.pdf#page=13" target="_blank" style="color: #f4e4bc; text-decoration: none;">
+            Ravenna Cosmography
+        </a>
+    </h1>
+    <p style="font-family: 'Crimson Text', serif; font-size: 0.9em; margin: 2px 0 0 0; color: #c9b896; font-style: italic;">
+        Locations, Alignments & Weblinks
+        <span style="font-size: 0.8em; color: #a89878;">(RavenC:LAW beta v.0.2.5)</span>
+    </p>
+</header>
 
 <!--PLACE DIRECTORY************************************ -->
 
@@ -1442,8 +1926,61 @@ require([
 </style>
 
 <div id="placeDirectory" style="width: 250px; float: left; background-color: white;  height: 100vh; overflow-y: auto; ">
-      
-    <h3> Place Directory</h3>
+    <h3>Place Directory</h3>
+
+    <!-- Quick Links -->
+    <div style="margin: 0 10px 10px 10px; padding: 8px; text-align: center; font-family: 'Crimson Text', serif; font-size: 0.9em; border-bottom: 1px solid #d4c4a8;">
+        <a href="https://github.com/leifuss/ravenclaw?tab=readme-ov-file#ravenclaw" target="_blank" style="color: #6b4423; text-decoration: none; margin-right: 15px;">About</a>
+        <a href="mailto:l.isaksen@exeter.ac.uk?subject=RavenC:LAW" style="color: #6b4423; text-decoration: none;">Feedback</a>
+    </div>
+
+    <!-- Place Details Panel (shows when a place is selected) -->
+    <div id="placeDetailsPanel" style="display: none; margin: 0 10px 15px 10px; padding: 10px; background: linear-gradient(135deg, #fff9f0 0%, #f5ebe0 100%); border-radius: 4px; font-size: 12px; border: 1px solid #d4c4a8;">
+        <h4 id="placeDetailsTitle" style="font-family: 'Cinzel', serif; color: #2c1810; margin: 0 0 8px 0; font-size: 1.1em;"></h4>
+        <div id="placeDetailsContent" style="font-family: 'Crimson Text', serif; color: #3d2817;"></div>
+        <button onclick="closePlaceDetails()" style="margin-top: 10px; padding: 5px 10px; background: #4a2c1a; color: #f4e4bc; border: none; border-radius: 3px; cursor: pointer; font-family: 'Crimson Text', serif; font-size: 0.9em;">Close</button>
+    </div>
+
+    <!-- Legend Panel -->
+    <details id="legendPanel" style="margin: 0 10px 15px 10px; padding: 10px; background: linear-gradient(135deg, #f5f0e8 0%, #ebe4d8 100%); border-radius: 4px; font-size: 11px; border: 1px solid #d4c4a8;">
+        <summary style="cursor: pointer; font-weight: bold; margin-bottom: 8px; font-family: 'Cinzel', serif; color: #2c1810;">Legend</summary>
+        <div style="margin-top: 8px;">
+            <p style="margin: 0 0 8px 0; font-weight: bold;">Directory Colors:</p>
+            <div style="display: flex; align-items: center; margin: 4px 0;">
+                <span style="color: green; margin-right: 8px;">&#9679;</span>
+                <span>TP-Online + Pleiades</span>
+            </div>
+            <div style="display: flex; align-items: center; margin: 4px 0;">
+                <span style="color: orange; margin-right: 8px;">&#9679;</span>
+                <span>TP-Online only</span>
+            </div>
+            <div style="display: flex; align-items: center; margin: 4px 0;">
+                <span style="color: blue; margin-right: 8px;">&#9679;</span>
+                <span>Pleiades only</span>
+            </div>
+            <div style="display: flex; align-items: center; margin: 4px 0;">
+                <span style="color: red; margin-right: 8px;">&#9679;</span>
+                <span>No coordinates</span>
+            </div>
+            <hr style="margin: 10px 0; border: none; border-top: 1px solid #ccc;">
+            <p style="margin: 0 0 8px 0; font-weight: bold;">Map Symbols:</p>
+            <div style="display: flex; align-items: center; margin: 4px 0;">
+                <span style="display: inline-block; width: 12px; height: 12px; background: currentColor; border-radius: 50%; margin-right: 8px;"></span>
+                <span>Place on Peutinger Map</span>
+            </div>
+            <div style="display: flex; align-items: center; margin: 4px 0;">
+                <span style="font-size: 14px; margin-right: 8px;">&#10010;</span>
+                <span>Place NOT on Peutinger Map</span>
+            </div>
+            <hr style="margin: 10px 0; border: none; border-top: 1px solid #ccc;">
+            <p style="margin: 0 0 8px 0; font-weight: bold;">Littoral Stages:</p>
+            <div style="display: flex; align-items: center; margin: 4px 0;">
+                <span style="display: inline-block; width: 14px; height: 14px; background: white; border: 1px solid black; border-radius: 50%; margin-right: 8px;"></span>
+                <span style="display: inline-block; width: 14px; height: 14px; background: black; border: 1px solid white; border-radius: 50%; margin-right: 8px;"></span>
+                <span>Alternating by stage</span>
+            </div>
+        </div>
+    </details>
 </div>
 
 <div id="geoViewDiv" style="margin-left: 250px" class="mapView"></div>
