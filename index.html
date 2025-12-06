@@ -574,14 +574,34 @@ const toggleAncestors = el => {
 
 //*** popup contents****************
 
+// Helper to get attribute value, trying multiple possible field name variations
+function getAttr(attrs, fieldName) {
+    if (!attrs) return null;
+    // Try exact match first
+    if (attrs[fieldName] !== undefined) return attrs[fieldName];
+    // Try with BOM prefix (common in CSVs)
+    if (attrs['\ufeff' + fieldName] !== undefined) return attrs['\ufeff' + fieldName];
+    // Try case-insensitive search
+    var lowerField = fieldName.toLowerCase();
+    for (var key in attrs) {
+        if (key.toLowerCase() === lowerField || key.toLowerCase().endsWith(lowerField)) {
+            return attrs[key];
+        }
+    }
+    return null;
+}
+
 function createRCTitle(feature) {
     var attrs = feature.graphic.attributes;
-    var schnetz_page_raw = attrs.schnetz_page;
-    var schnetz_page = schnetz_page_raw ? (parseInt(schnetz_page_raw, 10) + 14) : null; //offset by 14 pages
-    var toponym = attrs.rc_toponym || '(unnamed)';
-    var index_no = attrs.rc_index_no || '?';
-    var book = attrs.rc_book || '?';
-    var list = attrs.rc_list_number_original || '?';
+    // Debug: log attributes to console (remove after debugging)
+    console.log('RC Popup attrs:', attrs);
+
+    var schnetz_page_raw = getAttr(attrs, 'schnetz_page');
+    var schnetz_page = schnetz_page_raw ? (parseInt(schnetz_page_raw, 10) + 14) : null;
+    var toponym = getAttr(attrs, 'rc_toponym') || '(unnamed)';
+    var index_no = getAttr(attrs, 'rc_index_no') || '?';
+    var book = getAttr(attrs, 'rc_book') || '?';
+    var list = getAttr(attrs, 'rc_list_number_original') || '?';
 
     if (schnetz_page && !isNaN(schnetz_page)) {
         return "<a href=\"https://scotchbon.net/ravenclaw/schnetz.pdf#page=" + schnetz_page + "\" target=\"_blank\">" + toponym + "</a> (No. " + index_no + ", Book " + book + ", list " + list + ")";
@@ -592,11 +612,13 @@ function createRCTitle(feature) {
 
 function createLittoralTitle(feature) {
     var attrs = feature.graphic.attributes;
-    var schnetz_page_raw = attrs.schnetz_page;
-    var schnetz_page = schnetz_page_raw ? (parseInt(schnetz_page_raw, 10) + 14) : null; //offset by 14 pages
-    var peri = attrs.RC_peri || '(unnamed)';
-    var stage = attrs.stage || '?';
-    var count = attrs.RC_peri_count || '?';
+    console.log('Littoral Popup attrs:', attrs);
+
+    var schnetz_page_raw = getAttr(attrs, 'schnetz_page');
+    var schnetz_page = schnetz_page_raw ? (parseInt(schnetz_page_raw, 10) + 14) : null;
+    var peri = getAttr(attrs, 'RC_peri') || '(unnamed)';
+    var stage = getAttr(attrs, 'stage') || '?';
+    var count = getAttr(attrs, 'RC_peri_count') || '?';
 
     if (schnetz_page && !isNaN(schnetz_page)) {
         return "<a href=\"https://scotchbon.net/ravenclaw/schnetz.pdf#page=" + schnetz_page + "\" target=\"_blank\">" + peri + "</a> (Bk 5 littoral itin. Stage " + stage + ", no. " + count + ")";
