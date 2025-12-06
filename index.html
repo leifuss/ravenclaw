@@ -638,21 +638,29 @@ var rc_popup = {
   //  title: "<a href=\"https://www.tabula-peutingeriana.de/sources.html?pars={rc_book}&amp;typ=rc#{weber_list_no}\">{rc_toponym}</a> (No. {rc_index_no}, Book {rc_book}, list {rc_list_number})",
   //  title: "<a href=\"https://archive.org/details/ravennatisanony02ravegoog/page/{pp_page}/mode/2up?view=theater\" target=\"_blank\">{rc_toponym}</a> (No. {rc_index_no}, Book {rc_book}, list {rc_list_number})",
     title: "{rc_toponym} (No. {rc_index_no}, Book {rc_book}, list {rc_list_number_original})",
-    content: "<table>"
-            + "<tr><td><b>Region:</b></td><td>{rc_patria}</td><td><b>TP (TP-Online):</b></td><td><a href=\"{ku_uri_lookup}\">{ku_name_lookup}</a></td></tr>"
-            + "<tr><td><b>Pleiades:</b></td><td><a href=\"{pleiades_uri_lookup}\">{pleiades_name_lookup}</a></td><td><b>TP (Talbert):</b></td><td><a href=\"{talbert_uri_lookup}\">{talbert_name_lookup}</a></td></tr>"
-            + "<tr><td><b>Primary Source:</b></td><td>{primary_source}</td><td><b>Other Sources:</b></td><td>{other_sources}</td></tr>"
-            + "<tr><td colspan='4'><a href=\"https://scotchbon.net/ravenclaw/schnetz.pdf#page={schnetz_page}\" target=\"_blank\">View in Schnetz edition (p.{schnetz_page})</a></td></tr>"
-            + "</table>"
+    content: function(feature) {
+        var a = feature.graphic.attributes;
+        var pdfPage = a.schnetz_page ? parseInt(a.schnetz_page) + 14 : '';
+        return "<table>"
+            + "<tr><td><b>Region:</b></td><td>" + (a.rc_patria || '') + "</td><td><b>TP (TP-Online):</b></td><td><a href=\"" + (a.ku_uri_lookup || '') + "\">" + (a.ku_name_lookup || '') + "</a></td></tr>"
+            + "<tr><td><b>Pleiades:</b></td><td><a href=\"" + (a.pleiades_uri_lookup || '') + "\">" + (a.pleiades_name_lookup || '') + "</a></td><td><b>TP (Talbert):</b></td><td><a href=\"" + (a.talbert_uri_lookup || '') + "\">" + (a.talbert_name_lookup || '') + "</a></td></tr>"
+            + "<tr><td><b>Primary Source:</b></td><td>" + (a.primary_source || '') + "</td><td><b>Other Sources:</b></td><td>" + (a.other_sources || '') + "</td></tr>"
+            + (a.schnetz_page ? "<tr><td colspan='4'><a href=\"https://scotchbon.net/ravenclaw/schnetz.pdf#page=" + pdfPage + "\" target=\"_blank\">View in Schnetz edition (p." + a.schnetz_page + ")</a></td></tr>" : '')
+            + "</table>";
+    }
 };
 
 var littoral_popup = {
     title: "{RC_peri} (Bk 5 littoral, Stage {stage}, no. {RC_peri_count})",
-    content: "<table>"
-            + "<tr><td><b>Guidonis Geographica:</b></td><td>{GG_peri}</td><td><b>TP-Online:</b></td><td><a href=\"https://tp-online.ku.de/trefferanzeige_en.php?id={ku_id}\">{ku_name_lookup}</a></td></tr>"
-            + "<tr><td><b>Pleiades:</b></td><td><a href=\"https://pleiades.stoa.org/places/{pleiades_id}\">{pleiades_toponym}</a></td><td><b>TP (Talbert):</b></td><td><a href=\"https://www.cambridge.org/us/talbert/talbertdatabase/TPPlace{Talbert_id}.html\">{talbert_name_lookup}</a></td></tr>"
-            + "<tr><td colspan='4'><a href=\"https://scotchbon.net/ravenclaw/schnetz.pdf#page={schnetz_page}\" target=\"_blank\">View in Schnetz edition (p.{schnetz_page})</a></td></tr>"
-            + "</table>"
+    content: function(feature) {
+        var a = feature.graphic.attributes;
+        var pdfPage = a.schnetz_page ? parseInt(a.schnetz_page) + 14 : '';
+        return "<table>"
+            + "<tr><td><b>Guidonis Geographica:</b></td><td>" + (a.GG_peri || '') + "</td><td><b>TP-Online:</b></td><td><a href=\"https://tp-online.ku.de/trefferanzeige_en.php?id=" + (a.ku_id || '') + "\">" + (a.ku_name_lookup || '') + "</a></td></tr>"
+            + "<tr><td><b>Pleiades:</b></td><td><a href=\"https://pleiades.stoa.org/places/" + (a.pleiades_id || '') + "\">" + (a.pleiades_toponym || '') + "</a></td><td><b>TP (Talbert):</b></td><td><a href=\"https://www.cambridge.org/us/talbert/talbertdatabase/TPPlace" + (a.Talbert_id || '') + ".html\">" + (a.talbert_name_lookup || '') + "</a></td></tr>"
+            + (a.schnetz_page ? "<tr><td colspan='4'><a href=\"https://scotchbon.net/ravenclaw/schnetz.pdf#page=" + pdfPage + "\" target=\"_blank\">View in Schnetz edition (p." + a.schnetz_page + ")</a></td></tr>" : '')
+            + "</table>";
+    }
 };
 
 // ****** RENDERERS
@@ -1058,7 +1066,8 @@ function showPlaceDetails(attributes, isLittoral) {
             content += '<tr><td style="padding: 4px 0;"><b>TP (Talbert):</b></td><td><a href="https://www.cambridge.org/us/talbert/talbertdatabase/TPPlace' + attributes.Talbert_id + '.html" target="_blank" style="color: #6b4423;">' + attributes.talbert_name_lookup + '</a></td></tr>';
         }
         if (attributes.schnetz_page) {
-            content += '<tr><td colspan="2" style="padding: 8px 0 0 0;"><a href="https://scotchbon.net/ravenclaw/schnetz.pdf#page=' + attributes.schnetz_page + '" target="_blank" style="color: #6b4423;">View in Schnetz edition (p.' + attributes.schnetz_page + ')</a></td></tr>';
+            var pdfPage = parseInt(attributes.schnetz_page) + 14;
+            content += '<tr><td colspan="2" style="padding: 8px 0 0 0;"><a href="https://scotchbon.net/ravenclaw/schnetz.pdf#page=' + pdfPage + '" target="_blank" style="color: #6b4423;">View in Schnetz edition (p.' + attributes.schnetz_page + ')</a></td></tr>';
         }
         content += '</table>';
         contentEl.innerHTML = content;
@@ -1086,7 +1095,8 @@ function showPlaceDetails(attributes, isLittoral) {
             content += '<tr><td style="padding: 4px 0;"><b>Other Sources:</b></td><td>' + attributes.other_sources + '</td></tr>';
         }
         if (attributes.schnetz_page) {
-            content += '<tr><td colspan="2" style="padding: 8px 0 0 0;"><a href="https://scotchbon.net/ravenclaw/schnetz.pdf#page=' + attributes.schnetz_page + '" target="_blank" style="color: #6b4423;">View in Schnetz edition (p.' + attributes.schnetz_page + ')</a></td></tr>';
+            var pdfPage = parseInt(attributes.schnetz_page) + 14;
+            content += '<tr><td colspan="2" style="padding: 8px 0 0 0;"><a href="https://scotchbon.net/ravenclaw/schnetz.pdf#page=' + pdfPage + '" target="_blank" style="color: #6b4423;">View in Schnetz edition (p.' + attributes.schnetz_page + ')</a></td></tr>';
         }
         content += '</table>';
         contentEl.innerHTML = content;
@@ -1868,7 +1878,7 @@ function closeMobileMenu() {
     </h1>
     <p style="font-family: 'Crimson Text', serif; font-size: 0.9em; margin: 2px 0 0 0; color: #c9b896; font-style: italic;">
         Locations, Alignments & Weblinks
-        <span style="font-size: 0.8em; color: #a89878;">(RavenC:LAW beta v.0.2.2)</span>
+        <span style="font-size: 0.8em; color: #a89878;">(RavenC:LAW beta v.0.2.3)</span>
     </p>
 </header>
 
