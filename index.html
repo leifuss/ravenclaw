@@ -31,6 +31,105 @@
     #geoViewDiv {
         height: 50%;
     }
+
+    /* Mobile menu toggle button */
+    #menuToggle {
+        display: none;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 1000;
+        background: #3498db;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+    #menuToggle:active {
+        background: #2980b9;
+    }
+
+    /* Mobile responsive styles */
+    @media screen and (max-width: 768px) {
+        h1 {
+            font-size: 14px !important;
+            padding: 5px 50px 5px 50px;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        #menuToggle {
+            display: block;
+        }
+
+        #placeDirectory {
+            position: fixed;
+            left: -280px;
+            top: 0;
+            width: 280px !important;
+            height: 100vh;
+            z-index: 999;
+            transition: left 0.3s ease;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+        }
+        #placeDirectory.open {
+            left: 0;
+        }
+
+        /* Overlay when menu is open */
+        #menuOverlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 998;
+        }
+        #menuOverlay.open {
+            display: block;
+        }
+
+        #geoViewDiv, #tpViewDiv {
+            margin-left: 0 !important;
+            height: 50%;
+        }
+
+        /* Larger touch targets for tree items */
+        #placeDirectory li {
+            padding: 8px 4px;
+            font-size: 14px;
+        }
+        #placeDirectory .caret {
+            padding: 5px;
+        }
+
+        /* Make legend more compact */
+        #legendPanel {
+            font-size: 12px !important;
+        }
+
+        /* Hide top links bar on very small screens */
+        .topBar {
+            font-size: 11px;
+        }
+    }
+
+    /* Even smaller screens */
+    @media screen and (max-width: 480px) {
+        h1 {
+            font-size: 12px !important;
+            padding: 5px 45px;
+        }
+        #placeDirectory {
+            width: 260px !important;
+            left: -270px;
+        }
+    }
 </style>
 <style>
 .selected{font-weight:bold;}
@@ -334,7 +433,8 @@ function createTreeHTML(tree) {
                     //update TpView and GeoView
                     toponymLi.addEventListener('click', function() {
                         locate_feature_on_tp(toponymLi.id);
-                        locate_toponym_on_geoMap(toponymLi.id)
+                        locate_toponym_on_geoMap(toponymLi.id);
+                        closeMobileMenu();
                     });
                     toponymsUl.appendChild(toponymLi);
                 });
@@ -382,6 +482,7 @@ function createLittoralTreeHTML(tree) {
             // Add event listeners
             placeLi.addEventListener('click', function() {
                 locate_littoral_on_map(place[3], place[4]);
+                closeMobileMenu();
             });
 
             // Add event listener for 'open' to expand and select the item
@@ -1553,8 +1654,26 @@ require([
     <p id="loadingStatus">Loading place directory...</p>
 </div>
 
-    <div style="text-align: right;"><pre><a href="https://github.com/leifuss/ravenclaw?tab=readme-ov-file#ravenclaw" target="_blank">About</a>   <a href="mailto:l.isaksen@exeter.ac.uk?subject=RavenC:LAW">Feedback</a>  </div></pre></div>
-<h1><a href="https://scotchbon.net/ravenclaw/schnetz.pdf#page=13" target="_blank">Ravenna Cosmography</a>: Locations, Alignments & Weblinks (RavenC:LAW beta v.0.7)</h1>
+<!-- Mobile menu toggle -->
+<button id="menuToggle" onclick="toggleMobileMenu()">&#9776; Menu</button>
+<div id="menuOverlay" onclick="toggleMobileMenu()"></div>
+
+<script>
+function toggleMobileMenu() {
+    document.getElementById('placeDirectory').classList.toggle('open');
+    document.getElementById('menuOverlay').classList.toggle('open');
+}
+// Close menu when a place is selected (on mobile)
+function closeMobileMenu() {
+    if (window.innerWidth <= 768) {
+        document.getElementById('placeDirectory').classList.remove('open');
+        document.getElementById('menuOverlay').classList.remove('open');
+    }
+}
+</script>
+
+    <div class="topBar" style="text-align: right;"><pre><a href="https://github.com/leifuss/ravenclaw?tab=readme-ov-file#ravenclaw" target="_blank">About</a>   <a href="mailto:l.isaksen@exeter.ac.uk?subject=RavenC:LAW">Feedback</a>  </div></pre></div>
+<h1><a href="https://scotchbon.net/ravenclaw/schnetz.pdf#page=13" target="_blank">Ravenna Cosmography</a>: Locations, Alignments & Weblinks (RavenC:LAW beta v.0.8)</h1>
 
 <!--PLACE DIRECTORY************************************ -->
 
